@@ -1,0 +1,11 @@
+[
+        {
+            "text": "https://vk.com/csdwer96123",
+            "expected": [{
+                "type": "vk",
+                "name": "VK",
+                "url": "https://vk.com/csdwer96123",
+                "username": "csdwer96123"
+            }]
+        }
+    ]

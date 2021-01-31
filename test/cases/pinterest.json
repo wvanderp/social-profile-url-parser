@@ -1,0 +1,24 @@
+[
+    {
+        "text": "https://nl.pinterest.com/natascha_kopp/_saved/",
+        "expected": [
+            {
+                "type": "pinterest",
+                "name": "Pinterest",
+                "url": "https://nl.pinterest.com/natascha_kopp",
+                "username": "natascha_kopp"
+            }
+        ]
+    },
+    {
+        "text": "https://pinterest.com/princessmeroo94/_saved/",
+        "expected": [
+            {
+                "type": "pinterest",
+                "name": "Pinterest",
+                "url": "https://pinterest.com/princessmeroo94",
+                "username": "princessmeroo94"
+            }
+        ]
+    }
+]

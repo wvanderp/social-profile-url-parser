@@ -1,0 +1,24 @@
+[
+    {
+        "text": "https://plus.google.com/117302453758282711096/posts",
+        "expected": [
+            {
+                "type": "googleplus",
+                "name": "GooglePlus",
+                "url": "https://plus.google.com/117302453758282711096",
+                "username": "117302453758282711096"
+            }
+        ]
+    },
+    {
+        "text": "https://plus.google.com/+GoviralnowNet/",
+        "expected": [
+            {
+                "type": "googleplus",
+                "name": "GooglePlus",
+                "url": "https://plus.google.com/+GoviralnowNet",
+                "username": "GoviralnowNet"
+            }
+        ]
+    }
+]

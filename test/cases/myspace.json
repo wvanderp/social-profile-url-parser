@@ -1,0 +1,13 @@
+[
+    {
+        "text": "https://myspace.com/coreyb0425",
+        "expected": [
+            {
+                "type": "myspace",
+                "name": "MySpace",
+                "url": "https://myspace.com/coreyb0425",
+                "username": "coreyb0425"
+            }
+        ]
+    }
+]

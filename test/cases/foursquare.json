@@ -1,0 +1,17 @@
+[
+    {
+        "text": "https://foursquare.com/assonfire",
+        "expected": [
+            {
+                "type": "foursquare",
+                "name": "Foursquare",
+                "url": "https://foursquare.com/assonfire",
+                "username": "assonfire"
+            }
+        ]
+    },
+    {
+        "text": "https://foursquare.com/user/assonfire",
+        "expected": []
+    }
+]

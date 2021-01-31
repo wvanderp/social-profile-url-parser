@@ -1,0 +1,13 @@
+[
+    {
+        "text": "https://github.com/wvanderp/WebcamMap",
+        "expected": [
+            {
+                "type": "github",
+                "name": "GitHub",
+                "url": "https://github.com/wvanderp",
+                "username": "wvanderp"
+            }
+        ]
+    }
+]

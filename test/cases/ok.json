@@ -1,0 +1,11 @@
+[
+        {
+            "text": "https://ok.ru/profile/55212321312",
+            "expected": [            {
+                "type": "ok",
+                "name": "Odnoklassniki",
+                "url": "https://ok.ru/profile/55212321312",
+                "username": "55212321312"
+            }]
+        }
+    ]

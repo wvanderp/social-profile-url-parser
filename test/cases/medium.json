@@ -1,0 +1,24 @@
+[
+    {
+        "text": "https://medium.com/@salesflare-at",
+        "expected": [
+            {
+                "type": "medium",
+                "name": "Medium",
+                "url": "https://medium.com/@salesflare-at",
+                "username": "salesflare-at"
+            }
+        ]
+    },
+    {
+        "text": "https://medium.com/salesflare",
+        "expected": [
+            {
+                "type": "medium",
+                "name": "Medium",
+                "url": "https://medium.com/salesflare",
+                "username": "salesflare"
+            }
+        ]
+    }
+]

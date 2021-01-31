@@ -1,0 +1,13 @@
+[
+    {
+        "text": "https://en.gravatar.com/matt",
+        "expected": [
+            {
+                "type": "gravatar",
+                "name": "Gravatar",
+                "url": "https://en.gravatar.com/matt",
+                "username": "matt"
+            }
+        ]
+    }
+]

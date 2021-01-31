@@ -1,0 +1,155 @@
+{
+  "env": {
+    "browser": false,
+    "es6": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "globals":{
+    "BigInt":true
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx"
+      ]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      },
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ],
+        "moduleDirectory": [
+          "node_modules",
+          "src/"
+        ]
+      }
+    }
+  },
+  "plugins": [
+    "ramda",
+    "sonarjs",
+    "@typescript-eslint",
+    "unicorn",
+    "jsdoc"
+  ],
+  "extends": [
+    "airbnb-base",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:compat/recommended",
+    "plugin:ramda/recommended",
+    "plugin:sonarjs/recommended",
+    "plugin:unicorn/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:jsdoc/recommended"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*spec.ts",
+        "*spec.xts"
+      ],
+      "rules": {
+        // Mocha doesn’t like it when we use arrows
+        // https://mochajs.org/#arrow-functions
+        "prefer-arrow-callback": "off",
+        "func-names": "off",
+        // There are no function calls in mocha so this rule thinks the file does nothing. But mocha calls the file
+        "no-unused-expressions": "off",
+        // Any is used to mock some vars and it gives warnings about it that are unwanted
+        "@typescript-eslint/no-explicit-any": "off"
+      }
+    }
+  ],
+  "rules": {
+    "indent": [
+      "error",
+      4,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "no-unused-vars": "warn",
+    // Git fixes this issue by automatedly change the brake line type when pushing the local branches
+    "linebreak-style": "off",
+    "no-undef": "warn",
+    // Underscores are used to denote private functions and variables
+    "no-underscore-dangle": "off",
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "ignoreComments": true,
+        "ignoreTrailingComments": true,
+        "ignoreStrings": true,
+        "ignoreRegExpLiterals": true
+      }
+    ],
+    // checks if the imports have the right extension
+    // typescript doesn’t like when we add extensions.
+    "import/extensions": "off",
+    "comma-dangle": [
+      "error",
+      "never"
+    ],
+    "no-plusplus": "off",
+    "object-curly-spacing": "off",
+    // sets the file naming style of the project
+    "unicorn/filename-case": [
+      "error",
+      {
+        "cases": {
+          "camelCase": true,
+          "pascalCase": true
+        }
+      }
+    ],
+    "object-curly-newline": "off",
+    // disabling this rule because we have dynamically generated tests
+    "mocha/no-setup-in-describe": "off",
+    // sometimes it is nessesary
+    "@typescript-eslint/ban-ts-comment": "off",
+    "unicorn/no-null": "off",
+    "unicorn/prevent-abbreviations": [
+      "error",
+      {
+        "replacements": {
+          "q": {
+            "query": true
+          },
+          "props": {
+            "properties": false
+          }
+        }
+      }
+    ],
+    "no-await-in-loop": "off",
+    "no-console": "off",
+    "no-restricted-syntax": ["error", "LabeledStatement", "WithStatement"],
+    "unicorn/no-array-reduce": "off",
+    "require-jsdoc": [
+      1,
+      {
+        "require": {
+          "ArrowFunctionExpression": false,
+          "ClassDeclaration": true,
+          "FunctionDeclaration": true,
+          "FunctionExpression": true,
+          "MethodDefinition": true
+        }
+      }
+    ],
+    "unicorn/no-array-for-each": "off"
+  }
+}

@@ -1,0 +1,13 @@
+[
+        {
+            "text": "https://digg.com/users/salesflare",
+            "expected": [
+                {
+                    "type": "digg",
+                    "name": "Digg",
+                    "url": "https://digg.com/users/salesflare",
+                    "username": "salesflare"
+                }
+            ]
+        }
+    ]

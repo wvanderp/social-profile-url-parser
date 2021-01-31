@@ -1,0 +1,13 @@
+[
+    {
+        "text": "https://dribbble.com/10Clouds",
+        "expected": [
+            {
+                "type": "dribbble",
+                "name": "Dribbble",
+                "url": "https://dribbble.com/10Clouds",
+                "username": "10Clouds"
+            }
+        ]
+    }
+]

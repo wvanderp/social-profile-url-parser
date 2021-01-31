@@ -1,0 +1,13 @@
+[
+    {
+        "text": "https://www.instagram.com/chrissysface/",
+        "expected": [
+            {
+                "type": "instagram",
+                "name": "Instagram",
+                "url": "https://www.instagram.com/chrissysface",
+                "username": "chrissysface"
+            }
+        ]
+    }
+]

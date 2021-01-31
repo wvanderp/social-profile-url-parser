@@ -1,0 +1,24 @@
+[
+    {
+        "text": "https://www.last.fm/user/username",
+        "expected": [
+            {
+                "type": "lastfm",
+                "name": "Last.FM",
+                "url": "https://www.last.fm/user/username",
+                "username": "username"
+            }
+        ]
+    },
+    {
+        "text": "https://www.lastfm.com/user/liaYW",
+        "expected": [
+            {
+                "type": "lastfm",
+                "name": "Last.FM",
+                "url": "https://www.lastfm.com/user/liaYW",
+                "username": "liaYW"
+            }
+        ]
+    }
+]

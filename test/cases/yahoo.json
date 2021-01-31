@@ -1,0 +1,35 @@
+[
+    {
+        "text": "https://local.yahoo.com/josl",
+        "expected": [
+            {
+                "type": "yahoo",
+                "name": "Yahoo",
+                "url": "https://local.yahoo.com/josl",
+                "username": "josl"
+            }
+        ]
+    },
+    {
+        "text": "https://profile.yahoo.com/josp",
+        "expected": [
+            {
+                "type": "yahoo",
+                "name": "Yahoo",
+                "url": "https://profile.yahoo.com/josp",
+                "username": "josp"
+            }
+        ]
+    },
+    {
+        "text": "https://me.yahoo.com/josm",
+        "expected": [
+            {
+                "type": "yahoo",
+                "name": "Yahoo",
+                "url": "https://me.yahoo.com/josm",
+                "username": "josm"
+            }
+        ]
+    }
+]

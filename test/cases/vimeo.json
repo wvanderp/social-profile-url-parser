@@ -1,0 +1,11 @@
+[
+        {
+            "text": "https://vimeo.com/alexaimephotography",
+            "expected": [{
+                "type": "vimeo",
+                "name": "Vimeo",
+                "url": "https://vimeo.com/alexaimephotography",
+                "username": "alexaimephotography"
+            }]
+        }
+    ]

@@ -1,0 +1,35 @@
+[
+    {
+        "text": "https://twitter.com/SlackHQ",
+        "expected": [
+            {
+                "type": "twitter",
+                "name": "Twitter",
+                "url": "https://twitter.com/SlackHQ",
+                "username": "SlackHQ"
+            }
+        ]
+    },
+    {
+        "text": "https://twitter.com/SlackLoveTweets",
+        "expected": [
+            {
+                "type": "twitter",
+                "name": "Twitter",
+                "url": "https://twitter.com/SlackLoveTweets",
+                "username": "SlackLoveTweets"
+            }
+        ]
+    },
+    {
+        "text": "https://mobile.twitter.com/mobiletwitter",
+        "expected": [
+            {
+                "type": "twitter",
+                "name": "Twitter",
+                "url": "https://mobile.twitter.com/mobiletwitter",
+                "username": "mobiletwitter"
+            }
+        ]
+    }
+]

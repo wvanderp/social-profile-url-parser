@@ -1,0 +1,29 @@
+[
+        {
+            "text": "http://www.crunchbase.com/organization/slack",
+            "expected": [{
+                "type": "crunchbase",
+                "name": "CrunchBase",
+                "url": "http://www.crunchbase.com/organization/slack",
+                "username": "slack"
+            }]
+        },
+        {
+            "text": "http://www.crunchbase.com/company/tiny-speck",
+            "expected": [{
+                "type": "crunchbase",
+                "name": "CrunchBase",
+                "url": "http://www.crunchbase.com/company/tiny-speck",
+                "username": "tiny-speck"
+            }]
+        },
+        {
+            "text": "http://www.crunchbase.com/person/slackcrunchperson",
+            "expected": [{
+                "type": "crunchbase",
+                "name": "CrunchBase",
+                "url": "http://www.crunchbase.com/person/slackcrunchperson",
+                "username": "slackcrunchperson"
+            }]
+        }
+    ]

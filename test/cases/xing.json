@@ -1,0 +1,16 @@
+[
+        {
+            "text": "https://www.xing.com/profile/Frank_Hoefer4",
+            "expected": [{
+                "type": "xing",
+                "name": "Xing",
+                "url": "https://www.xing.com/profile/Frank_Hoefer4",
+                "username": "Frank_Hoefer4"
+            }]
+        },
+        {
+            "text": "https://www.xing.com/Frank_Hoefer4",
+            "comment": "should not match",
+            "expected": []
+        }
+    ]

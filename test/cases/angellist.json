@@ -1,0 +1,11 @@
+[
+        {
+            "text": "https://angel.co/slack",
+            "expected": [{
+                "type": "angellist",
+                "name": "AngelList",
+                "url": "https://angel.co/slack",
+                "username": "slack"
+            }]
+        }
+    ]

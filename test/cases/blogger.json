@@ -1,0 +1,13 @@
+[
+    {
+        "text": "https://www.blogger.com/profile/00147102648704917694",
+        "expected": [
+            {
+                "type": "blogger",
+                "name": "Blogger",
+                "url": "https://www.blogger.com/profile/00147102648704917694",
+                "username": "00147102648704917694"
+            }
+        ]
+    }
+]

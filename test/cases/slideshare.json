@@ -1,0 +1,11 @@
+[
+        {
+            "text": "https://www.slideshare.net/michaelyublosky/",
+            "expected": [{
+                "type": "slideshare",
+                "name": "Slideshare",
+                "url": "https://www.slideshare.net/michaelyublosky",
+                "username": "michaelyublosky"
+            }]
+        }
+    ]

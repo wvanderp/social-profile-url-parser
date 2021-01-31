@@ -1,0 +1,20 @@
+[
+    {
+        "text": "http://klout.com/SlackHQ",
+        "expected": [{
+            "type": "klout",
+            "name": "Klout",
+            "url": "http://klout.com/SlackHQ",
+            "username": "SlackHQ"
+        }]
+    },
+    {
+        "text": "SlackLoveTweets knout http://klout.com/SlackLoveTweets",
+        "expected": [{
+            "type": "klout",
+            "name": "Klout",
+            "url": "http://klout.com/SlackLoveTweets",
+            "username": "SlackLoveTweets"
+        }]
+    }
+]

@@ -1,0 +1,24 @@
+[
+    {
+        "text": "https://www.reddit.com/user/Doctor_McKay",
+        "expected": [
+            {
+                "type": "reddit",
+                "name": "Reddit",
+                "url": "https://www.reddit.com/user/Doctor_McKay",
+                "username": "Doctor_McKay"
+            }
+        ]
+    },
+    {
+        "text": "https://www.reddit.com/u/CuttingWithScissors",
+        "expected": [
+            {
+                "type": "reddit",
+                "name": "Reddit",
+                "url": "https://www.reddit.com/u/CuttingWithScissors",
+                "username": "CuttingWithScissors"
+            }
+        ]
+    }
+]

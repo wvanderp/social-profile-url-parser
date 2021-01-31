@@ -1,0 +1,13 @@
+[
+    {
+        "text": "https://www.behance.net/davidluepschen",
+        "expected": [
+            {
+                "type": "behance",
+                "name": "Behance",
+                "url": "https://www.behance.net/davidluepschen",
+                "username": "davidluepschen"
+            }
+        ]
+    }
+]

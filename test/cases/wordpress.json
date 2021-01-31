@@ -1,0 +1,15 @@
+[
+        {
+            "text": "https://lovescihub.wordpress.com/",
+            "expected": [{
+                "type": "wordpress",
+                "name": "Wordpress",
+                "url": "https://lovescihub.wordpress.com",
+                "username": "lovescihub"
+            }]
+        },
+        {
+            "text": "https://subscribe.wordpress.com/",
+            "expected": []
+        }
+    ]

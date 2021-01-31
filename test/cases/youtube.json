@@ -1,0 +1,38 @@
+[
+        {
+            "text": "https://youtube.com/channel/UCY3YECgeBcLCzIrFLP4gblw",
+            "expected": [            {
+                "type": "youtube",
+                "name": "YouTube",
+                "url": "https://youtube.com/channel/UCY3YECgeBcLCzIrFLP4gblw",
+                "username": "UCY3YECgeBcLCzIrFLP4gblw"
+            }]
+        },
+        {
+            "text": "https://youtube.com/c/UCY3YECgeBcLCzIrFLP4gblc",
+            "expected": [            {
+                "type": "youtube",
+                "name": "YouTube",
+                "url": "https://youtube.com/c/UCY3YECgeBcLCzIrFLP4gblc",
+                "username": "UCY3YECgeBcLCzIrFLP4gblc"
+            }]
+        },
+        {
+            "text": "https://youtube.com/user/UCY3YECgeBcLCzIrFLP4user",
+            "expected": [            {
+                "type": "youtube",
+                "name": "YouTube",
+                "url": "https://youtube.com/user/UCY3YECgeBcLCzIrFLP4user",
+                "username": "UCY3YECgeBcLCzIrFLP4user"
+            }]
+        },
+        {
+            "text": "https://youtube.com/justchannelname",
+            "expected": [            {
+                "type": "youtube",
+                "name": "YouTube",
+                "url": "https://youtube.com/justchannelname",
+                "username": "justchannelname"
+            }]
+        }
+    ]

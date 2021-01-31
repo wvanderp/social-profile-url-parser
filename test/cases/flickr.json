@@ -1,0 +1,35 @@
+[
+    {
+        "text": "https://www.flickr.com/photos/33438735@N08/",
+        "expected": [
+            {
+                "type": "flickr",
+                "name": "Flickr",
+                "url": "https://www.flickr.com/photos/33438735@N08",
+                "username": "33438735@N08"
+            }
+        ]
+    },
+    {
+        "text": "https://www.flickr.com/people/dv-hans/",
+        "expected": [
+            {
+                "type": "flickr",
+                "name": "Flickr",
+                "url": "https://www.flickr.com/people/dv-hans",
+                "username": "dv-hans"
+            }
+        ]
+    },
+    {
+        "text": "https://www.flickr.com/groups/workboatsntugboats/",
+        "expected": [
+            {
+                "type": "flickr",
+                "name": "Flickr",
+                "url": "https://www.flickr.com/groups/workboatsntugboats",
+                "username": "workboatsntugboats"
+            }
+        ]
+    }
+]

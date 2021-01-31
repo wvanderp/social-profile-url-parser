@@ -1,0 +1,13 @@
+[
+    {
+        "text": "https://about.me/ekin_erkan",
+        "expected": [
+            {
+                "type": "aboutme",
+                "name": "About.me",
+                "url": "https://about.me/ekin_erkan",
+                "username": "ekin_erkan"
+            }
+        ]
+    }
+]
