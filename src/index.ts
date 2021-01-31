@@ -35,7 +35,10 @@ export const regexes: {type:string; name:string, regex: RegExp}[] = [
     {type: 'youtube', name: 'YouTube', regex: /https?:\/\/([_a-z]{0,3}\.)?youtube\.com\/(user\/|channel\/|c\/)?([^\n /]+)/gi}
 ];
 
-interface ParseResult {
+/**
+ * return format for the parser.
+ */
+export interface ParseResult {
     /** which social media site was selected */
     type: string;
     /** the formatted name of the site */

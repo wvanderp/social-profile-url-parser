@@ -3,7 +3,10 @@ export declare const regexes: {
     name: string;
     regex: RegExp;
 }[];
-interface ParseResult {
+/**
+ * return format for the parser.
+ */
+export interface ParseResult {
     /** which social media site was selected */
     type: string;
     /** the formatted name of the site */
@@ -43,4 +46,3 @@ interface ParseResult {
  * ```
  */
 export default function parser(inputText: string): ParseResult[];
-export {};
