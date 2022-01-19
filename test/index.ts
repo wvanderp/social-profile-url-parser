@@ -59,7 +59,7 @@ describe('url parser', () => {
     }
 
     it('should work if we paste all together', () => {
-        const expected = fullTests.map((test) => test.expected).flat();
+        const expected = fullTests.flatMap((test) => test.expected);
         shuffleArray(fullTests);
         // console.log(fullTests);
         const text = fullTests.map((test) => test.text).join(' ');

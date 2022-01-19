@@ -1,0 +1,13 @@
+[
+    {
+        "text": "https://www.tiktok.com/@arianagrande",
+        "expected": [
+            {
+                "type": "tiktok",
+                "name": "Tiktok",
+                "url": "https://www.tiktok.com/@arianagrande",
+                "username": "arianagrande"
+            }
+        ]
+    }
+]

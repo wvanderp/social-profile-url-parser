@@ -19,7 +19,6 @@ export interface ParseResult {
 /**
  * @param {string} inputText the input text that will be parsed.
  * @returns {Array<ParseResult>} an array with all the found social links
- *
  * @example
  * ```js
  * import parser from 'social-profile-url-parser';

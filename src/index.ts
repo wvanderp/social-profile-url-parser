@@ -25,6 +25,7 @@ export const regexes: {type:string; name:string, regex: RegExp}[] = [
     {type: 'quora', name: 'Quora', regex: /https?:\/\/(www\.)?quora\.com\/(profile\/)?([^\n /]+)/gi},
     {type: 'reddit', name: 'Reddit', regex: /https?:\/\/(www\.)?reddit\.com\/(user)?(u)?\/([^\n /]+)/gi},
     {type: 'slideshare', name: 'Slideshare', regex: /https?:\/\/(www\.)?slideshare\.net\/([^\n /]+)/gi},
+    {type: 'tiktok', name: 'Tiktok', regex: /https?:\/\/(www\.)?tiktok.com\/@([^\n /]+)/gi},
     {type: 'tumblr', name: 'Tumblr', regex: /https?:\/\/([\da-z]+)\.tumblr\.com/gi},
     {type: 'twitter', name: 'Twitter', regex: /https?:\/\/((www|mobile)\.)?twitter\.com\/([^\n /]+)/gi},
     {type: 'vimeo', name: 'Vimeo', regex: /https?:\/\/(www\.)?vimeo\.com\/([^\n /]+)/gi},
@@ -52,7 +53,6 @@ export interface ParseResult {
 /**
  * @param {string} inputText the input text that will be parsed.
  * @returns {Array<ParseResult>} an array with all the found social links
- *
  * @example
  * ```js
  * import parser from 'social-profile-url-parser';
