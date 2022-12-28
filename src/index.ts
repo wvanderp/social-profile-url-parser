@@ -1,53 +1,131 @@
-export const regexes: {type:string; name:string, regex: RegExp}[] = [
-    {type: 'aboutme', name: 'About.me', regex: /https?:\/\/(www\.)?about\.me\/([^\n /]+)/gi},
-    {type: 'angellist', name: 'AngelList', regex: /https?:\/\/(www\.)?angel\.co\/([^\n /]+)/gi},
-    {type: 'behance', name: 'Behance', regex: /https?:\/\/(www\.)?behance\.(com|net)\/([^\n /]+)/gi},
-    {type: 'blogger', name: 'Blogger', regex: /https?:\/\/(www\.)?blogger\.com\/profile\/([^\n /]+)/gi},
-    {type: 'crunchbase', name: 'CrunchBase', regex: /https?:\/\/(www\.)?crunchbase\.com\/(person|company|organization)\/([^\n /]+)/gi},
-    {type: 'digg', name: 'Digg', regex: /https?:\/\/(www\.)?digg\.com\/users\/([^\n /]+)/gi},
-    {type: 'dribbble', name: 'Dribbble', regex: /https?:\/\/(www\.)?dribbble\.com\/([^\n /]+)/gi},
-    {type: 'facebook', name: 'Facebook', regex: /https?:\/\/([_a-z]{0,3}\.|[_a-z]{2}-[_a-z]{2}\.)?(facebook|fb)\.com\/(groups\/)?([^\n /]+)/gi},
-    {type: 'flickr', name: 'Flickr', regex: /https?:\/\/(www\.)?flickr\.com\/(people|photos|groups)\/([^\n /]+)/gi},
-    {type: 'foursquare', name: 'Foursquare', regex: /https?:\/\/(www\.)?foursquare\.com\/(?!user)([^\n /]+)/gi},
-    {type: 'github', name: 'GitHub', regex: /https?:\/\/(www\.)?github\.com\/([^\n /]+)/gi},
-    {type: 'googleplus', name: 'GooglePlus', regex: /https?:\/\/plus\.google\.com\/\+?([^\n /]+)/gi},
-    {type: 'gravatar', name: 'Gravatar', regex: /https?:\/\/([_a-z]{0,3}\.)?gravatar\.com\/([^\n /]+)/gi},
-    {type: 'instagram', name: 'Instagram', regex: /https?:\/\/(www\.)?instagram\.com\/([^\n /]+)/gi},
-    {type: 'keybase', name: 'Keybase', regex: /https?:\/\/(www\.)?keybase\.io\/([^\n /]+)/gi},
-    {type: 'klout', name: 'Klout', regex: /https?:\/\/(www\.)?klout\.com\/([^\n /]+)/gi},
-    {type: 'lastfm', name: 'Last.FM', regex: /https?:\/\/(www\.)?(last\.fm|lastfm\.com)\/user\/([^\n /]+)/gi},
-    {type: 'linkedin', name: 'LinkedIn', regex: /https?:\/\/([_a-z]{0,3}\.)?linkedin\.com\/(((sales\/)?(in|pub|people|company|companies|organization|edu|school|groups)\/)|(profile\/view\?id=[a-z]))([^\n ]+)/gi},
-    {type: 'medium', name: 'Medium', regex: /https?:\/\/(www\.)?medium\.com\/@?([^\n /]+)/gi},
-    {type: 'myspace', name: 'MySpace', regex: /https?:\/\/(www\.)?myspace\.com\/([^\n /]+)/gi},
-    {type: 'ok', name: 'Odnoklassniki', regex: /https?:\/\/(www\.)?ok\.ru\/(profile\/)?([^\n /]+)/gi},
-    {type: 'pandora', name: 'Pandora', regex: /https?:\/\/(www\.)?pandora\.com\/people\/([^\n /]+)/gi},
-    {type: 'pinterest', name: 'Pinterest', regex: /https?:\/\/([_a-z]{0,3}\.)?pinterest\.[.a-z]+\/([^\n +/]+)/gi},
-    {type: 'quora', name: 'Quora', regex: /https?:\/\/(www\.)?quora\.com\/(profile\/)?([^\n /]+)/gi},
-    {type: 'reddit', name: 'Reddit', regex: /https?:\/\/(www\.)?reddit\.com\/(user)?(u)?\/([^\n /]+)/gi},
-    {type: 'slideshare', name: 'Slideshare', regex: /https?:\/\/(www\.)?slideshare\.net\/([^\n /]+)/gi},
-    {type: 'tiktok', name: 'Tiktok', regex: /https?:\/\/(www\.)?tiktok.com\/@([^\n /]+)/gi},
-    {type: 'tumblr', name: 'Tumblr', regex: /https?:\/\/([\da-z]+)\.tumblr\.com/gi},
-    {type: 'twitter', name: 'Twitter', regex: /https?:\/\/((www|mobile)\.)?twitter\.com\/([^\n /]+)/gi},
-    {type: 'vimeo', name: 'Vimeo', regex: /https?:\/\/(www\.)?vimeo\.com\/([^\n /]+)/gi},
-    {type: 'vk', name: 'VK', regex: /https?:\/\/(www\.)?vk\.com\/([^\n /]+)/gi},
-    {type: 'wordpress', name: 'Wordpress', regex: /https?:\/\/(?!subscribe)([\da-z]+)\.wordpress\.com/gi},
-    {type: 'xing', name: 'Xing', regex: /https?:\/\/(www\.)?xing\.com\/(profile\/)([^\n /]+)/gi},
-    {type: 'yahoo', name: 'Yahoo', regex: /https?:\/\/((profile|me|local)\.)?yahoo\.com\/([^\n /]+)/gi},
-    {type: 'youtube', name: 'YouTube', regex: /https?:\/\/([_a-z]{0,3}\.)?youtube\.com\/(user\/|channel\/|c\/)?([^\n /]+)/gi}
+export const regexes: { type:string; name:string, regex: RegExp }[] = [
+  { type: 'aboutme', name: 'About.me', regex: /https?:\/\/(www\.)?about\.me\/([^\n /]+)/gi },
+  { type: 'angellist', name: 'AngelList', regex: /https?:\/\/(www\.)?angel\.co\/([^\n /]+)/gi },
+  { type: 'behance', name: 'Behance', regex: /https?:\/\/(www\.)?behance\.(com|net)\/([^\n /]+)/gi },
+  { type: 'blogger', name: 'Blogger', regex: /https?:\/\/(www\.)?blogger\.com\/profile\/([^\n /]+)/gi },
+  { type: 'crunchbase', name: 'CrunchBase', regex: /https?:\/\/(www\.)?crunchbase\.com\/(person|company|organization)\/([^\n /]+)/gi },
+  { type: 'digg', name: 'Digg', regex: /https?:\/\/(www\.)?digg\.com\/users\/([^\n /]+)/gi },
+  { type: 'dribbble', name: 'Dribbble', regex: /https?:\/\/(www\.)?dribbble\.com\/([^\n /]+)/gi },
+  { type: 'flickr', name: 'Flickr', regex: /https?:\/\/(www\.)?flickr\.com\/(people|photos|groups)\/([^\n /]+)/gi },
+  { type: 'foursquare', name: 'Foursquare', regex: /https?:\/\/(www\.)?foursquare\.com\/(?!user)([^\n /]+)/gi },
+
+  // github
+  { type: 'github', name: 'GitHub', regex: /https?:\/\/(www\.)?github\.com\/([^\n /]+)/gi },
+
+  // google
+  { type: 'googleplus', name: 'Google Plus', regex: /https?:\/\/plus\.google\.com\/\+?([^\n /]+)/gi },
+  { type: 'youtube', name: 'YouTube', regex: /https?:\/\/([_a-z]{0,3}\.)?youtube\.com\/(user\/|channel\/|c\/)?([^\n /]+)/gi },
+
+  // facebook
+  { type: 'instagram', name: 'Instagram', regex: /https?:\/\/(www\.)?instagram\.com\/([^\n /]+)/gi },
+  { type: 'facebook', name: 'Facebook', regex: /https?:\/\/([_a-z]{0,3}\.|[_a-z]{2}-[_a-z]{2}\.)?(facebook|fb)\.com\/(groups\/)?([^\n /]+)/gi },
+  // whatsapp
+  // https://faq.whatsapp.com/5913398998672934/?locale=nl_NL
+  { type: 'whatsapp', name: 'WhatsApp', regex: /(?:https?:\/\/)?(?:www\.)?wa\.me\/(\d+)/gi },
+
+  { type: 'gravatar', name: 'Gravatar', regex: /https?:\/\/([_a-z]{0,3}\.)?gravatar\.com\/([^\n /]+)/gi },
+  { type: 'keybase', name: 'Keybase', regex: /https?:\/\/(www\.)?keybase\.io\/([^\n /]+)/gi },
+  { type: 'klout', name: 'Klout', regex: /https?:\/\/(www\.)?klout\.com\/([^\n /]+)/gi },
+  { type: 'lastfm', name: 'Last.FM', regex: /https?:\/\/(www\.)?(last\.fm|lastfm\.com)\/user\/([^\n /]+)/gi },
+  { type: 'linkedin', name: 'LinkedIn', regex: /https?:\/\/([_a-z]{0,3}\.)?linkedin\.com\/(((sales\/)?(in|pub|people|company|companies|organization|edu|school|groups)\/)|(profile\/view\?id=[a-z]))([^\n ]+)/gi },
+  { type: 'medium', name: 'Medium', regex: /https?:\/\/(www\.)?medium\.com\/@?([^\n /]+)/gi },
+  { type: 'myspace', name: 'MySpace', regex: /https?:\/\/(www\.)?myspace\.com\/([^\n /]+)/gi },
+  { type: 'ok', name: 'Odnoklassniki', regex: /https?:\/\/(www\.)?ok\.ru\/(profile\/)?([^\n /]+)/gi },
+
+  // TODO: Find real life example
+  { type: 'pandora', name: 'Pandora', regex: /https?:\/\/(www\.)?pandora\.com\/people\/([^\n /]+)/gi },
+
+  { type: 'pinterest', name: 'Pinterest', regex: /https?:\/\/([_a-z]{0,3}\.)?pinterest\.[.a-z]+\/([^\n +/]+)/gi },
+  { type: 'quora', name: 'Quora', regex: /https?:\/\/(www\.)?quora\.com\/(profile\/)?([^\n /]+)/gi },
+
+  // reddit
+  { type: 'reddit', name: 'Reddit', regex: /https?:\/\/(www\.)?reddit\.com\/(user)?(u)?\/([^\n /]+)/gi },
+  { type: 'subreddit', name: 'subreddit', regex: /https?:\/\/www\.?reddit\.com\/r\/?([a-z]+)\/?/gi },
+
+  { type: 'slideshare', name: 'Slideshare', regex: /https?:\/\/(www\.)?slideshare\.net\/([^\n /]+)/gi },
+  { type: 'tiktok', name: 'Tiktok', regex: /https?:\/\/(www\.)?tiktok.com\/@([^\n /]+)/gi },
+  { type: 'tumblr', name: 'Tumblr', regex: /https?:\/\/([\da-z]+)\.tumblr\.com/gi },
+  { type: 'twitter', name: 'Twitter', regex: /https?:\/\/((www|mobile)\.)?twitter\.com\/([^\n /]+)/gi },
+  { type: 'vimeo', name: 'Vimeo', regex: /https?:\/\/(www\.)?vimeo\.com\/([^\n /]+)/gi },
+  { type: 'vk', name: 'VK', regex: /https?:\/\/(www\.)?vk\.com\/([^\n /]+)/gi },
+  { type: 'wordpress', name: 'Wordpress', regex: /https?:\/\/(?!subscribe)([\da-z]+)\.wordpress\.com/gi },
+  { type: 'xing', name: 'Xing', regex: /https?:\/\/(www\.)?xing\.com\/(profile\/)([^\n /]+)/gi },
+  { type: 'yahoo', name: 'Yahoo', regex: /https?:\/\/((profile|me|local)\.)?yahoo\.com\/([^\n /]+)/gi },
+
+  // yelp
+  { type: 'yelpUser', name: 'Yelp User', regex: /https?:\/\/(www\.)?yelp\.[a-z]+\/user_details\?userid=([\da-z-]+)/gi },
+  { type: 'yelpBusiness', name: 'Yelp Business', regex: /https?:\/\/www\.?yelp\.[a-z]+\/biz\/([\da-z-]+)/gi },
+
+  // amazon (not a social media site, but it's a profile)
+  { type: 'amazonWishlist', name: 'Amazon wishlist', regex: /https?:\/\/www\.?amazon\.[a-z]+\/gp\/?registry\/?wishlist\/?([^\n /]+)/gi },
+
+  // weibo
+  { type: 'weibo', name: 'Weibo', regex: /https?:\/\/(?:www\.)?weibo\.com\/([\da-z]{1,20}|\d+|u\/\d+)/gi },
+
+  // Trakt
+  // Twitch
+  // Shopify
+  // Ebay
+  // Slack
+  // Basecamp
+  // ProductHunt
+  // Steam
+  // SoundCloud
+  // BitBucket
+  // CashMe
+  // DailyMotion
+  // Disqus
+  // Photobucket
+  // Fanpop
+  // deviantART
+  // Instructables
+  // Kongregate
+  // LiveJournal
+  // Mix
+  // Tripit
+  // PayPal
+  // Flipboard
+  // Kik
+  // Codecademy
+  // Roblox
+  // Pastebin
+  // Ello
+  // IFTTT
+  // Fiverr
+  // Hackernews
+  // Spotify
+  // Houzz
+  // Contently
+  // BuzzFeed
+  // HubPages
+  // Venmo
+  // Bandcamp
+  // Wikia
+  // ReverbNation
+  // Wattpad
+  // Designspiration
+  // EyeEm
+  // Kano World
+  // Ask FM
+  // Newgrounds
+  // Younow
+  // Patreon
+  // Telegram
+  // Minecraft
 ];
 
 /**
  * return format for the parser.
  */
 export interface ParseResult {
-    /** which social media site was selected */
-    type: string;
-    /** the formatted name of the site */
-    name: string;
-    /** the username found in the url */
-    username: string;
-    /** the url in which the username was found */
-    url: string;
+  /** which social media site was selected */
+  type: string;
+  /** the formatted name of the site */
+  name: string;
+  /** the username found in the url */
+  username: string;
+  /** the url in which the username was found */
+  url: string;
 }
 
 /**
@@ -79,22 +157,23 @@ export interface ParseResult {
  * ```
  */
 export default function parser(inputText: string): ParseResult[] {
-    const resultsMap: Array<ParseResult> = [];
+  const resultsMap: Array<ParseResult> = [];
 
-    regexes.forEach((regex) => {
-        let result;
-        // eslint-disable-next-line no-cond-assign
-        while ((result = regex.regex.exec(inputText)) !== null) {
-            const username = result[result.length - 1];
+  // eslint-disable-next-line no-restricted-syntax
+  for (const regex of regexes) {
+    let result;
+    // eslint-disable-next-line no-cond-assign
+    while ((result = regex.regex.exec(inputText)) !== null) {
+      const username = result[result.length - 1];
 
-            resultsMap.push({
-                type: regex.type,
-                name: regex.name,
-                url: result[0],
-                username
-            });
-        }
-    });
+      resultsMap.push({
+        type: regex.type,
+        name: regex.name,
+        url: result[0],
+        username,
+      });
+    }
+  }
 
-    return resultsMap;
+  return resultsMap;
 }

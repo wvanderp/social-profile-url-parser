@@ -1,0 +1,13 @@
+[
+    {
+        "text": "https://www.reddit.com/r/adventofcode/",
+        "expected": [
+            {
+                "type": "subreddit",
+                "name": "subreddit",
+                "url": "https://www.reddit.com/r/adventofcode/",
+                "username": "adventofcode"
+            }
+        ]
+    }
+]

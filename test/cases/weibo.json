@@ -1,0 +1,13 @@
+[
+    {
+        "text": "https://weibo.com/guanzhilin",
+        "expected": [
+            {
+                "type": "weibo",
+                "name": "Weibo",
+                "url": "https://weibo.com/guanzhilin",
+                "username": "guanzhilin"
+            }
+        ]
+    }
+]

@@ -1,0 +1,13 @@
+[
+    {
+        "text": "https://wa.me/31612345678",
+        "expected": [
+            {
+                "type": "whatsapp",
+                "name": "WhatsApp",
+                "url": "https://wa.me/31612345678",
+                "username": "31612345678"
+            }
+        ]
+    }
+]

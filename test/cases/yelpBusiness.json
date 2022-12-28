@@ -1,0 +1,24 @@
+[
+    {
+        "text": "https://www.yelp.nl/biz/umami-rotterdam",
+        "expected": [
+            {
+                "type": "yelpBusiness",
+                "name": "Yelp Business",
+                "url": "https://www.yelp.nl/biz/umami-rotterdam",
+                "username": "umami-rotterdam"
+            }
+        ]
+    },
+    {
+        "text": "https://www.yelp.com/biz/riccis-family-restaurant-rochester",
+        "expected": [
+            {
+                "type": "yelpBusiness",
+                "name": "Yelp Business",
+                "url": "https://www.yelp.com/biz/riccis-family-restaurant-rochester",
+                "username": "riccis-family-restaurant-rochester"
+            }
+        ]
+    }
+]

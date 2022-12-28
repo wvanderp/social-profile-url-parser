@@ -2,7 +2,7 @@ import {describe, it} from 'mocha';
 import { expect } from 'chai';
 import fs from 'fs';
 import path from 'path';
-import parser from '../src';
+import parser, { ParseResult, regexes } from '../src';
 
 /**
  * https://stackoverflow.com/a/12646864
@@ -33,17 +33,19 @@ function compare<T extends Record<string, string>>(a: T, b: T): number {
     return 0;
 }
 
+type TestCase = {text: string, expected: ParseResult[]}
+
 describe('url parser', () => {
     const casesPath = path.join(__dirname, './cases');
     const testFiles = fs.readdirSync(casesPath);
 
-    const fullTests: {text: string, expected: Record<string, string>[]}[] = [];
+    const fullTests: TestCase[] = [];
 
     for (const testFile of testFiles) {
         describe(testFile, () => {
             const tests = JSON.parse(
                 fs.readFileSync(`${casesPath}/${testFile}`).toString()
-            ) as {text: string, expected: Record<string, string>[]}[];
+            ) as TestCase[];
 
             let index = 0;
             for (const test of tests) {
@@ -66,5 +68,62 @@ describe('url parser', () => {
 
         // @ts-expect-error
         expect(parser(text).sort(compare)).to.deep.equal(expected.sort(compare));
+    });
+});
+
+describe('no duplicates', () => {
+    it('should not have duplicates names', () => {
+        const names = new Set();
+        for (const regex of regexes) {
+            expect(names.has(regex.name)).to.be.false;
+            names.add(regex.name);
+        }
+    });
+
+    it('should not have duplicates types', () => {  
+        const types = new Set();
+        for (const regex of regexes) {
+            expect(types.has(regex.type)).to.be.false;
+            types.add(regex.type);
+        }
+    });
+
+    it('should not have duplicates regexes', () => {
+        const regexes_ = new Set();
+        for (const regex of regexes) {
+            expect(regexes_.has(regex.regex)).to.be.false;
+            regexes_.add(regex.regex);
+        }
+    });
+});
+
+describe('coverage', () => {
+    it('should cover all regexes', () => {
+        const casesPath = path.join(__dirname, './cases');
+        const testFiles = fs.readdirSync(casesPath);
+
+        const testSet = new Set();
+
+        for(const testFile of testFiles) {
+            const tests = JSON.parse(
+                fs.readFileSync(path.join(casesPath, testFile)).toString()
+            ) as TestCase[];
+
+            for (const test of tests) {
+                for (const result of test.expected) {
+                    testSet.add(result.type);
+                }
+            }
+        }
+
+        const regexSet = new Set(regexes.map((regex) => regex.type));
+
+        regexSet.forEach((type) => {
+            if(!testSet.has(type)) {
+                console.log(`Missing test for ${type}`);
+            }
+        });
+
+        expect(testSet.size).to.equal(regexSet.size);
     });
 });

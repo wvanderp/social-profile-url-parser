@@ -1,0 +1,13 @@
+[
+    {
+        "text": "http://pandora.com/people/username",
+        "expected": [
+            {
+                "type": "pandora",
+                "name": "Pandora",
+                "url": "http://pandora.com/people/username",
+                "username": "username"
+            }
+        ]
+    }
+]

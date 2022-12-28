@@ -1,0 +1,24 @@
+[
+    {
+        "text": "https://www.amazon.com/gp/registry/wishlist/17UO4L9H4T7FD/",
+        "expected": [
+            {
+                "type": "amazonWishlist",
+                "name": "Amazon wishlist",
+                "url": "https://www.amazon.com/gp/registry/wishlist/17UO4L9H4T7FD",
+                "username": "17UO4L9H4T7FD"
+            }
+        ]
+    },
+    {
+        "text": "https://www.amazon.com/gp/registry/wishlist/3CGKIO6FDL2VV",
+        "expected": [
+            {
+                "type": "amazonWishlist",
+                "name": "Amazon wishlist",
+                "url": "https://www.amazon.com/gp/registry/wishlist/3CGKIO6FDL2VV",
+                "username": "3CGKIO6FDL2VV"
+            }
+        ]
+    }
+]

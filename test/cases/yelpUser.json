@@ -1,0 +1,24 @@
+[
+    {
+        "text": "https://www.yelp.nl/user_details?userid=BAEvl8NTA95MRLkvhlxpSQ",
+        "expected": [
+            {
+                "type": "yelpUser",
+                "name": "Yelp User",
+                "url": "https://www.yelp.nl/user_details?userid=BAEvl8NTA95MRLkvhlxpSQ",
+                "username": "BAEvl8NTA95MRLkvhlxpSQ"
+            }
+        ]
+    },
+    {
+        "text": "https://www.yelp.nl/user_details?userid=oYArsSJP0rKg-uCL-kwDKw",
+        "expected": [
+            {
+                "type": "yelpUser",
+                "name": "Yelp User",
+                "url": "https://www.yelp.nl/user_details?userid=oYArsSJP0rKg-uCL-kwDKw",
+                "username": "oYArsSJP0rKg-uCL-kwDKw"
+            }
+        ]
+    }
+]
