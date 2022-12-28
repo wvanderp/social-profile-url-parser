@@ -1,6 +1,6 @@
 {
   "name": "social-profile-url-parser",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "Node library to parse social profile urls out of text.",
   "main": "./lib/index.js",
   "types": "./lib",
