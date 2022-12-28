@@ -2,7 +2,7 @@ import {describe, it} from 'mocha';
 import { expect } from 'chai';
 import fs from 'fs';
 import path from 'path';
-import parser, { ParseResult, regexes } from '../src';
+import {parser, ParseResult, regexes } from '../src';
 
 /**
  * https://stackoverflow.com/a/12646864

@@ -133,7 +133,7 @@ export interface ParseResult {
  * @returns {Array<ParseResult>} an array with all the found social links
  * @example
  * ```js
- * import parser from 'social-profile-url-parser';
+ * import { parser } from 'social-profile-url-parser';
  *
  * const result = parser(`
  *    slack   facebook    https://www.facebook.com/slackhq/
@@ -156,7 +156,7 @@ export interface ParseResult {
  * ];
  * ```
  */
-export default function parser(inputText: string): ParseResult[] {
+export function parser(inputText: string): ParseResult[] {
   const resultsMap: Array<ParseResult> = [];
 
   // eslint-disable-next-line no-restricted-syntax
