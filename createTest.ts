@@ -1,11 +1,13 @@
 import fs from 'fs';
-import {regexes} from './src';
+import {ParseResult, regexes} from './src';
 
 regexes.forEach((regex) => {
     const path = `./test/cases/${regex.type}.json`;
     if (fs.existsSync(path)) {
         return;
     }
+
+    console.log(`Creating ${path}`);
 
     fs.writeFileSync(path, JSON.stringify([
         {
@@ -14,8 +16,9 @@ regexes.forEach((regex) => {
                 type: regex.type,
                 name: regex.name,
                 url: '',
-                username: ''
-            }]
-        }
+                username: '',
+                deprecated: regex.deprecated,
+            }] as ParseResult[]
+        } 
     ]));
 });

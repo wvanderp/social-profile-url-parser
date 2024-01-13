@@ -26,4 +26,26 @@ Another way you can support the project is by providing feedback and suggestions
 | inputText | <code>string</code> | the input text that will be parsed. |
 
 **Example**  
-```jsimport { parser } from 'social-profile-url-parser';const result = parser(`   slack   facebook    https://www.facebook.com/slackhq/   SlackHQ twitter     https://twitter.com/SlackHQ`)result === [    {        type: 'facebook',        name: 'Facebook',        username: 'slack',        url: 'https://www.facebook.com/slackhq/'    },    {       type: 'twitter',       name: 'Twitter',       username: 'SlackHQ',       url: 'https://twitter.com/SlackHQ'   }];```
+```js
+import { parser } from 'social-profile-url-parser';
+
+const result = parser(`
+   slack   facebook    https://www.facebook.com/slackhq/
+   SlackHQ twitter     https://twitter.com/SlackHQ
+`)
+
+result === [
+    {
+        type: 'facebook',
+        name: 'Facebook',
+        username: 'slack',
+        url: 'https://www.facebook.com/slackhq/'
+    },
+    {
+       type: 'twitter',
+       name: 'Twitter',
+       username: 'SlackHQ',
+       url: 'https://twitter.com/SlackHQ'
+   }
+];
+```

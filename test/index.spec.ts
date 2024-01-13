@@ -1,12 +1,10 @@
-import {describe, it} from 'mocha';
-import { expect } from 'chai';
 import fs from 'fs';
 import path from 'path';
-import {parser, ParseResult, regexes } from '../src';
+import { parser, ParseResult, regexes } from '../src';
 
 /**
  * https://stackoverflow.com/a/12646864
- *
+ * @private
  * @param array
  */
 function shuffleArray<T>(array: T[]): void {
@@ -19,6 +17,8 @@ function shuffleArray<T>(array: T[]): void {
 
 /**
  * https://stackoverflow.com/a/1129270
+ * 
+ * @private
  * @param a
  * @param b
  * @returns
@@ -33,7 +33,7 @@ function compare<T extends Record<string, string>>(a: T, b: T): number {
     return 0;
 }
 
-type TestCase = {text: string, expected: ParseResult[]}
+type TestCase = { text: string, expected: ParseResult[] }
 
 describe('url parser', () => {
     const casesPath = path.join(__dirname, './cases');
@@ -50,10 +50,10 @@ describe('url parser', () => {
             let index = 0;
             for (const test of tests) {
                 it(`${testFile} #${index}`, () => {
-                    expect(parser(test.text)).to.deep.equal(test.expected);
+                    expect(parser(test.text)).toEqual(test.expected);
                 });
 
-                fullTests.push({text: test.text, expected: test.expected});
+                fullTests.push({ text: test.text, expected: test.expected });
 
                 index++;
             }
@@ -67,7 +67,7 @@ describe('url parser', () => {
         const text = fullTests.map((test) => test.text).join(' ');
 
         // @ts-expect-error
-        expect(parser(text).sort(compare)).to.deep.equal(expected.sort(compare));
+        expect(parser(text).sort(compare)).toEqual(expected.sort(compare));
     });
 });
 
@@ -75,15 +75,15 @@ describe('no duplicates', () => {
     it('should not have duplicates names', () => {
         const names = new Set();
         for (const regex of regexes) {
-            expect(names.has(regex.name)).to.be.false;
+            expect(names.has(regex.name)).toBeFalsy();
             names.add(regex.name);
         }
     });
 
-    it('should not have duplicates types', () => {  
+    it('should not have duplicates types', () => {
         const types = new Set();
         for (const regex of regexes) {
-            expect(types.has(regex.type)).to.be.false;
+            expect(types.has(regex.type)).toBeFalsy();
             types.add(regex.type);
         }
     });
@@ -91,7 +91,7 @@ describe('no duplicates', () => {
     it('should not have duplicates regexes', () => {
         const regexes_ = new Set();
         for (const regex of regexes) {
-            expect(regexes_.has(regex.regex)).to.be.false;
+            expect(regexes_.has(regex.regex)).toBeFalsy();
             regexes_.add(regex.regex);
         }
     });
@@ -104,7 +104,7 @@ describe('coverage', () => {
 
         const testSet = new Set();
 
-        for(const testFile of testFiles) {
+        for (const testFile of testFiles) {
             const tests = JSON.parse(
                 fs.readFileSync(path.join(casesPath, testFile)).toString()
             ) as TestCase[];
@@ -119,11 +119,11 @@ describe('coverage', () => {
         const regexSet = new Set(regexes.map((regex) => regex.type));
 
         regexSet.forEach((type) => {
-            if(!testSet.has(type)) {
+            if (!testSet.has(type)) {
                 console.log(`Missing test for ${type}`);
             }
         });
 
-        expect(testSet.size).to.equal(regexSet.size);
+        expect(testSet.size).toEqual(regexSet.size);
     });
 });

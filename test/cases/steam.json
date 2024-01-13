@@ -1,0 +1,24 @@
+[
+    {
+        "text": "https://steamcommunity.com/id/pepepro76561198317693716/",
+        "expected": [
+            {
+                "type": "steam",
+                "name": "Steam",
+                "url": "https://steamcommunity.com/id/pepepro76561198317693716",
+                "username": "pepepro76561198317693716"
+            }
+        ]
+    },
+    {
+        "text": "https://steamcommunity.com/profiles/76561198014898339",
+        "expected": [
+            {
+                "type": "steam",
+                "name": "Steam",
+                "url": "https://steamcommunity.com/profiles/76561198014898339",
+                "username": "76561198014898339"
+            }
+        ]
+    }
+]

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es3",
+    "target": "ES5",
     "module": "commonjs",
     "lib": [
       "es2019"
@@ -13,12 +13,5 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "skipLibCheck": true
-  },
-  "include": [
-    "./src/index.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "createTest.ts"
-  ]
+  }
 }

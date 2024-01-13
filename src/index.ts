@@ -1,4 +1,13 @@
-export const regexes: { type:string; name:string, regex: RegExp }[] = [
+import removeEmpty from './removeEmpty';
+
+interface RegexObject {
+  type: string; // a all lowercase no space name of the social media site
+  name: string; // the formatted official name of the social media site
+  regex: RegExp; // the regex that will be used to find the username
+  deprecated?: boolean; // if the social media site is deprecated (like shutdown or rebranded)
+}
+
+export const regexes: RegexObject[] = [
   { type: 'aboutme', name: 'About.me', regex: /https?:\/\/(www\.)?about\.me\/([^\n /]+)/gi },
   { type: 'angellist', name: 'AngelList', regex: /https?:\/\/(www\.)?angel\.co\/([^\n /]+)/gi },
   { type: 'behance', name: 'Behance', regex: /https?:\/\/(www\.)?behance\.(com|net)\/([^\n /]+)/gi },
@@ -11,6 +20,7 @@ export const regexes: { type:string; name:string, regex: RegExp }[] = [
 
   // github
   { type: 'github', name: 'GitHub', regex: /https?:\/\/(www\.)?github\.com\/([^\n /]+)/gi },
+  // todo gist
 
   // google
   { type: 'googleplus', name: 'Google Plus', regex: /https?:\/\/plus\.google\.com\/\+?([^\n /]+)/gi },
@@ -62,6 +72,8 @@ export const regexes: { type:string; name:string, regex: RegExp }[] = [
   // weibo
   { type: 'weibo', name: 'Weibo', regex: /https?:\/\/(?:www\.)?weibo\.com\/([\da-z]{1,20}|\d+|u\/\d+)/gi },
 
+  // delicious (deprecated)
+  // plancast
   // Trakt
   // Twitch
   // Shopify
@@ -70,6 +82,7 @@ export const regexes: { type:string; name:string, regex: RegExp }[] = [
   // Basecamp
   // ProductHunt
   // Steam
+  { type: 'steam', name: 'Steam', regex: /https?:\/\/(www\.)?steamcommunity\.com\/(id|profiles)\/([^\n /]+)/gi },
   // SoundCloud
   // BitBucket
   // CashMe
@@ -112,6 +125,8 @@ export const regexes: { type:string; name:string, regex: RegExp }[] = [
   // Patreon
   // Telegram
   // Minecraft
+  // GitLab
+  // Bitbucket
 ];
 
 /**
@@ -126,11 +141,13 @@ export interface ParseResult {
   username: string;
   /** the url in which the username was found */
   url: string;
+  /** deprecation warning of the site */
+  deprecated?: boolean;
 }
 
 /**
  * @param {string} inputText the input text that will be parsed.
- * @returns {Array<ParseResult>} an array with all the found social links
+ * @returns {ParseResult[]} an array with all the found social links
  * @example
  * ```js
  * import { parser } from 'social-profile-url-parser';
@@ -164,14 +181,19 @@ export function parser(inputText: string): ParseResult[] {
     let result;
     // eslint-disable-next-line no-cond-assign
     while ((result = regex.regex.exec(inputText)) !== null) {
-      const username = result[result.length - 1];
+      const username = result.at(-1);
 
-      resultsMap.push({
+      if (!username) {
+        continue;
+      }
+
+      resultsMap.push(removeEmpty({
         type: regex.type,
         name: regex.name,
         url: result[0],
         username,
-      });
+        deprecated: regex.deprecated,
+      }));
     }
   }
 
