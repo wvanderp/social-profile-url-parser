@@ -22,46 +22,42 @@
   "bugs": {
     "url": "https://github.com/wvanderp/social-profile-url-parser/issues"
   },
-
-  
   "main": "./lib/index.js",
   "types": "./lib",
   "files": [
     "lib/**/*"
   ],
-
-
   "scripts": {
     "build": "rimraf lib && tsc && npm run buildDocs",
     "coverage": "npm run build && nyc --reporter=lcov --all -- npm run test",
     "lint": "tsc --noEmit && eslint --ext ts,tsx,json,js src/",
     "test": "mocha -r ts-node/register test/index.ts",
-    "buildDocs": "jsdoc2md --template README.hbs --files lib/index.js > README.md"
+    "buildDocs": "jsdoc2md --template README.hbs --files lib/index.js > README.md",
+    "collect": "ts-node ./scripts/collect.ts"
   },
-
-
   "devDependencies": {
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
     "@types/node": "^18.11.18",
-    "@typescript-eslint/eslint-plugin": "^5.47.1",
-    "@typescript-eslint/parser": "^5.47.1",
+    "@typescript-eslint/eslint-plugin": "^5.48.1",
+    "@typescript-eslint/parser": "^5.48.1",
     "chai": "^4.3.7",
-    "eslint": "^8.30.0",
+    "eslint": "^8.32.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
-    "eslint-import-resolver-typescript": "^3.5.2",
+    "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-plugin-compat": "^4.0.2",
-    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-import": "^2.27.4",
     "eslint-plugin-jsdoc": "^39.6.4",
     "eslint-plugin-ramda": "^2.5.1",
-    "eslint-plugin-sonarjs": "^0.17.0",
+    "eslint-plugin-sonarjs": "^0.18.0",
     "eslint-plugin-unicorn": "^45.0.2",
     "jsdoc-to-markdown": "^8.0.0",
     "mocha": "^10.2.0",
     "nyc": "^15.1.0",
-    "rimraf": "^3.0.2",
+    "rimraf": "^4.0.5",
     "ts-node": "^10.9.1",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.4",
+    "axios": "^1.2.2"
   }
 }

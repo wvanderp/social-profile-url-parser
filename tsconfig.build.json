@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "exclude": [
+    "node_modules",
+    "build",
+    "./nyc_output",
+    "coverage",
+    "diff",
+    "tests",
+    "./test.ts",
+    "./lib",
+    "./scrap.ts"
+  ],
+  "filesGlob": [
+    "./src/**/*.ts"
+  ]
+}
