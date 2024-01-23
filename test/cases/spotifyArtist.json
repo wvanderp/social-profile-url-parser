@@ -1,0 +1,6 @@
+[
+    {"text":"https://open.spotify.com/artist/4aXXDj9aZnlshx7mzj3W1N","expected":[{"type":"spotifyArtist","name":"Spotify Artist","url":"https://open.spotify.com/artist/4aXXDj9aZnlshx7mzj3W1N","username":"4aXXDj9aZnlshx7mzj3W1N"}]},
+    {"text":"https://open.spotify.com/artist/7dkEByOe0oHqc54qU4hwzV","expected":[{"type":"spotifyArtist","name":"Spotify Artist","url":"https://open.spotify.com/artist/7dkEByOe0oHqc54qU4hwzV","username":"7dkEByOe0oHqc54qU4hwzV"}]},
+    {"text": "spotify:artist:1x0ScxgiyFRQDKT4VwcLHa", "expected": [{"type": "spotifyArtist", "name": "Spotify Artist", "url": "spotify:artist:1x0ScxgiyFRQDKT4VwcLHa", "username": "1x0ScxgiyFRQDKT4VwcLHa"}]},
+    {"text": "https://shop.spotify.com/en/artist/0CEFCo8288kQU7mJi25s6E/store", "expected": [{"type": "spotifyArtist", "name": "Spotify Artist", "url": "https://shop.spotify.com/en/artist/0CEFCo8288kQU7mJi25s6E/store", "username": "0CEFCo8288kQU7mJi25s6E"}]}
+]

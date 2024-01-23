@@ -1,0 +1,65 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "type": "array",
+    "items": {
+        "$ref": "#/definitions/TestCaseElement"
+    },
+    "definitions": {
+        "TestCaseElement": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "text": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "https"
+                    ]
+                },
+                "expected": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Expected"
+                    }
+                }
+            },
+            "required": [
+                "expected",
+                "text"
+            ],
+            "title": "TestCaseElement"
+        },
+        "Expected": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "https"
+                    ]
+                },
+                "username": {
+                    "type": "string"
+                },
+                "deprecated": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "name",
+                "type",
+                "url",
+                "username"
+            ],
+            "title": "Expected"
+        }
+    }
+}

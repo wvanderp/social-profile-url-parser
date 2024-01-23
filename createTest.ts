@@ -1,12 +1,14 @@
+/* eslint-disable no-restricted-syntax */
 import fs from 'fs';
-import {ParseResult, regexes} from './src';
+import { ParseResult, regexes } from './src';
 
-regexes.forEach((regex) => {
+for (const regex of regexes) {
     const path = `./test/cases/${regex.type}.json`;
     if (fs.existsSync(path)) {
-        return;
+        continue;
     }
 
+    // eslint-disable-next-line no-console
     console.log(`Creating ${path}`);
 
     fs.writeFileSync(path, JSON.stringify([
@@ -18,7 +20,7 @@ regexes.forEach((regex) => {
                 url: '',
                 username: '',
                 deprecated: regex.deprecated,
-            }] as ParseResult[]
-        } 
+            }] as ParseResult[],
+        },
     ]));
-});
+}

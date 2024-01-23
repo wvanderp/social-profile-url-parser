@@ -31,5 +31,16 @@
                 "username": "mobiletwitter"
             }
         ]
+    },
+    {
+        "text": "https://x.com/elonmusk",
+        "expected": [
+            {
+                "type": "twitter",
+                "name": "Twitter",
+                "url": "https://x.com/elonmusk",
+                "username": "elonmusk"
+            }
+        ]
     }
 ]

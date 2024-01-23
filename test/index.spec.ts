@@ -2,6 +2,24 @@ import fs from 'fs';
 import path from 'path';
 import { parser, ParseResult, regexes } from '../src';
 
+// create custom matchers that check if a object is not in a set
+expect.extend({
+    toNotBeInSet(received, set) {
+        const inSet = set.has(received);
+        if (inSet) {
+            return {
+                message: () => `expected ${received} to not be in set, but it was`,
+                pass: false,
+            };
+        }
+
+        return {
+            message: () => `expected ${received} not to be in set, but and it isn't`,
+            pass: true,
+        };
+    }
+});
+
 /**
  * https://stackoverflow.com/a/12646864
  * @private
@@ -71,11 +89,25 @@ describe('url parser', () => {
     });
 });
 
+describe('regexes', () => {
+    it('should not capture www', () => {
+        for (const regex of regexes) {
+            const regexString = regex.regex.toString();
+            expect(regexString).not.toContain('(www\.)');    
+            expect(regexString).not.toContain('(www.)');    
+
+            // test the actual regex
+            expect(regex.regex.test('www')).toEqual(false);
+        }
+    });
+});
+
 describe('no duplicates', () => {
     it('should not have duplicates names', () => {
         const names = new Set();
         for (const regex of regexes) {
-            expect(names.has(regex.name)).toBeFalsy();
+            // @ts-expect-error -- it was custom matcher created above
+            expect(regex.name).toNotBeInSet(names);
             names.add(regex.name);
         }
     });
@@ -83,7 +115,8 @@ describe('no duplicates', () => {
     it('should not have duplicates types', () => {
         const types = new Set();
         for (const regex of regexes) {
-            expect(types.has(regex.type)).toBeFalsy();
+            // @ts-expect-error -- it was custom matcher created above
+            expect(regex.type).toNotBeInSet(types);
             types.add(regex.type);
         }
     });
@@ -91,7 +124,8 @@ describe('no duplicates', () => {
     it('should not have duplicates regexes', () => {
         const regexes_ = new Set();
         for (const regex of regexes) {
-            expect(regexes_.has(regex.regex)).toBeFalsy();
+            // @ts-expect-error -- it was custom matcher created above
+            expect(regex.regex).toNotBeInSet(regexes_);
             regexes_.add(regex.regex);
         }
     });

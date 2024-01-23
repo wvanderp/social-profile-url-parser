@@ -2,6 +2,15 @@
     "cSpell.words": [
         "nocheck",
         "regexes",
+        "weibo",
         "wvdp"
-    ]
+    ],
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "test/cases/**/*.json",
+            ],
+            "url": "./testcase.schema.json"
+        }
+    ]  
 }

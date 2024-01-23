@@ -1,0 +1,4 @@
+[
+    {"text":"https://open.weixin.qq.com/qr/code?username=DutchEmbassy_BJ","expected":[{"type":"wechat","name":"WeChat","url":"https://open.weixin.qq.com/qr/code?username=DutchEmbassy_BJ","username":"DutchEmbassy_BJ"}]},
+    {"text":"weixin://dl/chat?Bright_Writers","expected":[{"type":"wechat","name":"WeChat","url":"weixin://dl/chat?Bright_Writers","username":"Bright_Writers"}]}
+]

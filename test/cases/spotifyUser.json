@@ -1,0 +1,4 @@
+[
+    {"text":"https://open.spotify.com/user/vanesamartinoficial","expected":[{"type":"spotifyUser","name":"Spotify User","url":"https://open.spotify.com/user/vanesamartinoficial","username":"vanesamartinoficial"}]},
+    {"text":"https://open.spotify.com/user/31wwwnrvhv3i2l2z43ipcmpapoya","expected":[{"type":"spotifyUser","name":"Spotify User","url":"https://open.spotify.com/user/31wwwnrvhv3i2l2z43ipcmpapoya","username":"31wwwnrvhv3i2l2z43ipcmpapoya"}]}
+]

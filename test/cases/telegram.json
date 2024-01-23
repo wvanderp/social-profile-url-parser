@@ -1,0 +1,10 @@
+[
+    {"text":"https://t.me/telegram","expected":[{"type":"telegram","name":"Telegram","url":"https://t.me/telegram","username":"telegram"}]},
+    {"text":"https://t.me/list_telegram","expected":[{"type":"telegram","name":"Telegram","url":"https://t.me/list_telegram","username":"list_telegram"}]},
+    {"text":"hhttps://telegram.dog/mrhallo","expected":[{"type":"telegram","name":"Telegram","url":"https://telegram.dog/mrhallo","username":"mrhallo"}]},
+    {"text":"https://telegram.me/shajareyan","expected":[{"type":"telegram","name":"Telegram","url":"https://telegram.me/shajareyan","username":"shajareyan"}]},
+    {"text":"https://www.telegram.me/cannews","expected":[{"type":"telegram","name":"Telegram","url":"https://www.telegram.me/cannews","username":"cannews"}]},
+    {"text":"https://web.telegram.org/k/#-2128475717","expected":[{"type":"telegram","name":"Telegram","url":"https://web.telegram.org/k/#-2128475717","username":"-2128475717"}]},
+    {"text":"https://web.telegram.org/k/#@Banana_traffbot","expected":[{"type":"telegram","name":"Telegram","url":"https://web.telegram.org/k/#@Banana_traffbot","username":"Banana_traffbot"}]},
+    {"text":"http://web.telegram.org/a/#6891155458","expected":[{"type":"telegram","name":"Telegram","url":"http://web.telegram.org/a/#6891155458","username":"6891155458"}]}    
+]

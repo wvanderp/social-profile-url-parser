@@ -1,4 +1,6 @@
-// @ts-nocheck
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-restricted-syntax */
+// @ts-nocheck -- this file is difficult to type check
 
 /**
  * this function removes keys which are undefined.

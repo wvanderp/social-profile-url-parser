@@ -1,13 +1,4 @@
 [
-    {
-        "text": "https://weibo.com/guanzhilin",
-        "expected": [
-            {
-                "type": "weibo",
-                "name": "Weibo",
-                "url": "https://weibo.com/guanzhilin",
-                "username": "guanzhilin"
-            }
-        ]
-    }
+    {"text": "https://weibo.com/guanzhilin", "expected":[{"type": "weibo", "name": "Weibo", "url": "https://weibo.com/guanzhilin", "username": "guanzhilin"}]},
+    {"text": "https://weibo.com/u/1669879400", "expected":[{"type": "weibo", "name": "Weibo", "url": "https://weibo.com/u/1669879400", "username": "1669879400"}]}
 ]
