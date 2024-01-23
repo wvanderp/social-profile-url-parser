@@ -1,10 +1,17 @@
 {
   "extends": "./tsconfig.json",
-  "include": [
-    "./src/index.ts"
-  ],
   "exclude": [
     "node_modules",
-    "createTest.ts"
+    "build",
+    "./nyc_output",
+    "coverage",
+    "diff",
+    "tests",
+    "./test.ts",
+    "./lib",
+    "./scrap.ts"
+  ],
+  "filesGlob": [
+    "./src/**/*.ts"
   ]
 }
