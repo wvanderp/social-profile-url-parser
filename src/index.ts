@@ -28,12 +28,8 @@ export const regexes: RegexObject[] = [
     },
     { type: 'youtube', name: 'YouTube', regex: /https?:\/\/([_a-z]{0,3}\.)?youtube\.com\/(user\/|channel\/|c\/)?([^\n "/]+)/gi },
 
-    // facebook
-    { type: 'instagram', name: 'Instagram', regex: /https?:\/\/(?:www\.)?instagram\.com\/([^\n "/]+)/gi },
-    { type: 'facebook', name: 'Facebook', regex: /https?:\/\/([_a-z]{0,3}\.|[_a-z]{2}-[_a-z]{2}\.)?(facebook|fb)\.com\/(groups\/)?([^\n "/]+)/gi },
-    // whatsapp
-    // https://faq.whatsapp.com/5913398998672934/?locale=nl_NL
-    { type: 'whatsapp', name: 'WhatsApp', regex: /(?:https?:\/\/)?(?:www\.)?wa\.me\/(\d+)/gi },
+  // Find real life example
+  { type: 'pandora', name: 'Pandora', regex: /https?:\/\/(www\.)?pandora\.com\/people\/([^\n /]+)/gi },
 
     { type: 'gravatar', name: 'Gravatar', regex: /https?:\/\/([_a-z]{0,3}\.)?gravatar\.com\/([^\n "/]+)/gi },
     { type: 'keybase', name: 'Keybase', regex: /https?:\/\/(?:www\.)?keybase\.io\/([^\n "/]+)/gi },
@@ -205,13 +201,13 @@ export interface ParseResult {
 export function parser(inputText: string): ParseResult[] {
     const resultsMap: Array<ParseResult> = [];
 
-    // eslint-disable-next-line no-restricted-syntax
-    for (const regex of regexes) {
-        let result;
-        // eslint-disable-next-line no-cond-assign
-        while ((result = regex.regex.exec(inputText)) !== null) {
-            // filter out empty results
-            const filteredResult = result.filter((item) => item !== undefined);
+  // eslint-disable-next-line no-restricted-syntax
+  for (const regex of regexes) {
+    let result;
+    // eslint-disable-next-line no-cond-assign
+    while ((result = regex.regex.exec(inputText)) !== null) {
+      // eslint-disable-next-line unicorn/prefer-at
+      const username = result[result.length - 1];
 
             const username = filteredResult.at(-1);
 
