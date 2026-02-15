@@ -1,5 +1,12 @@
 {
   "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./lib"
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
   "exclude": [
     "node_modules",
     "build",
@@ -10,8 +17,5 @@
     "./test.ts",
     "./lib",
     "./scrap.ts"
-  ],
-  "filesGlob": [
-    "./src/**/*.ts"
   ]
 }

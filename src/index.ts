@@ -32,7 +32,7 @@ export const regexes: { type:string; name:string, regex: RegExp }[] = [
   { type: 'myspace', name: 'MySpace', regex: /https?:\/\/(www\.)?myspace\.com\/([^\n /]+)/gi },
   { type: 'ok', name: 'Odnoklassniki', regex: /https?:\/\/(www\.)?ok\.ru\/(profile\/)?([^\n /]+)/gi },
 
-  // TODO: Find real life example
+  // Find real life example
   { type: 'pandora', name: 'Pandora', regex: /https?:\/\/(www\.)?pandora\.com\/people\/([^\n /]+)/gi },
 
   { type: 'pinterest', name: 'Pinterest', regex: /https?:\/\/([_a-z]{0,3}\.)?pinterest\.[.a-z]+\/([^\n +/]+)/gi },
@@ -164,6 +164,7 @@ export function parser(inputText: string): ParseResult[] {
     let result;
     // eslint-disable-next-line no-cond-assign
     while ((result = regex.regex.exec(inputText)) !== null) {
+      // eslint-disable-next-line unicorn/prefer-at
       const username = result[result.length - 1];
 
       resultsMap.push({

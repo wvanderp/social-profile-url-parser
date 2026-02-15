@@ -49,7 +49,7 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:compat/recommended",
     "plugin:ramda/recommended",
-    "plugin:sonarjs/recommended",
+    "plugin:sonarjs/recommended-legacy",
     "plugin:unicorn/recommended"
   ],
   "overrides": [
@@ -70,6 +70,7 @@
     }
   ],
   "rules": {
+    "linebreak-style": "off",
     "unicorn/prefer-node-protocol": "off",
     "unicorn/prefer-module": "off"
   }
