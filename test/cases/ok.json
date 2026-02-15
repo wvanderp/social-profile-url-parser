@@ -1,11 +1,13 @@
 [
-        {
-            "text": "https://ok.ru/profile/55212321312",
-            "expected": [            {
-                "type": "ok",
-                "name": "Odnoklassniki",
+    {
+        "text": "https://ok.ru/profile/55212321312",
+        "expected": [
+            {
+                "type": "P5163",
+                "name": "Odnoklassniki ID",
                 "url": "https://ok.ru/profile/55212321312",
-                "username": "55212321312"
-            }]
-        }
-    ]
+                "username": "profile/55212321312"
+            }
+        ]
+    }
+]

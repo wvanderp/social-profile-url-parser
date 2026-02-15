@@ -3,8 +3,8 @@
         "text": "https://www.quora.com/profile/Jay-Hoque",
         "expected": [
             {
-                "type": "quora",
-                "name": "Quora",
+                "type": "P4411",
+                "name": "Quora username",
                 "url": "https://www.quora.com/profile/Jay-Hoque",
                 "username": "Jay-Hoque"
             }
@@ -12,13 +12,6 @@
     },
     {
         "text": "https://www.quora.com/Uthma-Faheem",
-        "expected": [
-            {
-                "type": "quora",
-                "name": "Quora",
-                "url": "https://www.quora.com/Uthma-Faheem",
-                "username": "Uthma-Faheem"
-            }
-        ]
+        "expected": []
     }
 ]

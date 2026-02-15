@@ -63,50 +63,53 @@ console.log(`url: ${url}`);
 const propertiesPath = path.join(__dirname, '../data/properties.json');
 
 axios.get<WikidataResponse>(url).then((response) => {
-  console.log('got results writing to file...');
-  const { data } = response;
+    console.log('got results writing to file...');
+    const { data } = response;
 
-  // pull out the data from the response
-  const properties = data.results.bindings.map((binding) => {
-    const property = binding.property.value.split('/').pop();
+    // pull out the data from the response
+    const properties = data.results.bindings.map((binding) => {
+        const property = binding.property.value.split('/').pop();
 
-    if (!property) {
-      throw new Error('property is undefined');
+        if (!property) {
+            throw new Error('property is undefined');
+        }
+
+        // remove the ^ from the start of the urlpatern and remove the trailing $
+
+        const urlpatern = binding.urlpatern?.value.replace(/^\^/, '').replace(/\$$/, '');
+        const label = binding.propertyLabel.value;
+        const description = binding.propertyDescription?.value;
+        const altLabel = binding.propertyAltLabel?.value;
+
+        return {
+            property,
+            urlpaterns: urlpatern ? [urlpatern] : [],
+            propertyLabel: label,
+            propertyDescription: description,
+            propertyAltLabel: altLabel,
+        };
+    });
+
+    // group the properties by the property
+    const groupedProperties = properties.reduce((accumulator, property) => {
+        const { property: propertyId } = property;
+
+        if (accumulator[propertyId]) {
+            accumulator[propertyId].urlpaterns.push(...property.urlpaterns);
+        } else {
+            accumulator[propertyId] = property;
+        }
+
+        return accumulator;
+    }, {} as Record<string, typeof properties[0]>);
+
+    // create the folder if it doesn't exist
+    if (!fs.existsSync(path.dirname(propertiesPath))) {
+        fs.mkdirSync(path.dirname(propertiesPath));
     }
 
-    // remove the ^ from the start of the urlpatern and remove the trailing $
+    const filteredProperties = Object.values(groupedProperties)
+        .filter((property) => property.urlpaterns.length > 0);
 
-    const urlpatern = binding.urlpatern?.value.replace(/^\^/, '').replace(/\$$/, '');
-    const label = binding.propertyLabel.value;
-    const description = binding.propertyDescription?.value;
-    const altLabel = binding.propertyAltLabel?.value;
-
-    return {
-      property,
-      urlpaterns: urlpatern ? [urlpatern] : [],
-      propertyLabel: label,
-      propertyDescription: description,
-      propertyAltLabel: altLabel,
-    };
-  });
-
-  // group the properties by the property
-  const groupedProperties = properties.reduce((accumulator, property) => {
-    const { property: propertyId } = property;
-
-    if (accumulator[propertyId]) {
-      accumulator[propertyId].urlpaterns.push(...property.urlpaterns);
-    } else {
-      accumulator[propertyId] = property;
-    }
-
-    return accumulator;
-  }, {} as Record<string, typeof properties[0]>);
-
-  // create the folder if it doesn't exist
-  if (!fs.existsSync(path.dirname(propertiesPath))) {
-    fs.mkdirSync(path.dirname(propertiesPath));
-  }
-
-  fs.writeFileSync(propertiesPath, JSON.stringify(Object.values(groupedProperties), null, 2));
+    fs.writeFileSync(propertiesPath, JSON.stringify(filteredProperties, null, 2));
 });

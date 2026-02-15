@@ -1,11 +1,13 @@
 [
-        {
-            "text": "https://justblu333.tumblr.com/",
-            "expected": [{
-                "type": "tumblr",
-                "name": "Tumblr",
+    {
+        "text": "https://justblu333.tumblr.com/",
+        "expected": [
+            {
+                "type": "P3943",
+                "name": "Tumblr username",
                 "url": "https://justblu333.tumblr.com",
                 "username": "justblu333"
-            }]
-        }
-    ]
+            }
+        ]
+    }
+]

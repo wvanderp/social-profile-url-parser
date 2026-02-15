@@ -3,8 +3,8 @@
         "text": "https://medium.com/@salesflare-at",
         "expected": [
             {
-                "type": "medium",
-                "name": "Medium",
+                "type": "P3899",
+                "name": "Medium username",
                 "url": "https://medium.com/@salesflare-at",
                 "username": "salesflare-at"
             }
@@ -14,8 +14,8 @@
         "text": "https://medium.com/salesflare",
         "expected": [
             {
-                "type": "medium",
-                "name": "Medium",
+                "type": "P3899",
+                "name": "Medium username",
                 "url": "https://medium.com/salesflare",
                 "username": "salesflare"
             }

@@ -8,6 +8,11 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
+  "ignorePatterns": [
+    "lib/**",
+    "coverage/**",
+    "test/cases/**/*.json"
+  ],
   "settings": {
     "import/parsers": {
       "@typescript-eslint/parser": [
@@ -55,8 +60,7 @@
   "overrides": [
     {
       "files": [
-        "*spec.ts",
-        "*spec.xts"
+        "test/**/*.ts"
       ],
       "plugins": [
         "jest"
@@ -77,25 +81,17 @@
     "linebreak-style": "off",
     "unicorn/prefer-node-protocol": "off",
     "unicorn/prefer-module": "off",
-    "no-continue": "off",
-    "@typescript-eslint/indent": [
+    "unicorn/no-array-reduce": "off",
+    "sonarjs/no-invariant-returns": "off",
+    "@typescript-eslint/indent": "off",
+    "indent": [
       "error",
       4,
       {
-        "SwitchCase": 1,
-        "outerIIFEBody": 1
+        "SwitchCase": 1
       }
     ],
-    "kabab-case": "off",
-    "unicorn/filename-case": "off",
-    "@typescript-eslint/ban-ts-comment": [
-      "error",
-      {
-        "ts-expect-error": "allow-with-description",
-        "ts-ignore": "allow-with-description",
-        "ts-nocheck": "allow-with-description",
-        "ts-check": "allow-with-description"
-      }
-    ]
+    "no-restricted-syntax": "off",
+    "no-continue": "off"
   }
 }

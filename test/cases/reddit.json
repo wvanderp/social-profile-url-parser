@@ -3,8 +3,8 @@
         "text": "https://www.reddit.com/user/Doctor_McKay",
         "expected": [
             {
-                "type": "reddit",
-                "name": "Reddit",
+                "type": "P4265",
+                "name": "Reddit username",
                 "url": "https://www.reddit.com/user/Doctor_McKay",
                 "username": "Doctor_McKay"
             }
@@ -14,8 +14,8 @@
         "text": "https://www.reddit.com/u/CuttingWithScissors",
         "expected": [
             {
-                "type": "reddit",
-                "name": "Reddit",
+                "type": "P4265",
+                "name": "Reddit username",
                 "url": "https://www.reddit.com/u/CuttingWithScissors",
                 "username": "CuttingWithScissors"
             }

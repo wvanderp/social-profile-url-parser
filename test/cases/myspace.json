@@ -3,8 +3,8 @@
         "text": "https://myspace.com/coreyb0425",
         "expected": [
             {
-                "type": "myspace",
-                "name": "MySpace",
+                "type": "P3265",
+                "name": "Myspace ID",
                 "url": "https://myspace.com/coreyb0425",
                 "username": "coreyb0425"
             }
