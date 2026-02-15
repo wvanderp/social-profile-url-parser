@@ -30,9 +30,9 @@
   ],
   "scripts": {
     "build": "rimraf lib && tsc -p tsconfig.build.json && npm run buildDocs",
-    "coverage": "npm run build && vitest run --globals test/index.test.ts --coverage",
+    "coverage": "npm run build && vitest run --coverage",
     "lint": "tsc -p tsconfig.build.json --noEmit && eslint --ext ts,tsx,js src/",
-    "test": "npm run build && vitest run --globals test/index.test.ts",
+    "test": "npm run build && vitest run",
     "buildDocs": "jsdoc2md --template README.hbs --files lib/index.js > README.md",
     "collect": "ts-node ./scripts/collect.ts"
   },

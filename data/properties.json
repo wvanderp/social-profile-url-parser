@@ -12642,10 +12642,10 @@
   {
     "property": "P3789",
     "urlpaterns": [
-      "https?:\\/\\/(?:www\\.)?(?:(?:t|telegram)\\.me|telegram\\.dog)(?:\\/s)?\\/([\\p{L}\\d_]{5,})",
       "https?:\\/\\/t\\.me\\/([\\p{L}\\d_]{5,})",
       "https?:\\/\\/t\\.me\\/(\\w+)",
-      "https?:\\/\\/web\\.telegram\\.org\\/k\\/#(\\d+)"
+      "https?:\\/\\/(?:www\\.)?(?:(?:t|telegram)\\.me|telegram\\.dog)(?:\\/s)?\\/([A-Za-z0-9_]{5,})",
+      "https?:\\/\\/web\\.telegram\\.org\\/(?:k|a)\\/#@?(-?[A-Za-z0-9_]+)"
     ],
     "propertyLabel": "Telegram username",
     "propertyDescription": "this item's username, channel or group on Telegram",
@@ -14029,30 +14029,6 @@
   {
     "property": "P4033",
     "urlpaterns": [
-      "https?:\\/\\/chaos\\.social\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/climatejustice\\.global\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/masto\\.nobigtech\\.es\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/social\\.taker\\.fr\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/mamot\\.fr\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/mastodon\\.art\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/tenforward\\.social\\/web\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/mastodon\\.technology\\/web\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/mastodon\\.social\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/fosstodon\\.org\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/social\\.bund\\.de\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/mstdn\\.social\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/social\\.linksfraktion\\.de\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/mastodon\\.online\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/norden\\.social\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/social\\.bau-ha\\.us\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/legal\\.social\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/social\\.cologne\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/gruene\\.social\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/hessen\\.social\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/bonn\\.social\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/social\\.tchncs\\.de\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/machteburch\\.social\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/digitalcourage\\.social\\/@([0-9a-zA-Z_]+)",
       "https?:\\/\\/social\\.network\\.europa\\.eu\\/@([0-9a-zA-Z_]+)",
       "https?:\\/\\/mas\\.to\\/@([0-9a-zA-Z_]+)",
       "https?:\\/\\/xn--baw-joa\\.social\\/@([0-9a-zA-Z_]+)",
@@ -14082,7 +14058,31 @@
       "https://openbiblio\\.social/@([0-9a-zA-Z_]+)",
       "https://mastodon\\.de/@([0-9a-zA-Z_]+)",
       "https://cosocial\\.ca/@([0-9a-zA-Z_]+)",
-      "https://social\\.coop/@([0-9a-zA-Z_]+)"
+      "https://social\\.coop/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/chaos\\.social\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/climatejustice\\.global\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/masto\\.nobigtech\\.es\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/social\\.taker\\.fr\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/mamot\\.fr\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/mastodon\\.art\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/tenforward\\.social\\/web\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/mastodon\\.technology\\/web\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/mastodon\\.social\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/fosstodon\\.org\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/social\\.bund\\.de\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/mstdn\\.social\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/social\\.linksfraktion\\.de\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/mastodon\\.online\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/norden\\.social\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/social\\.bau-ha\\.us\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/legal\\.social\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/social\\.cologne\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/gruene\\.social\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/hessen\\.social\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/bonn\\.social\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/social\\.tchncs\\.de\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/machteburch\\.social\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/digitalcourage\\.social\\/@([0-9a-zA-Z_]+)"
     ],
     "propertyLabel": "Mastodon address",
     "propertyDescription": "address on the Mastodon decentralized social network (the form is 'user@server.domain' without a leading '@')",
@@ -18646,9 +18646,9 @@
   {
     "property": "P4903",
     "urlpaterns": [
-      "https?:\\/\\/(?:www\\.)?georgiaencyclopedia\\.org\\/articles\\/(counties-cities-neighborhoods\\/[^\\/]+)",
       "https?:\\/\\/(?:www\\.)?georgiaencyclopedia\\.org\\/articles\\/(sports-outdoor-recreation\\/[^\\/]+)",
-      "https?:\\/\\/(?:www\\.)?georgiaencyclopedia\\.org\\/articles\\/((?:(?:arts-culture|business-economy|counties-cities-neighborhoods|education|geography-environment|government-politics|history-archaeology|people|science-medicine|sports-outdoor-recreation)\\/)?[a-z\\d][a-z\\-–\\d]+)"
+      "https?:\\/\\/(?:www\\.)?georgiaencyclopedia\\.org\\/articles\\/((?:(?:arts-culture|business-economy|counties-cities-neighborhoods|education|geography-environment|government-politics|history-archaeology|people|science-medicine|sports-outdoor-recreation)\\/)?[a-z\\d][a-z\\-–\\d]+)",
+      "https?:\\/\\/(?:www\\.)?georgiaencyclopedia\\.org\\/articles\\/(counties-cities-neighborhoods\\/[^\\/]+)"
     ],
     "propertyLabel": "New Georgia Encyclopedia ID",
     "propertyDescription": "identifier of a topic in the online New Georgia Encyclopedia",
@@ -31437,6 +31437,16 @@
     "propertyLabel": "Vectrex Game Database ID",
     "propertyDescription": "identifier of a video game in the Vectrex Game Database",
     "propertyAltLabel": "VGDB ID"
+  },
+  {
+    "property": "P7650",
+    "urlpaterns": [
+      "https?:\\/\\/open\\.weixin\\.qq\\.com\\/qr\\/code\\?username=([A-Za-z][A-Za-z0-9_-]{5,})",
+      "weixin:\\/\\/dl\\/chat\\?([A-Za-z][A-Za-z0-9_-]{5,})"
+    ],
+    "propertyLabel": "WeChat ID",
+    "propertyDescription": "account identifier of this item on WeChat/Weixin Official Account Platform",
+    "propertyAltLabel": "WeChat Official Account, WeChat public account, Weixin ID, WeiXin ID, Weixin identifier, WeiXin identifier"
   },
   {
     "property": "P7651",

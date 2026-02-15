@@ -1,3 +1,13 @@
 [
-    {"text":"https://www.snapchat.com/add/cbsnews","expected":[{"type":"snapchat","name":"Snapchat","url":"https://www.snapchat.com/add/cbsnews","username":"cbsnews"}]}
+    {
+        "text": "https://www.snapchat.com/add/cbsnews",
+        "expected": [
+            {
+                "type": "P2984",
+                "name": "Snapchat username",
+                "url": "https://www.snapchat.com/add/cbsnews",
+                "username": "cbsnews"
+            }
+        ]
+    }
 ]

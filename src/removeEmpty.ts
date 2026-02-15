@@ -1,7 +1,3 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-restricted-syntax */
-// @ts-nocheck -- this file is difficult to type check
-
 /**
  * this function removes keys which are undefined.
  * because although javascript doesn't care if a key does not exist of if it is undefined.
@@ -15,10 +11,17 @@
  * @returns {T} the cleaned object
  */
 export default function removeEmpty<T>(object: T): T {
-    for (const key of Object.keys(object)) {
-        if (object[key] && typeof object[key] === 'object') {
-            removeEmpty(object[key]);
-        } else if (object[key] === undefined) delete object[key];
+    const mutableObject = object as Record<string, unknown>;
+
+    for (const key of Object.keys(mutableObject)) {
+        const value = mutableObject[key];
+
+        if (value && typeof value === 'object') {
+            removeEmpty(value as Record<string, unknown>);
+        } else if (value === undefined) {
+            delete mutableObject[key];
+        }
     }
+
     return object;
 }

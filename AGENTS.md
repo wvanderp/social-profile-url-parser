@@ -13,3 +13,7 @@ This library does not need any dependencies, so it should be possible to use it 
 Any fixes to the regex should be made on wikidata, it CANT and SHOULD NOT be fixed in the code.
 The code just pulls the regex from wikidata and uses it, if the regex is wrong, then it should be fixed on wikidata, not in the code.
 The agent should give suggestions on how to fix the regex on wikidata, but it should not fix it in the code, because that would be a temporary fix and would not solve the problem in the long run. The regex should be fixed on wikidata so that it is correct for everyone who uses it, not just for this specific codebase.
+
+---
+
+Never delete tests, even if they are failing, because they provide valuable information about what is currently not working and what needs to be fixed. If you really want to remove a test, you instruct the human to delete it for you.
