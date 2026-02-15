@@ -3,5 +3,6 @@
         "urlpatern",
         "urlpaterns",
         "wikibase"
-    ]
+    ],
+    "editor.formatOnSave": true
 }

@@ -3,8 +3,8 @@
         "text": "https://weibo.com/guanzhilin",
         "expected": [
             {
-                "type": "weibo",
-                "name": "Weibo",
+                "type": "P3579",
+                "name": "Weibo user ID",
                 "url": "https://weibo.com/guanzhilin",
                 "username": "guanzhilin"
             }

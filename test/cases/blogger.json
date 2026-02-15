@@ -3,8 +3,8 @@
         "text": "https://www.blogger.com/profile/00147102648704917694",
         "expected": [
             {
-                "type": "blogger",
-                "name": "Blogger",
+                "type": "P8772",
+                "name": "Blogger user profile ID",
                 "url": "https://www.blogger.com/profile/00147102648704917694",
                 "username": "00147102648704917694"
             }

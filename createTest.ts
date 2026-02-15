@@ -1,10 +1,10 @@
 import fs from 'fs';
-import {regexes} from './src';
+import { regexes } from './src/index';
 
-regexes.forEach((regex) => {
+for (const regex of regexes) {
     const path = `./test/cases/${regex.type}.json`;
     if (fs.existsSync(path)) {
-        return;
+        continue;
     }
 
     fs.writeFileSync(path, JSON.stringify([
@@ -14,8 +14,8 @@ regexes.forEach((regex) => {
                 type: regex.type,
                 name: regex.name,
                 url: '',
-                username: ''
-            }]
-        }
+                username: '',
+            }],
+        },
     ]));
-});
+}

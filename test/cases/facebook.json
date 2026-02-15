@@ -3,8 +3,8 @@
         "text": "https://www.facebook.com/slackhq",
         "expected": [
             {
-                "type": "facebook",
-                "name": "Facebook",
+                "type": "P2013",
+                "name": "Facebook username",
                 "url": "https://www.facebook.com/slackhq",
                 "username": "slackhq"
             }
@@ -14,8 +14,8 @@
         "text": "https://nl-nl.facebook.com/slacklocalized",
         "expected": [
             {
-                "type": "facebook",
-                "name": "Facebook",
+                "type": "P2013",
+                "name": "Facebook username",
                 "url": "https://nl-nl.facebook.com/slacklocalized",
                 "username": "slacklocalized"
             }

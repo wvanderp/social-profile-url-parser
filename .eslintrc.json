@@ -8,6 +8,11 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
+  "ignorePatterns": [
+    "lib/**",
+    "coverage/**",
+    "test/cases/**/*.json"
+  ],
   "settings": {
     "import/parsers": {
       "@typescript-eslint/parser": [
@@ -55,7 +60,7 @@
   "overrides": [
     {
       "files": [
-        "tests/**/*.ts"
+        "test/**/*.ts"
       ],
       "rules": {
         // Mocha doesn’t like it when we use arrows
@@ -72,6 +77,18 @@
   "rules": {
     "linebreak-style": "off",
     "unicorn/prefer-node-protocol": "off",
-    "unicorn/prefer-module": "off"
+    "unicorn/prefer-module": "off",
+    "unicorn/no-array-reduce": "off",
+    "sonarjs/no-invariant-returns": "off",
+    "@typescript-eslint/indent": "off",
+    "indent": [
+      "error",
+      4,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "no-restricted-syntax": "off",
+    "no-continue": "off"
   }
 }

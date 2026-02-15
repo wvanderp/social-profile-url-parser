@@ -3,7 +3,7 @@
         "text": "https://www.reddit.com/r/adventofcode/",
         "expected": [
             {
-                "type": "subreddit",
+                "type": "P3984",
                 "name": "subreddit",
                 "url": "https://www.reddit.com/r/adventofcode/",
                 "username": "adventofcode"
