@@ -6,6 +6,8 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -13,20 +15,22 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16, 18, "latest"]
+        node-version: [18, 20, 22]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
 
       - name: use node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          cache: "npm"
 
       - name: npm install, build, lint, and test
         run: |
-          npm i
+          npm ci
           npm run build
           npm run lint
           npm run test

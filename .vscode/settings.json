@@ -4,13 +4,9 @@
         "regexes",
         "weibo",
         "wvdp"
+        "urlpatern",
+        "urlpaterns",
+        "wikibase"
     ],
-    "json.schemas": [
-        {
-            "fileMatch": [
-                "test/cases/**/*.json",
-            ],
-            "url": "./testcase.schema.json"
-        }
-    ]  
+    "editor.formatOnSave": true
 }

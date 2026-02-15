@@ -3,8 +3,8 @@
         "text": "https://www.instagram.com/chrissysface/",
         "expected": [
             {
-                "type": "instagram",
-                "name": "Instagram",
+                "type": "P2003",
+                "name": "Instagram username",
                 "url": "https://www.instagram.com/chrissysface",
                 "username": "chrissysface"
             }

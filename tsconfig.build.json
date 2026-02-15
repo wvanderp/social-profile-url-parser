@@ -1,10 +1,21 @@
 {
   "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./lib"
+  },
   "include": [
-    "./src/index.ts"
+    "src/**/*.ts"
   ],
   "exclude": [
     "node_modules",
-    "createTest.ts"
+    "build",
+    "./nyc_output",
+    "coverage",
+    "diff",
+    "tests",
+    "./test.ts",
+    "./lib",
+    "./scrap.ts"
   ]
 }

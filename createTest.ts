@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-syntax */
 import fs from 'fs';
-import { ParseResult, regexes } from './src';
+import { regexes } from './src/index';
 
 for (const regex of regexes) {
     const path = `./test/cases/${regex.type}.json`;
@@ -19,8 +19,7 @@ for (const regex of regexes) {
                 name: regex.name,
                 url: '',
                 username: '',
-                deprecated: regex.deprecated,
-            }] as ParseResult[],
+            }],
         },
     ]));
 }

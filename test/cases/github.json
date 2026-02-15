@@ -3,8 +3,8 @@
         "text": "https://github.com/wvanderp/WebcamMap",
         "expected": [
             {
-                "type": "github",
-                "name": "GitHub",
+                "type": "P2037",
+                "name": "GitHub account",
                 "url": "https://github.com/wvanderp",
                 "username": "wvanderp"
             }

@@ -1,17 +1,72 @@
 # Social Profile URL Parser
 
-The `Social Profile URL Parser` is a Node.js library that allows you to extract social media profile URLs from a block of text. It is useful for situations where you have a large amount of text that contains multiple social media profile links and you want to extract and organize them in a structured way.
+`social-profile-url-parser` extracts social profile URLs and usernames from plain text.
 
-To use the library, you can simply pass in a string of text and the library will return an array of objects containing the social media platform name, profile URL, and username for each link found. You can also specify which platforms you want to extract links for by passing in an array of platform names.
+It works in both Node.js and browser environments, has no runtime dependencies, and ships with regex patterns sourced from Wikidata.
 
-The library supports a wide range of popular social media platforms, including Facebook, Twitter, Instagram, LinkedIn, and more. It is easy to use and can save you a lot of time and effort when working with large amounts of text containing social media profile links.
+## Install
+
+```bash
+npm install social-profile-url-parser
+```
+
+## Usage (Node.js)
+
+```js
+import { parser } from 'social-profile-url-parser';
+
+const text = 'Find me at https://twitter.com/jack and https://github.com/octocat';
+const results = parser(text);
+
+console.log(results);
+// [
+//   {
+//     type: 'P2002',
+//     name: 'X username',
+//     url: 'https://twitter.com/jack',
+//     username: 'jack'
+//   },
+//   ...
+// ]
+```
+
+## Usage (Browser, no bundler)
+
+You can use an ESM CDN to run this package directly in the browser.
+
+```html
+<script type="module">
+	import { parser } from 'https://esm.sh/social-profile-url-parser';
+
+	const text = 'https://www.instagram.com/zuck/';
+	console.log(parser(text));
+</script>
+```
+
+## Data source: Wikidata regex patterns
+
+The URL regex patterns are collected from Wikidata property `P8966` (URL match pattern) and stored in `data/properties.json`.
+
+This library intentionally does **not** maintain custom regex fixes in code. If a pattern is wrong, the long-term fix should happen on Wikidata.
+
+## Missing URL or incorrect match
+
+If a URL is not detected or is detected incorrectly:
+
+1. Open an issue in this repository with an example URL.
+2. Optionally (and preferred), fix the pattern on Wikidata first.
+3. Then open/update the GitHub issue so we can refresh `data/properties.json` and publish the update.
+
+This keeps fixes upstream so everyone using Wikidata-backed tooling benefits.
+
+## Exports
+
+- `parser(inputText: string): ParseResult[]` — parse social profile URLs from text.
+- `regexes: RegexDefinition[]` — compiled regex definitions loaded from `data/properties.json`.
 
 ## Support the project
 
-There are many ways you can contribute to the development and improvement of the Social Profile URL Parser library. One way is by submitting code changes and bug fixes through pull requests.
-Your pull request will be reviewed by the project maintainers and, if accepted, will be merged into the main codebase.
-
-Another way you can support the project is by providing feedback and suggestions. You can do this by opening an issue in the repository and describing your suggestion or problem. This allows the maintainers to track and address your feedback in a structured way.
+Issues and pull requests are welcome. For URL matching problems, please include concrete examples and preferably a Wikidata reference/update link.
 
 ## Documentation
 
@@ -19,7 +74,7 @@ Another way you can support the project is by providing feedback and suggestions
 
 ## parser(inputText) ⇒ <code>Array.&lt;ParseResult&gt;</code>
 **Kind**: global function  
-**Returns**: <code>Array.&lt;ParseResult&gt;</code> - an array with all the found social links  
+**Returns**: <code>Array.&lt;ParseResult&gt;</code> - an array with all the found matches  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -29,23 +84,5 @@ Another way you can support the project is by providing feedback and suggestions
 ```js
 import { parser } from 'social-profile-url-parser';
 
-const result = parser(`
-   slack   facebook    https://www.facebook.com/slackhq/
-   SlackHQ twitter     https://twitter.com/SlackHQ
-`)
-
-result === [
-    {
-        type: 'facebook',
-        name: 'Facebook',
-        username: 'slack',
-        url: 'https://www.facebook.com/slackhq/'
-    },
-    {
-       type: 'twitter',
-       name: 'Twitter',
-       username: 'SlackHQ',
-       url: 'https://twitter.com/SlackHQ'
-   }
-];
+const result = parser('See https://twitter.com/jack for details');
 ```

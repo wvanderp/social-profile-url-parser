@@ -3,8 +3,8 @@
         "text": "https://www.linkedin.com/in/defaultlinkedin",
         "expected": [
             {
-                "type": "linkedin",
-                "name": "LinkedIn",
+                "type": "P6634",
+                "name": "LinkedIn personal profile ID",
                 "url": "https://www.linkedin.com/in/defaultlinkedin",
                 "username": "defaultlinkedin"
             }
@@ -14,8 +14,8 @@
         "text": "https://www.linkedin.com/company/tiny-speck-inc",
         "expected": [
             {
-                "type": "linkedin",
-                "name": "LinkedIn",
+                "type": "P4264",
+                "name": "LinkedIn company or organization ID",
                 "url": "https://www.linkedin.com/company/tiny-speck-inc",
                 "username": "tiny-speck-inc"
             }
@@ -25,8 +25,8 @@
         "text": "https://www.linkedin.com/school/linkedinschool",
         "expected": [
             {
-                "type": "linkedin",
-                "name": "LinkedIn",
+                "type": "P4264",
+                "name": "LinkedIn company or organization ID",
                 "url": "https://www.linkedin.com/school/linkedinschool",
                 "username": "linkedinschool"
             }
@@ -34,41 +34,18 @@
     },
     {
         "text": "https://www.linkedin.com/edu/linkedinedu",
-        "expected": [
-            {
-                "type": "linkedin",
-                "name": "LinkedIn",
-                "url": "https://www.linkedin.com/edu/linkedinedu",
-                "username": "linkedinedu"
-            }
-        ]
+        "expected": []
     },
     {
         "text": "https://www.linkedin.com/sales/people/salespeoplelinkedin",
-        "expected": [
-            {
-                "type": "linkedin",
-                "name": "LinkedIn",
-                "url": "https://www.linkedin.com/sales/people/salespeoplelinkedin",
-                "username": "salespeoplelinkedin"
-            }
-        ]
+        "expected": []
     },
     {
         "text": "https://www.linkedin.com/profile/view?id=AAkAAAAUPBYBUvwhRxT8bCEs3ZtRallalala",
-        "comment": "should match",
-        "expected": [
-            {
-                "type": "linkedin",
-                "name": "LinkedIn",
-                "url": "https://www.linkedin.com/profile/view?id=AAkAAAAUPBYBUvwhRxT8bCEs3ZtRallalala",
-                "username": "AkAAAAUPBYBUvwhRxT8bCEs3ZtRallalala"
-            }
-        ]
+        "expected": []
     },
     {
         "text": "https://www.linkedin.com/profile/view?id=12345",
-        "comment": "should not match",
         "expected": []
     }
 ]

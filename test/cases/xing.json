@@ -1,16 +1,17 @@
 [
-        {
-            "text": "https://www.xing.com/profile/Frank_Hoefer4",
-            "expected": [{
-                "type": "xing",
-                "name": "Xing",
+    {
+        "text": "https://www.xing.com/profile/Frank_Hoefer4",
+        "expected": [
+            {
+                "type": "P7176",
+                "name": "XING profile ID",
                 "url": "https://www.xing.com/profile/Frank_Hoefer4",
                 "username": "Frank_Hoefer4"
-            }]
-        },
-        {
-            "text": "https://www.xing.com/Frank_Hoefer4",
-            "comment": "should not match",
-            "expected": []
-        }
-    ]
+            }
+        ]
+    },
+    {
+        "text": "https://www.xing.com/Frank_Hoefer4",
+        "expected": []
+    }
+]
