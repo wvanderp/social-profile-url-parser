@@ -56,15 +56,31 @@ ORDER BY (xsd:integer(STRAFTER(STR(?property), "P")))
 `;
 
 const url = `https://query.wikidata.org/sparql?format=json&query=${encodeURIComponent(query)}`;
+const DEFAULT_USER_AGENT = 'social-profile-url-parser/2.0.0 (https://github.com/wvanderp/social-profile-url-parser; https://github.com/wvanderp/social-profile-url-parser/issues)';
+const userAgent = process.env.WIKIMEDIA_USER_AGENT || DEFAULT_USER_AGENT;
+const requestTimeoutMs = 30_000;
 
 console.log('Updating properties.json...');
 console.log(`url: ${url}`);
+console.log(`Using User-Agent: ${userAgent}`);
 
 const propertiesPath = path.join(__dirname, '../data/properties.json');
 
-axios.get<WikidataResponse>(url).then((response) => {
-    console.log('got results writing to file...');
-    const { data } = response;
+const fetchWikidata = async () => {
+    const response = await axios.get<WikidataResponse>(url, {
+        timeout: requestTimeoutMs,
+        headers: {
+            'User-Agent': userAgent,
+            Accept: 'application/sparql-results+json',
+        },
+    });
+
+    return response.data;
+};
+
+const run = async () => {
+    const data = await fetchWikidata();
+    console.log('Got results, writing to file...');
 
     // pull out the data from the response
     const properties = data.results.bindings.map((binding) => {
@@ -112,4 +128,9 @@ axios.get<WikidataResponse>(url).then((response) => {
         .filter((property) => property.urlpaterns.length > 0);
 
     fs.writeFileSync(propertiesPath, JSON.stringify(filteredProperties, null, 2));
+};
+
+run().catch((error) => {
+    console.error('Failed to update properties.json:', error);
+    process.exitCode = 1;
 });

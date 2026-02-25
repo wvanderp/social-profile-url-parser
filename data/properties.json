@@ -254,7 +254,8 @@
       "https?:\\/\\/archive\\.org\\/search\\.php\\?query=external-identifier%3A%22urn%3Aimdb%3A(\\w{2}\\d+)",
       "https?:\\/\\/contribute\\.imdb\\.com\\/updates\\/edit\\?ref_=nm_cn_edt&edit=legacy%2Fname%2F(.+)%2F",
       "https?:\\/\\/contribute\\.imdb\\.com\\/updates\\/edit\\?update=(\\w{2}\\d+)",
-      "https?:\\/\\/(?:(?:www|m)\\.)?imdb\\.com\\/(?:(?:de|fr|pt|es|es-es)\\/)?(?:(?:search\\/)?title(?:\\?companies=|\\/)|name\\/|event\\/|news\\/|company\\/)(\\w{2}\\d+)"
+      "https?:\\/\\/(?:(?:www|m)\\.)?imdb\\.com\\/(?:(?:de|fr|pt|es|es-es|it)\\/)?(?:(?:search\\/)?title(?:\\?companies=|\\/)|name\\/|event\\/|news\\/|company\\/)(\\w{2}\\d+)",
+      "https?:\\/\\/pro-labs\\.imdb\\.com\\/name\\/(\\w{2}\\d+)"
     ],
     "propertyLabel": "IMDb ID",
     "propertyDescription": "identifier for the IMDb (with prefix 'tt', 'nm', 'co', 'ev', 'ch' or 'ni')",
@@ -2167,7 +2168,7 @@
     ],
     "propertyLabel": "Library of Congress item ID (LCCN bibliographic)",
     "propertyDescription": "record number for entries in the LC bibliographic catalog/OPAC (for authority records use P244)",
-    "propertyAltLabel": "Congress Library Control Number, lccnbib, Library of Congress Card Number (bibliographic), Library of Congress Control Number (bibliographic), LC accession number, LC acquisition ID, LC Control Number (bibliographic), LC edition (LCCN), LC edition ID (LCCN), LC editions (LCCN), Library of Congress Control Number (LCCN bibliographic)"
+    "propertyAltLabel": "Congress Library Control Number, lccnbib, Library of Congress Card Number (bibliographic), Library of Congress Control Number (bibliographic), LC accession number, LC acquisition ID, LC Control Number (bibliographic), LC edition (LCCN), LC edition ID (LCCN), LC editions (LCCN), Library of Congress Control Number (LCCN bibliographic), LCCN bibliographic ID"
   },
   {
     "property": "P1146",
@@ -4156,7 +4157,7 @@
     "urlpaterns": [
       "https?:\\/\\/kaiserhof\\.geschichte\\.lmu\\.de\\/([0-9]{5})"
     ],
-    "propertyLabel": "Kaiserhof ID",
+    "propertyLabel": "Kaiser und Höfe ID",
     "propertyDescription": "identifier in the personal database of the courtiers of the Austrian Habsburg imperial line and the branch lines",
     "propertyAltLabel": "Kaiserhof ID, KH"
   },
@@ -6777,8 +6778,8 @@
   {
     "property": "P2529",
     "urlpaterns": [
-      "https?:\\/\\/(?:www\\.)?csfd\\.(?:cz|sk)\\/film\\/\\d+[^\\/]+\\/(\\d+)",
-      "https?:\\/\\/(?:www\\.)?csfd\\.(?:cz|sk)\\/film\\/(\\d+)[^\\/\\s]+\\/?"
+      "https?:\\/\\/(?:www\\.)?csfd\\.(?:cz|sk)\\/film\\/\\d+[^\\/]*\\/(\\d+)",
+      "https?:\\/\\/(?:www\\.)?csfd\\.(?:cz|sk)\\/film\\/(\\d+)"
     ],
     "propertyLabel": "ČSFD film ID",
     "propertyDescription": "identifier for a movie in the Czech-Slovak film database ČSFD",
@@ -9231,7 +9232,7 @@
   {
     "property": "P3138",
     "urlpaterns": [
-      "https?:\\/\\/(?:www\\.)?ofdb\\.de\\/film\\/([1-9]\\d{0,5})"
+      "https?:\\/\\/(?:www\\.)?ofdb\\.de\\/film\\/([1-9]\\d{0,5})(?:,[\\p{L}-]+\\/?)?"
     ],
     "propertyLabel": "OFDb film ID",
     "propertyDescription": "identifier for a film (movie) in the German Online-Filmdatenbank website",
@@ -11775,8 +11776,8 @@
   {
     "property": "P3634",
     "urlpaterns": [
-      "https?:\\/\\/(?:www\\.)?metmuseum\\.org\\/art\\/collection\\/search\\/([1-9][0-9]{0,8})",
-      "https?:\\/\\/(?:www\\.)?metmuseum\\.org\\/collection\\/the-collection-online\\/search\\/([1-9][0-9]{0,8})"
+      "https?:\\/\\/(?:www\\.)?metmuseum\\.org\\/collection\\/the-collection-online\\/search\\/([1-9][0-9]{0,8})",
+      "https://www.metmuseum.org/art/collection/search/436602"
     ],
     "propertyLabel": "The Met object ID",
     "propertyDescription": "object identifier for artworks at the Metropolitan Museum of Art",
@@ -14029,6 +14030,30 @@
   {
     "property": "P4033",
     "urlpaterns": [
+      "https?:\\/\\/chaos\\.social\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/climatejustice\\.global\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/masto\\.nobigtech\\.es\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/social\\.taker\\.fr\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/mamot\\.fr\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/mastodon\\.art\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/tenforward\\.social\\/web\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/mastodon\\.technology\\/web\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/mastodon\\.social\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/fosstodon\\.org\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/social\\.bund\\.de\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/mstdn\\.social\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/social\\.linksfraktion\\.de\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/mastodon\\.online\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/norden\\.social\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/social\\.bau-ha\\.us\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/legal\\.social\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/social\\.cologne\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/gruene\\.social\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/hessen\\.social\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/bonn\\.social\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/social\\.tchncs\\.de\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/machteburch\\.social\\/@([0-9a-zA-Z_]+)",
+      "https?:\\/\\/digitalcourage\\.social\\/@([0-9a-zA-Z_]+)",
       "https?:\\/\\/social\\.network\\.europa\\.eu\\/@([0-9a-zA-Z_]+)",
       "https?:\\/\\/mas\\.to\\/@([0-9a-zA-Z_]+)",
       "https?:\\/\\/xn--baw-joa\\.social\\/@([0-9a-zA-Z_]+)",
@@ -14058,31 +14083,7 @@
       "https://openbiblio\\.social/@([0-9a-zA-Z_]+)",
       "https://mastodon\\.de/@([0-9a-zA-Z_]+)",
       "https://cosocial\\.ca/@([0-9a-zA-Z_]+)",
-      "https://social\\.coop/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/chaos\\.social\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/climatejustice\\.global\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/masto\\.nobigtech\\.es\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/social\\.taker\\.fr\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/mamot\\.fr\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/mastodon\\.art\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/tenforward\\.social\\/web\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/mastodon\\.technology\\/web\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/mastodon\\.social\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/fosstodon\\.org\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/social\\.bund\\.de\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/mstdn\\.social\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/social\\.linksfraktion\\.de\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/mastodon\\.online\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/norden\\.social\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/social\\.bau-ha\\.us\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/legal\\.social\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/social\\.cologne\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/gruene\\.social\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/hessen\\.social\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/bonn\\.social\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/social\\.tchncs\\.de\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/machteburch\\.social\\/@([0-9a-zA-Z_]+)",
-      "https?:\\/\\/digitalcourage\\.social\\/@([0-9a-zA-Z_]+)"
+      "https://social\\.coop/@([0-9a-zA-Z_]+)"
     ],
     "propertyLabel": "Mastodon address",
     "propertyDescription": "address on the Mastodon decentralized social network (the form is 'user@server.domain' without a leading '@')",
@@ -18595,8 +18596,8 @@
     "urlpaterns": [
       "https?:\\/\\/(?:www\\.)?xgames\\.com\\/athletes\\/([1-9]\\d*)"
     ],
-    "propertyLabel": "X Games athlete ID (archived)",
-    "propertyDescription": "identifier for a X Games athlete at xgames.com",
+    "propertyLabel": "X Games athlete ID number (archived)",
+    "propertyDescription": "former numeric identifier for a X Games athlete at xgames.com (archived link)",
     "propertyAltLabel": "ESPN X Games athlete ID (archived), XGames athlete ID (archived)"
   },
   {
@@ -18646,9 +18647,9 @@
   {
     "property": "P4903",
     "urlpaterns": [
+      "https?:\\/\\/(?:www\\.)?georgiaencyclopedia\\.org\\/articles\\/(counties-cities-neighborhoods\\/[^\\/]+)",
       "https?:\\/\\/(?:www\\.)?georgiaencyclopedia\\.org\\/articles\\/(sports-outdoor-recreation\\/[^\\/]+)",
-      "https?:\\/\\/(?:www\\.)?georgiaencyclopedia\\.org\\/articles\\/((?:(?:arts-culture|business-economy|counties-cities-neighborhoods|education|geography-environment|government-politics|history-archaeology|people|science-medicine|sports-outdoor-recreation)\\/)?[a-z\\d][a-z\\-–\\d]+)",
-      "https?:\\/\\/(?:www\\.)?georgiaencyclopedia\\.org\\/articles\\/(counties-cities-neighborhoods\\/[^\\/]+)"
+      "https?:\\/\\/(?:www\\.)?georgiaencyclopedia\\.org\\/articles\\/((?:(?:arts-culture|business-economy|counties-cities-neighborhoods|education|geography-environment|government-politics|history-archaeology|people|science-medicine|sports-outdoor-recreation)\\/)?[a-z\\d][a-z\\-–\\d]+)"
     ],
     "propertyLabel": "New Georgia Encyclopedia ID",
     "propertyDescription": "identifier of a topic in the online New Georgia Encyclopedia",
@@ -32298,7 +32299,7 @@
   {
     "property": "P7807",
     "urlpaterns": [
-      "https?:\\/\\/icd\\.who\\.int\\/browse\\/\\d\\d\\d\\d-\\d\\d\\/mms\\/[a-z][a-z]#([1-9]\\d*)"
+      "https?:\\/\\/icd\\.who\\.int\\/browse\\/latest-release\\/foundation\\/[a-z][a-z]#([1-9]\\d*)"
     ],
     "propertyLabel": "ICD-11 ID (Foundation)",
     "propertyDescription": "identifier in ICD terminology of diseases - Version 11 (foundation ID) (not Mortality and Morbidity Statistics ID)"
@@ -32977,15 +32978,6 @@
     ],
     "propertyLabel": "Mendeley publication ID",
     "propertyDescription": "identifier for a scientific publication on the Mendeley.com website"
-  },
-  {
-    "property": "P7918",
-    "urlpaterns": [
-      "https?:\\/\\/(?:www\\.)?medias19\\.org\\/index\\.php\\?id=(\\d+)"
-    ],
-    "propertyLabel": "Médias 19 ID",
-    "propertyDescription": "identifier for a 19th century French journalist on the Médias 19 website",
-    "propertyAltLabel": "Medias 19 ID"
   },
   {
     "property": "P7919",
@@ -36993,7 +36985,7 @@
     ],
     "propertyLabel": "Max Movie film ID",
     "propertyDescription": "identifier for films in the database of the magazine Max Movie",
-    "propertyAltLabel": "Max Movie ID"
+    "propertyAltLabel": "Max Movie ID, MaxMovie film ID"
   },
   {
     "property": "P8919",
@@ -43341,7 +43333,7 @@
     ],
     "propertyLabel": "Lur Encyclopedic Dictionary ID",
     "propertyDescription": "identifier for an entry in the Lur Hiztegi Entziklopedikoa (Lur Encyclopedic Dictionary)",
-    "propertyAltLabel": "Lur Encyclopedic Dictionary identifier, Lur Hiztegi Entziklopedikoa ID"
+    "propertyAltLabel": "Lur Hiztegi Entziklopedikoa ID"
   },
   {
     "property": "P10244",
@@ -45109,7 +45101,7 @@
       "https?:\\/\\/datacommons\\.org\\/(.+\\/wikidataId\\/[A-Za-z\\d_\\/]+)"
     ],
     "propertyLabel": "Data Commons ID",
-    "propertyDescription": "identifier in Googles Data Commons knowledge graph viewing tool",
+    "propertyDescription": "identifier in the Data Commons knowledge graph",
     "propertyAltLabel": "datacommons ID, datacommons.org ID, dcid"
   },
   {
@@ -48205,9 +48197,9 @@
     "urlpaterns": [
       "https?:\\/\\/(?:www\\.)?sailing\\.org\\/sailor\\/\\?ref=([A-Z]{5}[0-9]{0,3})"
     ],
-    "propertyLabel": "World Sailing sailor ID",
+    "propertyLabel": "World Sailing sailor ID (archived)",
     "propertyDescription": "official identifier for a sailor in the World Sailing (formerly ISAF) database",
-    "propertyAltLabel": "ISAF ID, Sailor ID"
+    "propertyAltLabel": "ISAF ID (archived), Sailor ID (archived)"
   },
   {
     "property": "P11617",
@@ -50427,8 +50419,7 @@
       "https?:\\/\\/(?:www\\.)?kinobox\\.cz\\/osobnosti\\/(\\d+)"
     ],
     "propertyLabel": "Kinobox person ID",
-    "propertyDescription": "identifier for a person on the Kinobox.cz website",
-    "propertyAltLabel": "https://www.kinobox.cz/osobnosti/, kinobox.cz/osobnosti/, www.kinobox.cz/osobnosti/"
+    "propertyDescription": "identifier for a person on the Kinobox.cz website"
   },
   {
     "property": "P12100",
@@ -52599,9 +52590,9 @@
     "urlpaterns": [
       "https?:\\/\\/autorgal\\.usc\\.gal\\/encabezamiento\\/([a-z]+(?:\\-[a-z]+)*(?:\\-(?:\\d{3,4}(?:\\-\\d{3,4})?))?)\\/?"
     ],
-    "propertyLabel": "Galician Authors in the BUSC ID",
+    "propertyLabel": "Galician Authors in the BUSC ID (former scheme)",
     "propertyDescription": "identifier of a Galician author in the Library of the University of Santiago de Compostela (BUSC)",
-    "propertyAltLabel": "BUSC ID, GAB ID, GAiB ID"
+    "propertyAltLabel": "GAB ID, GAiB ID"
   },
   {
     "property": "P12539",
@@ -52890,7 +52881,7 @@
     "urlpaterns": [
       "https?:\\/\\/term\\.museum-digital\\.de\\/md-de\\/persinst\\/(\\d+)"
     ],
-    "propertyLabel": "museum-digital person ID",
+    "propertyLabel": "museum-digital ID",
     "propertyDescription": "identification of a person or institution in the vocabulary of the digital museum"
   },
   {
@@ -54704,7 +54695,8 @@
       "https?:\\/\\/nocs\\.acum\\.org\\.il\\/acumsitesearchdb\\/results\\?creatorid=(I-\\d{9}-\\d)"
     ],
     "propertyLabel": "ACUM creator/publisher ID",
-    "propertyDescription": "identifier for a creator or publisher in the ACUM database"
+    "propertyDescription": "identifier for a creator or publisher in the ACUM database",
+    "propertyAltLabel": "ACUM creator ID, ACUM publisher ID"
   },
   {
     "property": "P12991",
@@ -56124,7 +56116,7 @@
     "urlpaterns": [
       "https?:\\/\\/(?:www\\.)?taz\\.de\\/!(?:[pt])?([1-9]\\d*)"
     ],
-    "propertyLabel": "taz ID",
+    "propertyLabel": "Die Tageszeitung tag ID",
     "propertyDescription": "identifier for authors, topics, articles and sections in the German news portal \"taz.de\"",
     "propertyAltLabel": "Die Tageszeitung ID, taz.de ID"
   },
@@ -56143,7 +56135,8 @@
       "https?:\\/\\/(?:www\\.)?ville\\.quebec\\.qc\\.ca\\/citoyens\\/patrimoine\\/bati\\/fiche\\.aspx\\?fiche=(\\d+)"
     ],
     "propertyLabel": "Répertoire du patrimoine bâti de Québec ID",
-    "propertyDescription": "unique identifier of the built heritage in Quebec City"
+    "propertyDescription": "unique identifier of the built heritage in Quebec City",
+    "propertyAltLabel": "Quebec City built heritage directory ID"
   },
   {
     "property": "P13243",
@@ -57719,7 +57712,7 @@
   {
     "property": "P13959",
     "urlpaterns": [
-      "https?:\\/\\/(?:www\\.)?eiga\\.com\\/drama\\/series\\/([a-zA-Z0-9_]+)\\/?"
+      "https?:\\/\\/(?:www\\.)?eiga\\.com\\/drama\\/series\\/([a-zA-Z0-9_-]+)\\/?"
     ],
     "propertyLabel": "Eiga.com drama ID",
     "propertyDescription": "identifier for a drama series in the eiga.com database"
@@ -58141,5 +58134,29 @@
     ],
     "propertyLabel": "French Trade Mark Number",
     "propertyDescription": "identifier for a trade mark in France"
+  },
+  {
+    "property": "P14138",
+    "urlpaterns": [
+      "https?:\\/\\/(?:www\\.)?svenskfilmdatabas\\.se\\/sv\\/item\\/\\?type=original&itemid=((1\\d{6}|[1-9]\\d{3,5}))"
+    ],
+    "propertyLabel": "SFDb original ID",
+    "propertyDescription": "identifier of an original work that a visual work is based on at the Swedish film database"
+  },
+  {
+    "property": "P14141",
+    "urlpaterns": [
+      "https?:\\/\\/dtw\\.walon\\.org\\/index\\.php\\?id=([1-9]\\d*)"
+    ],
+    "propertyLabel": "Walloon-French dictionary ID",
+    "propertyDescription": "identifier in the online Walloon-French dictionary"
+  },
+  {
+    "property": "P14158",
+    "urlpaterns": [
+      "https:\\/\\/cid\\.ninjal\\.ac\\.jp\\/kana\\/detail\\/(\\d{9})\\/"
+    ],
+    "propertyLabel": "Hentaigana for Academic Information Exchange ID",
+    "propertyDescription": "Chinese character glyph identifier issued by Moji Joho Kiban Project"
   }
 ]
