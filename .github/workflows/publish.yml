@@ -5,6 +5,10 @@ on:
     types: [published]
   workflow_dispatch:
 
+permissions:
+  id-token: write # Required for OIDC
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,15 +23,11 @@ jobs:
       # install Node.js
       - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: "npm"
           registry-url: "https://registry.npmjs.org"
 
       - run: npm ci
-
-      # set up git since we will later push to the repo
-      - run: git config user.name 'github-actions[bot]'
-      - run: git config user.email 'github-actions[bot]@users.noreply.github.com'
 
       # build the project
       - run: npm run build
@@ -35,8 +35,5 @@ jobs:
       # run tests just in case
       - run: npm test
 
-      # publish to NPM -> there is one caveat, continue reading for the fix
+      # publish to NPM with OIDC authentication
       - run: npm publish
-        env:
-          # Use a token to publish to NPM. See below for how to set it up
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
