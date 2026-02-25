@@ -13,9 +13,10 @@ npm install social-profile-url-parser
 ## Usage (Node.js)
 
 ```js
-import { parser } from 'social-profile-url-parser';
+import { parser } from "social-profile-url-parser";
 
-const text = 'Find me at https://twitter.com/jack and https://github.com/octocat';
+const text =
+  "Find me at https://twitter.com/jack and https://github.com/octocat";
 const results = parser(text);
 
 console.log(results);
@@ -36,10 +37,10 @@ You can use an ESM CDN to run this package directly in the browser.
 
 ```html
 <script type="module">
-	import { parser } from 'https://esm.sh/social-profile-url-parser';
+  import { parser } from "https://esm.sh/social-profile-url-parser";
 
-	const text = 'https://www.instagram.com/zuck/';
-	console.log(parser(text));
+  const text = "https://www.instagram.com/zuck/";
+  console.log(parser(text));
 </script>
 ```
 
@@ -68,21 +69,42 @@ This keeps fixes upstream so everyone using Wikidata-backed tooling benefits.
 
 Issues and pull requests are welcome. For URL matching problems, please include concrete examples and preferably a Wikidata reference/update link.
 
-## Documentation
+## API
 
-<a name="parser"></a>
+### `parser(inputText: string): ParseResult[]`
 
-## parser(inputText) ⇒ <code>Array.&lt;ParseResult&gt;</code>
-**Kind**: global function  
-**Returns**: <code>Array.&lt;ParseResult&gt;</code> - an array with all the found matches  
+Parses a string and returns all recognized social profile matches.
 
-| Param | Type | Description |
-| --- | --- | --- |
-| inputText | <code>string</code> | the input text that will be parsed. |
+- Matches are deduplicated by `type + username`.
+- `username` is extracted from capture groups in the Wikidata regex pattern.
+- If a pattern has no capture groups, the full matched URL is returned as `username`.
 
-**Example**  
+```ts
+type ParseResult = {
+  type: string;
+  name: string;
+  url: string;
+  username: string;
+};
+```
+
+Example:
+
 ```js
-import { parser } from 'social-profile-url-parser';
+import { parser } from "social-profile-url-parser";
 
-const result = parser('See https://twitter.com/jack for details');
+const result = parser("See https://twitter.com/jack for details");
+// [{ type: 'P2002', name: 'X username', url: 'https://twitter.com/jack', username: 'jack' }]
+```
+
+### `regexes: RegexDefinition[]`
+
+Compiled regex definitions loaded from `data/properties.json`.
+
+```ts
+type RegexDefinition = {
+  type: string;
+  name: string;
+  regex: RegExp;
+};
 ```

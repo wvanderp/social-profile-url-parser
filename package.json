@@ -1,6 +1,6 @@
 {
   "name": "social-profile-url-parser",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "A Node.js library for extracting social media profile URLs from a block of text",
   "keywords": [
     "node",
@@ -29,11 +29,10 @@
     "data/properties.json"
   ],
   "scripts": {
-    "build": "rimraf lib && tsc -p tsconfig.build.json && npm run buildDocs",
+    "build": "rimraf lib && tsc -p tsconfig.build.json",
     "coverage": "npm run build && vitest run --coverage",
     "lint": "tsc -p tsconfig.build.json --noEmit && eslint --ext ts,tsx,js src/",
     "test": "npm run build && vitest run",
-    "buildDocs": "jsdoc2md --template README.hbs --files lib/index.js > README.md",
     "collect": "ts-node ./scripts/collect.ts"
   },
   "devDependencies": {
@@ -53,7 +52,6 @@
     "eslint-plugin-sonarjs": "^2.0.4",
     "eslint-plugin-unicorn": "^56.0.1",
     "html-escaper": "^3.0.3",
-    "jsdoc-to-markdown": "^9.1.3",
     "rimraf": "^6.1.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
