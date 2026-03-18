@@ -84,7 +84,8 @@
       "https?:\\/\\/portal\\.dnb\\.de\\/opac\\.htm\\?(?:.*&)?method=simpleSearch&(?:.*&)?query=(?:nid%3D)?(|(1[012]?\\d{7}[0-9X]|[47]\\d{6}-\\d|[1-9]\\d{0,7}-[0-9X]|3\\d{7}[0-9X]))($|&)",
       "https?:\\/\\/portal\\.dnb\\.de\\/opac\\.htm\\?(?:.*&)?query=(?:nid%3D)?(|(1[012]?\\d{7}[0-9X]|[47]\\d{6}-\\d|[1-9]\\d{0,7}-[0-9X]|3\\d{7}[0-9X]))&(?:.*&)?method=simpleSearch($|&)",
       "https?:\\/\\/portal\\.dnb\\.de\\/opac\\.htm\\?method=simpleSearch\\&cqlMode=true\\&query=nid\\%3D(.+)",
-      "https?:\\/\\/portal\\.dnb\\.de\\/opac\\.htm\\?method=simpleSearch&cqlMode=true&query=nid=(\\d+)"
+      "https?:\\/\\/portal\\.dnb\\.de\\/opac\\.htm\\?method=simpleSearch&cqlMode=true&query=nid=(\\d+)",
+      "https?:\\/\\/explore\\.gnd\\.network\\/gnd\\/(1[012]?\\d{7}[0-9X]|[47]\\d{6}-\\d|[1-9]\\d{0,7}-[0-9X]|3\\d{7}[0-9X])"
     ],
     "propertyLabel": "GND ID",
     "propertyDescription": "identifier from the Gemeinsame Normdatei authority file of names, subjects, and organizations",
@@ -426,7 +427,7 @@
       "https?:\\/\\/librariesaustralia\\.nla\\.gov\\.au\\/search\\/display\\?dbid=auth&id=([1-9][0-9]{0,11})"
     ],
     "propertyLabel": "Libraries Australia ID",
-    "propertyDescription": "identifier issued by the National Library of Australia (see also P1315 for the newer People Australia identifier). VIAF component. Format: 1-12 digits, removing leading zero-padding.",
+    "propertyDescription": "identifier issued by the National Library of Australia. VIAF component. Format: 1-12 digits, removing leading zero-padding.",
     "propertyAltLabel": "AuCNLKIN, AuCNLKIN ID, AuCNLKIN identifier, Australian National Bibliographic Database identifier, CNL Kinetica Service identifier, CNLKIN, CNLKIN identifier, Libraries Australia identifier, NLA (Australia) ID, NLA (Australia) identifier, NLA Kinetica Service identifier"
   },
   {
@@ -609,7 +610,8 @@
       "https?:\\/\\/orcid\\.org\\/(\\d+-\\d+-\\d+-\\d\\d\\d\\.)",
       "https?:\\/\\/profiles\\.impactstory\\.org\\/u\\/(\\d+-\\d+-\\d+-\\d\\d\\d\\.)",
       "https?:\\/\\/orcid\\.org\\/(000\\d-000\\d-\\d{4}-\\d{3}.)",
-      "https?:\\/\\/europepmc\\.org\\/authors\\/(000\\d-000\\d-\\d{4}-\\d{3}.)"
+      "https?:\\/\\/europepmc\\.org\\/authors\\/(000\\d-000\\d-\\d{4}-\\d{3}.)",
+      "https?:\\/\\/orcid\\.org\\/my-orcid\\?orcid=(\\d{4}-\\d{4}-\\d{4}-\\d{3}[\\dX])"
     ],
     "propertyLabel": "ORCID iD",
     "propertyDescription": "identifier for a person",
@@ -886,7 +888,8 @@
       "https?:\\/\\/partnerdash\\.google\\.com\\/apps\\/formhub\\/forms\\/search_posts_verification_form\\?mid=([%2F|\\/]m[%2|\\/][a-z0-9_]+)",
       "https?:\\/\\/posts\\.google\\.com\\/claim\\/(?:verify)?\\?mid=[%2F|\\/]m[%2|\\/]([a-z0-9_]+)",
       "https?:\\/\\/posts\\.google\\.com\\/claim\\/\\?mid=(\\/m\\/[a-z0-9_]+)",
-      "https?:\\/\\/rdf\\.freebase\\.com\\/ns\\/m\\.(.+)"
+      "https?:\\/\\/rdf\\.freebase\\.com\\/ns\\/m\\.(.+)",
+      "https:\\/\\/posts\\.google\\.com\\/claim\\/\\?mid=([^#?]+)"
     ],
     "propertyLabel": "Freebase ID",
     "propertyDescription": "identifier for a page in the Freebase database. Format: \"/m/0\" followed by 2 to 7 characters. For IDs starting with \"/g/\", use Google Knowledge Graph ID (P2671)",
@@ -1022,7 +1025,7 @@
       "https?:\\/\\/books\\.google\\.\\w+\\/books\\?(?:hl=\\w+&lr=&)id=([0-9A-Za-z_\\-]{12})",
       "https?:\\/\\/books\\.google\\.co\\.uk\\/books\\/about\\/(?:.+)\\.html\\?id=([^&]+)",
       "https?:\\/\\/play\\.google\\.com\\/store\\/books\\/details\\?id=([0-9A-Za-z_\\-]{12})",
-      "https?:\\/\\/books\\.google\\(?:.\\w+)+\\/books(?:\\/about\\/[^?]+)?\\?id=([0-9A-Za-z_\\-]{12})"
+      "https?:\\/\\/books\\.google(?:.\\w+)+\\/books(?:\\/about\\/[^?]+)?\\?id=([0-9A-Za-z_\\-]{12})"
     ],
     "propertyLabel": "Google Books ID",
     "propertyDescription": "identifier for a book edition in Google Books",
@@ -1589,7 +1592,7 @@
     "urlpaterns": [
       "https?:\\/\\/(?:www\\.)?census\\.gov\\/quickfacts\\/table\\/PST045215\\/(\\d{5}),00"
     ],
-    "propertyLabel": "P882",
+    "propertyLabel": "FIPS 6-4 ID",
     "propertyDescription": "identifier for US entities (mostly counties) per \"Federal Information Processing Series\" (FIPS 6-4), used for counties, Puerto Rico municipio, metropolitan statistical areas (MSAs) and micropolitan statistical areas (µSAs) in the United States",
     "propertyAltLabel": "county FIPS, FIPS 6-4 (counties), FIPS US counties"
   },
@@ -2168,7 +2171,7 @@
     ],
     "propertyLabel": "Library of Congress item ID (LCCN bibliographic)",
     "propertyDescription": "record number for entries in the LC bibliographic catalog/OPAC (for authority records use P244)",
-    "propertyAltLabel": "Congress Library Control Number, lccnbib, Library of Congress Card Number (bibliographic), Library of Congress Control Number (bibliographic), LC accession number, LC acquisition ID, LC Control Number (bibliographic), LC edition (LCCN), LC edition ID (LCCN), LC editions (LCCN), Library of Congress Control Number (LCCN bibliographic), LCCN bibliographic ID"
+    "propertyAltLabel": "Congress Library Control Number, lccnbib, Library of Congress Card Number (bibliographic), Library of Congress Control Number (bibliographic), LC accession number, LC acquisition ID, LC Control Number (bibliographic), LC edition (LCCN), LC edition ID (LCCN), LC editions (LCCN), Library of Congress Control Number (LCCN bibliographic), LCCN bibliographic ID, bibliographic LCCN, LCCN bibliographic"
   },
   {
     "property": "P1146",
@@ -2522,7 +2525,7 @@
     "urlpaterns": [
       "https?:\\/\\/isrc(?:search\\.ifpi\\.org|\\.soundexchange\\.com)\\/#!\\/search\\?isrcCode=(\\w+)&"
     ],
-    "propertyLabel": "P1243",
+    "propertyLabel": "ISRC ID",
     "propertyDescription": "international standard code for uniquely identifying sound recordings and music video recordings"
   },
   {
@@ -2718,7 +2721,8 @@
       "https?:\\/\\/search\\.gleif\\.org\\/#\\/record\\/([0-9A-Z]{18}[0-9]{2})",
       "https:\\/\\/www\\.lei-lookup\\.com\\/record\\/([0-9A-Z]{18}[0-9]{2})",
       "https:\\/\\/lei\\.bloomberg\\.com\\/leis\\/view\\/([0-9A-Z]{18}[0-9]{2})",
-      "https:\\/\\/nordlei\\.org\\/lei\\/([0-9A-Z]{18}[0-9]{2})"
+      "https:\\/\\/nordlei\\.org\\/lei\\/([0-9A-Z]{18}[0-9]{2})",
+      "https:\\/\\/openleis\\.org\\/record\\/([0-9A-Z]{18}[0-9]{2})"
     ],
     "propertyLabel": "Legal Entity Identifier",
     "propertyDescription": "identifier for a legally distinct entity per ISO 17442",
@@ -3775,7 +3779,7 @@
     "urlpaterns": [
       "https?:\\/\\/saebi\\.isgv\\.de\\/gnd\\/((1|1[01])\\d{7}[0-9X]|[47]\\d{6}-\\d|[1-9]\\d{0,7}-[0-9X]|3\\d{7}[0-9X])"
     ],
-    "propertyLabel": "P1710",
+    "propertyLabel": "Sächsische Biografie ID",
     "propertyDescription": "GND identifier in a biographical dictionary of people from Saxony"
   },
   {
@@ -4237,11 +4241,11 @@
   {
     "property": "P1829",
     "urlpaterns": [
-      "https?://archives\\.vwml\\.org/search/all:combined/0_50/all/score_desc/extended-roudNo_s:([1-9][0-9]*)"
+      "https?://archives\\.vwml\\.org/search/all:combined/0_50/all/score_desc/extended-roudNo_(s:|tr:)([A-Z]{0,1}[1-9][0-9]*)"
     ],
-    "propertyLabel": "Roud Folk Song Index number",
-    "propertyDescription": "number assigned to a folk song in the Roud Folk Song Index",
-    "propertyAltLabel": "Roud number"
+    "propertyLabel": "Roud Indexes Roud number",
+    "propertyDescription": "number assigned to a folk song in the folk song and broadside indexes of the Roud Indexes",
+    "propertyAltLabel": "Roud number, Roud no., Roud no"
   },
   {
     "property": "P1832",
@@ -5416,7 +5420,7 @@
       "https?:\\/\\/(?:www\\.)?unspsc\\.org\\/search-code\\/\\?CSS=(\\d{8}(\\d{2})?)",
       "https?:\\/\\/(?:www\\.)?unspsc\\.org\\/search-code\\/search-code-result\\?titleSearch=&codeSearch=(\\d{8}(\\d{2})?)"
     ],
-    "propertyLabel": "P2167",
+    "propertyLabel": "UNSPSC code",
     "propertyDescription": "identifier for taxonomy of products and services for use in eCommerce"
   },
   {
@@ -6931,12 +6935,11 @@
   {
     "property": "P2593",
     "urlpaterns": [
-      "https?:\\/\\/olimpiade\\.lv\\/en\\/olympic-athletes\\/([a-z-]+\\d{1,3})",
-      "https?:\\/\\/olimpiade\\.lv\\/lv\\/latvijas-olimpiesi\\/([a-z-]+\\d{1,3})"
+      "https?:\\/\\/olimpiade\\.lv\\/lv\\/olimpietis\\/(\\d{1,3})"
     ],
-    "propertyLabel": "Latvian Olympic Committee athlete ID",
-    "propertyDescription": "identifier for an athlete (sportsperson) at olimpiade.lv, a website of the Latvian Olympic Committee (Latvian: Latvijas Olimpiskā Komiteja, LOK)",
-    "propertyAltLabel": "Latvijas Olimpiskā Komiteja athlete ID, LOK athlete ID"
+    "propertyLabel": "Latvian Olympic Committee athlete ID number",
+    "propertyDescription": "numeric identifier for an athlete (sportsperson) at olimpiade.lv, a website of the Latvian Olympic Committee (Latvian: Latvijas Olimpiskā Komiteja, LOK)",
+    "propertyAltLabel": "Latvijas Olimpiskā Komiteja athlete ID number, LOK athlete ID number"
   },
   {
     "property": "P2600",
@@ -7001,7 +7004,7 @@
     ],
     "propertyLabel": "BookBrainz author ID",
     "propertyDescription": "identifier for a creator per the BookBrainz open book encyclopedia",
-    "propertyAltLabel": "BB author ID, BookBrainz creator ID, BookBrainz ID"
+    "propertyAltLabel": "BB author ID, BookBrainz creator ID"
   },
   {
     "property": "P2611",
@@ -8535,9 +8538,9 @@
       "https?:\\/\\/(?:www\\.)?fil-luge\\.org\\/de\\/athletes\\/([a-z-]+(-[0-9])?)",
       "https?:\\/\\/(?:www\\.)?fil-luge\\.org\\/en\\/athletes\\/([a-z-]+(-[0-9])?)"
     ],
-    "propertyLabel": "FIL athlete ID",
+    "propertyLabel": "International Luge Federation athlete ID",
     "propertyDescription": "identifier for sportsperson in the International Luge Federation (FIL) database",
-    "propertyAltLabel": "Fédération Internationale de Luge athlete ID, Fédération Internationale de Luge athlete identifier, FIL athlete identifier, ILF athlete ID, ILF athlete identifier, International Luge Federation athlete ID, International Luge Federation athlete identifier"
+    "propertyAltLabel": "Fédération Internationale de Luge athlete ID, Fédération Internationale de Luge athlete identifier, FIL athlete ID, FIL athlete identifier, ILF athlete ID, ILF athlete identifier, International Luge Federation athlete identifier"
   },
   {
     "property": "P2991",
@@ -11402,7 +11405,7 @@
     ],
     "propertyLabel": "TLG author ID",
     "propertyDescription": "author identifier in the TLG Canon of Greek Authors and Works (third edition)",
-    "propertyAltLabel": "Thesaurus Linguae Graecae, TLG ID, TLG identifier"
+    "propertyAltLabel": "TLG ID, TLG identifier"
   },
   {
     "property": "P3579",
@@ -11776,8 +11779,9 @@
   {
     "property": "P3634",
     "urlpaterns": [
+      "https?:\\/\\/(?:www\\.)?metmuseum\\.org\\/art\\/collection\\/search\\/([1-9][0-9]{0,8})",
       "https?:\\/\\/(?:www\\.)?metmuseum\\.org\\/collection\\/the-collection-online\\/search\\/([1-9][0-9]{0,8})",
-      "https://www.metmuseum.org/art/collection/search/436602"
+      "https?:\\/\\/collectionapi.metmuseum\\.org\\/public\\/collection\\/v1\\/objects\\/([1-9][0-9]{0,8})"
     ],
     "propertyLabel": "The Met object ID",
     "propertyDescription": "object identifier for artworks at the Metropolitan Museum of Art",
@@ -12048,7 +12052,7 @@
   {
     "property": "P3672",
     "urlpaterns": [
-      "https?:\\/\\/eventor\\.orienteering\\.org\\/Athletes\\/Details\\/(\\d+)"
+      "https?:\\/\\/eventor\\.orienteering\\.sport\\/Athletes\\/Details\\/(\\d+)"
     ],
     "propertyLabel": "IOF athlete ID",
     "propertyDescription": "identifier for an athlete by the International Orienteering Federation",
@@ -12455,7 +12459,7 @@
   {
     "property": "P3747",
     "urlpaterns": [
-      "https?:\\/\\/ssrn\\.com\\/author=([1-9]\\d{0,6})"
+      "https?:\\/\\/ssrn\\.com\\/author=([1-9]\\d{0,7})"
     ],
     "propertyLabel": "SSRN author ID",
     "propertyDescription": "identifier for an author at the Social Science Research Network",
@@ -12558,7 +12562,7 @@
     ],
     "propertyLabel": "Medieval Libraries of Great Britain ID",
     "propertyDescription": "identifier for books known to have been in British libraries during the Middle Ages",
-    "propertyAltLabel": "MLGB3 ID"
+    "propertyAltLabel": "MLGB ID"
   },
   {
     "property": "P3769",
@@ -14155,7 +14159,7 @@
     ],
     "propertyLabel": "Legislation of Ukraine ID",
     "propertyDescription": "identifier in the Verkhovna Rada database of laws and regulations of Ukraine",
-    "propertyAltLabel": "identifier in the Verkhovna Rada, Ukrainian regulations base ID"
+    "propertyAltLabel": "identifier in the Verkhovna Rada, Ukrainian regulations base ID, Laws of Ukraine ID"
   },
   {
     "property": "P4052",
@@ -15332,7 +15336,7 @@
   {
     "property": "P4287",
     "urlpaterns": [
-      "https?:\\/\\/(?:www\\.)?riigikogu\\.ee\\/riigikogu\\/koosseis\\/riigikogu-liikmed\\/saadik\\/(([0-9a-f]{4})(?1)(\\-(?1))(?2){3}(?1){2})"
+      "https?:\\/\\/(?:www\\.)?riigikogu\\.ee\\/riigikogu\\/koosseis\\/riigikogu-liikmed\\/saadik\\/([0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})\\/?"
     ],
     "propertyLabel": "Riigikogu ID",
     "propertyDescription": "identifier for a member of the Estonian Parliament"
@@ -15923,7 +15927,7 @@
   {
     "property": "P4401",
     "urlpaterns": [
-      "https?:\\/\\/mapas\\.cultura\\.gov\\.br\\/espaco\\/(\\d+)\\/"
+      "https?:\\/\\/mapa\\.cultura\\.gov\\.br\\/espaco\\/(\\d+)\\/"
     ],
     "propertyLabel": "Museus Brazil ID",
     "propertyDescription": "identifier for information on Brazilian museums from museus.cultura.gov.br (Museusbr)"
@@ -17767,7 +17771,8 @@
       "https?:\\/\\/collections\\.britishart\\.yale\\.edu\\/vufind\\/Record\\/([1-9]\\d*)"
     ],
     "propertyLabel": "Yale Center for British Art artwork ID",
-    "propertyDescription": "(DEPRECATED, see P9789) identifier for an artwork or other object on the Yale Center for British Art website"
+    "propertyDescription": "(DEPRECATED, see P9789) identifier for an artwork or other object on the Yale Center for British Art website",
+    "propertyAltLabel": "YCBA ID work"
   },
   {
     "property": "P4739",
@@ -19876,7 +19881,7 @@
   {
     "property": "P5220",
     "urlpaterns": [
-      "https?:\\/\\/(?:www\\.)?ilo\\.org\\/dyn\\/icsc\\/showcard\\.display\\?p_card_id=([0-9]*)"
+      "https?:\\/\\/(?:chemicalsafety\\.)?ilo\\.org\\/dyn\\/icsc\\/showcard\\.display\\?p_card_id=([0-9]*)"
     ],
     "propertyLabel": "ICSC ID",
     "propertyDescription": "identifier of a compound in the International Chemical Safety Card database"
@@ -22580,7 +22585,7 @@
   {
     "property": "P5744",
     "urlpaterns": [
-      "https?:\\/\\/(?:www\\.)?schoolinfo\\.go\\.kr\\/ei\\/ss\\/Pneiss_b01_s0\\.do\\?HG_CD=([A-Z][1-9]\\d{8})"
+      "https?:\\/\\/(?:www\\.)?schoolinfo\\.go\\.kr\\/ei\\/ss\\/Pneiss_b01_s0\\.do\\?HG_CD=([A-Z]\\d{9})"
     ],
     "propertyLabel": "KERIS school ID",
     "propertyDescription": "identifier for a school in the information system by KERIS"
@@ -23473,8 +23478,9 @@
     "urlpaterns": [
       "https?:\\/\\/(?:www\\.)?bazakolejowa\\.pl\\/index\\.php\\?dzial=linie&id=([1-9]\\d+)"
     ],
-    "propertyLabel": "bazakolejowa.pl railway line ID",
-    "propertyDescription": "ID of Polish railway line in database \"bazakolejowa.pl\""
+    "propertyLabel": "Polish Nationwide Railway Database railway line ID",
+    "propertyDescription": "identifier of railway line in Polish Nationwide Railway Database (www.bazakolejowa.pl)",
+    "propertyAltLabel": "bazakolejowa.pl railway line ID, Baza Kolejowa railway line ID"
   },
   {
     "property": "P5932",
@@ -24730,7 +24736,7 @@
     "urlpaterns": [
       "https?:\\/\\/app\\.dimensions\\.ai\\/details\\/publication\\/pub\\.(\\d{10})"
     ],
-    "propertyLabel": "Dimensions Publication ID",
+    "propertyLabel": "Dimensions publication ID",
     "propertyDescription": "unique identifier for a work in the Dimensions database"
   },
   {
@@ -26718,7 +26724,7 @@
     ],
     "propertyLabel": "LinkedIn personal profile ID",
     "propertyDescription": "identifier for a person, on the LinkedIn website",
-    "propertyAltLabel": "https://www.linkedin.com/in/, Linked In personal profile ID, linkedin.com/in/, www.linkedin.com/in/"
+    "propertyAltLabel": "https://www.linkedin.com/in/, Linked In personal profile ID, linkedin.com/in/, www.linkedin.com/in/, LinkedIn profile ID"
   },
   {
     "property": "P6635",
@@ -27923,8 +27929,8 @@
       "https?:\\/\\/collections\\.geneve\\.ch\\/mah\\/oeuvre\\/([-\\w]+(\\/[-\\w]+)?(\\/[-\\w]+)?)"
     ],
     "propertyLabel": "MAHG ID",
-    "propertyDescription": "identifier for items in the catalogue of the Musées d'Art et d'Histoire de Genève (MAHG)",
-    "propertyAltLabel": "Musées d'Art et d'Histoire de Genève ID"
+    "propertyDescription": "identifier for items in the catalogue of the Musée d'Art et d'Histoire de Genève (MAHG)",
+    "propertyAltLabel": "Musée d'Art et d'Histoire de Genève ID"
   },
   {
     "property": "P6881",
@@ -29432,9 +29438,9 @@
     "urlpaterns": [
       "https?:\\/\\/(?:www\\.)?scribd\\.com\\/(?:doc|book|document|snapshot|issue|article|audiobook)\\/([1-9]\\d*)"
     ],
-    "propertyLabel": "Everand item ID",
+    "propertyLabel": "Scribd item ID",
     "propertyDescription": "external identifier for a book, audio book, document, magazine issue or article in the Scribd library",
-    "propertyAltLabel": "Scribd item ID"
+    "propertyAltLabel": "Everand item ID, Scribd doc ID, Scribd document ID"
   },
   {
     "property": "P7236",
@@ -30542,7 +30548,7 @@
     "property": "P7494",
     "urlpaterns": [
       "https?:\\/\\/(?:\\w+)\\.soccerway\\.com\\/matches\\/\\d{4}\\/\\d{2}\\/\\d{2}\\/[a-zA-Z\\-]+\\/[a-zA-Z\\-]+\\/[a-zA-Z\\-]+\\/[a-zA-Z\\-]+\\/([1-9]\\d*)\\/",
-      "https?:\\/\\/www\\.scorebar\\.com(?\\/:\\w+)\\/matches\\/\\d{4}\\/\\d{2}\\/\\d{2}\\/[a-zA-Z\\-]+\\/[a-zA-Z\\-]+\\/[a-zA-Z\\-]+\\/[a-zA-Z\\-]+\\/([1-9]\\d*)\\/"
+      "https?:\\/\\/www\\.scorebar\\.com(?:\\/:\\w+)\\/matches\\/\\d{4}\\/\\d{2}\\/\\d{2}\\/[a-zA-Z\\-]+\\/[a-zA-Z\\-]+\\/[a-zA-Z\\-]+\\/[a-zA-Z\\-]+\\/([1-9]\\d*)\\/"
     ],
     "propertyLabel": "Scorebar / Soccerway match ID",
     "propertyDescription": "identifier for an association football (soccer) match at the Scorebar website (previously Soccerway)",
@@ -31154,7 +31160,8 @@
   {
     "property": "P7594",
     "urlpaterns": [
-      "https?:\\/\\/(?:www\\.)?cinept\\.ubi\\.pt\\/pt\\/pessoa\\/(\\d+)"
+      "https?:\\/\\/(?:www\\.)?cinept\\.ubi\\.pt\\/pt\\/pessoa\\/(\\d+)",
+      "https?:\\/\\/(?:www\\.)?cinept\\.ubi\\.pt\\/pt\\/pessoa\\/(\\d+)(?:\\/[^\\s?#\\/]+\\/?)?"
     ],
     "propertyLabel": "CinePT person ID",
     "propertyDescription": "identifier for a person or organisation on the CinePT website",
@@ -32403,7 +32410,7 @@
     ],
     "propertyLabel": "BookBrainz work ID",
     "propertyDescription": "identifier for a work on the BookBrainz open book encyclopedia",
-    "propertyAltLabel": "BB work iD, bbw id, bbwork id, bbworkid"
+    "propertyAltLabel": "bbw id, bbwork id, bbworkid, BB work ID"
   },
   {
     "property": "P7824",
@@ -32477,9 +32484,9 @@
     "urlpaterns": [
       "https?:\\/\\/bazakolejowa\\.pl\\/index\\.php\\?dzial=stacja&id=(\\d+)&okno=start"
     ],
-    "propertyLabel": "Polish Nationwide Railway Database - station ID",
+    "propertyLabel": "Polish Nationwide Railway Database station ID",
     "propertyDescription": "identifier of railway station in Polish Nationwide Railway Database (www.bazakolejowa.pl)",
-    "propertyAltLabel": "bazakolejowa.pl station ID"
+    "propertyAltLabel": "bazakolejowa.pl station ID, Baza Kolejowa station ID"
   },
   {
     "property": "P7839",
@@ -33614,10 +33621,10 @@
   {
     "property": "P8043",
     "urlpaterns": [
-      "https?:\\/\\/elar\\.soas\\.ac\\.uk\\/Collection\\/(MPI\\d{6,7})"
+      "https:\\/\\/www\\.elararchive\\.org\\/dk(\\d{4})"
     ],
-    "propertyLabel": "ELAR ID",
-    "propertyDescription": "identifier for a resource pertaining to a language in the namesake endangered language digital repository"
+    "propertyLabel": "ELAR collection ID",
+    "propertyDescription": "identifier for a collection in the Endangered Languages Archive"
   },
   {
     "property": "P8044",
@@ -33696,7 +33703,7 @@
     ],
     "propertyLabel": "BookBrainz publisher ID",
     "propertyDescription": "identifier for a publisher or imprint on the BookBrainz open book encyclopedia",
-    "propertyAltLabel": "bb pub"
+    "propertyAltLabel": "BB publisher ID"
   },
   {
     "property": "P8065",
@@ -33833,8 +33840,8 @@
   {
     "property": "P8084",
     "urlpaterns": [
-      "https?:\\/\\/(?:www\\.)?nintendo\\.com\\/store\\/products\\/([-a-z0-9]+-(?:switch(?:\\-2)?|wii-u|3ds))\\",
-      "https?:\\/\\/(?:www\\.)?nintendo\\.com\\/us\\/store\\/products\\/([-a-z0-9]+-(?:switch(?:\\-2)?|wii-u|3ds))\\"
+      "https?:\\/\\/(?:www\\.)?nintendo\\.com\\/store\\/products\\/([-a-z0-9]+-(?:switch(?:\\-2)?|wii-u|3ds))\\\\",
+      "https?:\\/\\/(?:www\\.)?nintendo\\.com\\/us\\/store\\/products\\/([-a-z0-9]+-(?:switch(?:\\-2)?|wii-u|3ds))\\\\"
     ],
     "propertyLabel": "Nintendo eShop ID",
     "propertyDescription": "identifier of a video game in Nintendo eShop",
@@ -34807,7 +34814,7 @@
   {
     "property": "P8298",
     "urlpaterns": [
-      "https?://play\\.hbomax\\.com/((?:episode|extra|movie|franchise|season|shows|show/)?(?:urn\\:hbo\\:(?:episode|extra|movie|franchise|season|show)\\:[\\w\\-]{21}))"
+      "https?://play\\.hbomax\\.com/((?:episode|extra|feature|movie|franchise|season|series|show|shows/)?(?:urn\\:hbo\\:(?:episode|extra|feature|movie|franchise|season|series|show|shows)\\:[\\w\\-]{21}))"
     ],
     "propertyLabel": "HBO Max ID",
     "propertyDescription": "identifier for a creative work on HBO Max (formerly Max and formerly again HBO Max)",
@@ -35352,10 +35359,11 @@
   {
     "property": "P8501",
     "urlpaterns": [
-      "https?:\\/\\/gtr\\.ukri\\.org\\/organisation\\/(A-F\\d]{8}-[A-F\\d]{4}-[A-F\\d]{4}-[A-F\\d]{4}-[A-F\\d]{12})"
+      "https?:\\/\\/gtr\\.ukri\\.org\\/organisation\\/(A-F\\d]{8}-[A-F\\d]{4}-[A-F\\d]{4}-[A-F\\d]{4}-[A-F\\d]{12})",
+      "https:\\/\\/web\\.archive\\.org\\/web\\/(?:\\d+)\\/https?:\\/\\/gtr\\.ukri\\.org\\/organisation\\/([^#?:]+)"
     ],
-    "propertyLabel": "Gateway to Research organisation ID",
-    "propertyDescription": "identifier for an organisation in the UK Research and Innovation (UKRI)'s Gateway to Research (GtR) database of research funding",
+    "propertyLabel": "Gateway to Research organization ID",
+    "propertyDescription": "identifier for an organization in the UK Research and Innovation (UKRI)'s former Gateway to Research (GtR) database of research funding",
     "propertyAltLabel": "GtR ID, UK Research and Innovation organisation ID, UKRI ID"
   },
   {
@@ -38158,7 +38166,7 @@
   {
     "property": "P9152",
     "urlpaterns": [
-      "https?:\\/\\/(?:www\\.)?collectiegelderland\\.nl\\/zoeken\\?filter=search_s_creators_uuid-([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})"
+      "https?:\\/\\/(?:www\\.)?collectiegelderland\\.nl\\/zoeken\\?filter=search_s_creators_uuid-([0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12})"
     ],
     "propertyLabel": "CollectieGelderland creator ID",
     "propertyDescription": "identifier for a creator in the collaborative platform CollectieGelderland",
@@ -38171,6 +38179,14 @@
     ],
     "propertyLabel": "VAi building ID",
     "propertyDescription": "identifier for buildings in the building database of Flanders Architecture Institute"
+  },
+  {
+    "property": "P9155",
+    "urlpaterns": [
+      "https:\\/\\/www\\.joodsmonument\\.nl\\/(?:en|nl)\\/page\\/(\\d+)(?:\\/[^\\/]+)?\\/?"
+    ],
+    "propertyLabel": "Joods Monument ID",
+    "propertyDescription": "identifier in the Joods Monument database of Dutch Jews killed in the Holocaust"
   },
   {
     "property": "P9156",
@@ -42949,11 +42965,12 @@
   {
     "property": "P10110",
     "urlpaterns": [
-      "https?:\\/\\/(?:geo\\.)?music\\.apple\\.com\\/(?:[a-z]+\\/)*track(?:\\/.+)?\\/(?:id)?([0-9]+\\?i=[0-9]+)"
+      "https?:\\/\\/music\\.apple\\.com\\/(?:[a-z]+)\\/track|song\\/(?:[a-z\\-]+)\\/([0-9]+)",
+      "https?:\\/\\/(?:geo\\.)?music\\.apple\\.com\\/(?:[a-z]+\\/)*album(?:\\/.+)?\\/(?:.+)i=([0-9]+)"
     ],
     "propertyLabel": "Apple Music track ID",
     "propertyDescription": "track ID (after ?i=) that represents a track in Apple Music",
-    "propertyAltLabel": "Itunes track ID"
+    "propertyAltLabel": "iTunes track ID"
   },
   {
     "property": "P10111",
@@ -43999,7 +44016,7 @@
   {
     "property": "P10446",
     "urlpaterns": [
-      "https?:\\/\\/chgk\\.tvigra\\.ru\\/znatoki\\/\\([^\\sA-Z\\d\\W\\_]+)"
+      "https?:\\/\\/chgk\\.tvigra\\.ru\\/znatoki\\/([^\\sA-Z\\d\\W\\_]+)"
     ],
     "propertyLabel": "Chgk person ID",
     "propertyDescription": "identifier for a person playing the Russian TV game What? Where? When?"
@@ -44969,6 +44986,14 @@
     "propertyAltLabel": "TV Maze ID"
   },
   {
+    "property": "P10670",
+    "urlpaterns": [
+      "https?:\\/\\/mugi\\.hfmt-hamburg\\.de\\/receive\\/mugi_person_([0-9]{8})"
+    ],
+    "propertyLabel": "Musik und Gender im Internet ID",
+    "propertyDescription": "identifier for female musicians in the “Musik und Gender im Internet” database"
+  },
+  {
     "property": "P10678",
     "urlpaterns": [
       "https?:\\/\\/100years\\.akleg\\.gov\\/bio\\.php\\?id=(\\d+)",
@@ -45603,6 +45628,15 @@
     "propertyLabel": "Telmore Musik artist ID",
     "propertyDescription": "identifier for an artist on the Telmore Musik website",
     "propertyAltLabel": "Telmore Musik artist identifier"
+  },
+  {
+    "property": "P10904",
+    "urlpaterns": [
+      "https:\\/\\/sport24\\.ru\\/(?:[a-z0-9_-]+)\\/teams\\/([a-z0-9_-]+)\\/?"
+    ],
+    "propertyLabel": "Sport24.ru team ID",
+    "propertyDescription": "identifier for a sports team on the Sport24.ru website",
+    "propertyAltLabel": "https://sport24.ru/, https://sport24.ru/football/, https://sport24.ru/football/teams/, sport24.ru/"
   },
   {
     "property": "P10910",
@@ -46302,7 +46336,7 @@
       "https?:\\/\\/vocadb\\.net\\/S\\/([1-9]\\d*)"
     ],
     "propertyLabel": "VocaDB track ID",
-    "propertyDescription": "identifier of an audio track on vocadb.ne"
+    "propertyDescription": "identifier of an audio track on vocadb.net"
   },
   {
     "property": "P11102",
@@ -47581,6 +47615,15 @@
     "propertyLabel": "PodLink ID",
     "propertyDescription": "ID for a podcast on Podlink, a podcast link sharing and landing page service",
     "propertyAltLabel": "pod.link ID, PodLink identifier"
+  },
+  {
+    "property": "P11471",
+    "urlpaterns": [
+      "https:\\/\\/wikirate\\.org\\/\\~(\\d+)"
+    ],
+    "propertyLabel": "Wikirate Company ID",
+    "propertyDescription": "ID of an organization at Wikirate",
+    "propertyAltLabel": "Wikirate company identifier"
   },
   {
     "property": "P11472",
@@ -50082,7 +50125,8 @@
       "https?:\\/\\/bookbrainz\\.org\\/series\\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})"
     ],
     "propertyLabel": "BookBrainz series ID",
-    "propertyDescription": "identifier of the book series in the BookBrainz database"
+    "propertyDescription": "identifier of the book series in the BookBrainz database",
+    "propertyAltLabel": "BB series ID"
   },
   {
     "property": "P12049",
@@ -50817,7 +50861,7 @@
   {
     "property": "P12170",
     "urlpaterns": [
-      "https?:\\/\\/geolod\\.ex\\.nii\\.ac\\.jp\\/resource\\/([0-9a-zA-Z]{6})"
+      "https:\\/\\/geolod\\.thibetanus\\.com\\/resource\\/([0-9a-zA-Z]{6})"
     ],
     "propertyLabel": "GeoLOD ID",
     "propertyDescription": "identifier for a place in Japan",
@@ -51909,7 +51953,8 @@
       "https?:\\/\\/bookbrainz\\.org\\/edition\\/([a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12})"
     ],
     "propertyLabel": "BookBrainz edition ID",
-    "propertyDescription": "identifier for a specific edition of a work in BookBrainz"
+    "propertyDescription": "identifier for a specific edition of a work in BookBrainz",
+    "propertyAltLabel": "BB edition ID"
   },
   {
     "property": "P12354",
@@ -51947,7 +51992,7 @@
     "property": "P12361",
     "urlpaterns": [
       "bsky\\.app/profile/(((?!-))(xn--{{!}}_)?[a-z0-9-]{0,61}[a-z0-9]{1,1}\\.)*(xn--)?([a-z0-9][a-z0-9\\-]{0,60}{{!}}[a-z0-9-]{1,30}\\.[a-z]{2,})(?:/.*)?",
-      "https?:\\/\\/(?:www\\.)?bsky\\.app\\/profile\\/([a-z0-9.-]{2,20})"
+      "https?:\\/\\/(?:www\\.)?bsky\\.app\\/profile\\/([a-z0-9.-]+)"
     ],
     "propertyLabel": "Bluesky handle",
     "propertyDescription": "account handle on Bluesky",
@@ -54346,7 +54391,7 @@
   {
     "property": "P12932",
     "urlpaterns": [
-      "https?:\\/\\/(?:www\\.)?nederlandsebiercultuur\\.nl\\/databank\\/bier\\/(\\d+)"
+      "https?:\\/\\/(?:www\\.)?nederlandsebiercultuur\\.nl\\/databank\\/bier\\?item-id=(\\d+)"
     ],
     "propertyLabel": "Stichting Erfgoed Nederlandse Biercultuur beer ID",
     "propertyDescription": "identifier for a beer in the database of Stichting Erfgoed Nederlandse Biercultuur",
@@ -55051,7 +55096,7 @@
     ],
     "propertyLabel": "eHLFL ID",
     "propertyDescription": "identifier of an entry in the online version of the Historical Lexicon of the Principality of Liechtenstein",
-    "propertyAltLabel": "eHLFL identifier"
+    "propertyAltLabel": "eHLFL identifier, HLFL, Historical Lexicon of the Principality of Liechtenstein, historisches-lexikon.li"
   },
   {
     "property": "P13080",
@@ -56022,7 +56067,8 @@
       "https?:\\/\\/vizier\\.cds\\.unistra\\.fr\\/viz-bin\\/VizieR-S\\?Gaia(?: |%20)DR3(?: |%20)(\\d+)"
     ],
     "propertyLabel": "Gaia ID",
-    "propertyDescription": "object ID in the Gaia catalog (Data Release 3 unless otherwise stated)"
+    "propertyDescription": "object ID in the Gaia catalog (Data Release 3 unless otherwise stated)",
+    "propertyAltLabel": "Gaia DR3, GDR3"
   },
   {
     "property": "P13229",
@@ -56494,6 +56540,14 @@
     "propertyLabel": "Oorlogsbronnen ID",
     "propertyDescription": "person at Oorlogsbronnen.nl",
     "propertyAltLabel": "Oorlogsbronnen identifier"
+  },
+  {
+    "property": "P13307",
+    "urlpaterns": [
+      "https?:\\/\\/(?:www\\.)?difhistoria\\.se\\/([a-z]+(?:-[a-z0-9]+)*)(?:\\/)?"
+    ],
+    "propertyLabel": "DIF historia player ID",
+    "propertyDescription": "identifier for a sportsperson connected to Djurgårdens IF on difhistoria.se (official site)"
   },
   {
     "property": "P13310",
@@ -57300,10 +57354,11 @@
   {
     "property": "P13591",
     "urlpaterns": [
-      "https?:\\/\\/lux\\.collections\\.yale\\.edu\\/view\\/((?:object|digital|visual|text|person|group|set|place|concept|event|activity)\\/([0-9a-f]{4})(?2)(\\-(?2))(?3){3}(?2){2})"
+      "https?:\\/\\/lux\\.collections\\.yale\\.edu\\/view\\/((?:object|digital|visual|text|person|group|set|place|concept|event|activity)\\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})"
     ],
     "propertyLabel": "Yale LUX ID",
-    "propertyDescription": "identifier for an entity in Yale's LUX cross collection knowledge graph"
+    "propertyDescription": "identifier for an entity in Yale's LUX cross collection knowledge graph",
+    "propertyAltLabel": "LUX ID"
   },
   {
     "property": "P13596",
@@ -57338,6 +57393,15 @@
     "propertyDescription": "article in the Sierra Wiki"
   },
   {
+    "property": "P13611",
+    "urlpaterns": [
+      "https?:\\/\\/carla\\.hmt-leipzig\\.de\\/person\\/(\\d{5})"
+    ],
+    "propertyLabel": "CARLA ID",
+    "propertyDescription": "identifier for a person in the CARLA (Conservatory Archive Records Leipzig with Additions) database recording students and teachers at the Leipzig Conservatory from 1843 to 1918",
+    "propertyAltLabel": "CARLA Conservatory Archive Records Identifier"
+  },
+  {
     "property": "P13613",
     "urlpaterns": [
       "https?:\\/\\/(?:www\\.)?egu\\.xunta\\.gal\\/gl\\/termo\\/([1-9][0-9]*)"
@@ -57367,7 +57431,7 @@
   {
     "property": "P13630",
     "urlpaterns": [
-      "https?:\\/\\/www\\.filmfestival\\.nl\\/persoon\\/([a-z]+(?:-[a-z]+)*)"
+      "https?:\\/\\/www\\.filmfestival\\.nl\\/persoon\\/([a-zà-öø-ÿ]+(?:-[a-zà-öø-ÿ]+)*(?:-\\d+)?)"
     ],
     "propertyLabel": "Nederlands Film Festival person ID",
     "propertyDescription": "Identifier for a person on the Netherlands Film Festival website (filmfestival.nl)."
@@ -57450,8 +57514,8 @@
   {
     "property": "P13695",
     "urlpaterns": [
-      "https?:\\/\\/myabandonware\\-link\\.toolforge\\.org\\/company\\.php)\\/([a-z\\d]{1,3})",
-      "https?:\\/\\/(?:www\\.)?myabandonware\\.com\\/browse\\/(?:developer|publisher)\\/[a-z\\d\\-]+\\-([a-z\\d]{1,3})\\/?"
+      "https?:\\/\\/(?:www\\.)?myabandonware\\.com\\/browse\\/(?:developer|publisher)\\/[a-z\\d\\-]+\\-([a-z\\d]{1,3})\\/?",
+      "https?:\\/\\/myabandonware\\-link\\.toolforge\\.org\\/company\\.php\\/([a-z\\d]{1,3})"
     ],
     "propertyLabel": "My Abandonware company ID",
     "propertyDescription": "identifier for a video game developer or publisher on myabandonware.com",
@@ -57488,7 +57552,8 @@
       "https?:\\/\\/easin\\.jrc\\.ec\\.europa\\.eu\\/spexplorer\\/species\\/factsheet\\/(R\\d{5})"
     ],
     "propertyLabel": "EASIN ID",
-    "propertyDescription": "identifier for an alien species on the Catalogue of Alien Species by the European Alien Species Information Network"
+    "propertyDescription": "identifier for an alien species on the Catalogue of Alien Species by the European Alien Species Information Network",
+    "propertyAltLabel": "EASIN identifier"
   },
   {
     "property": "P13750",
@@ -57521,7 +57586,8 @@
       "https?:\\/\\/gamepadla\\.com\\/([a-z\\d]+(?:\\-[a-z\\d]+)*)\\.html"
     ],
     "propertyLabel": "Gamepadla ID",
-    "propertyDescription": "identifier of a gamepad on Gamepadla"
+    "propertyDescription": "identifier of a gamepad on Gamepadla",
+    "propertyAltLabel": "Gamepadla identifier"
   },
   {
     "property": "P13792",
@@ -57535,7 +57601,7 @@
   {
     "property": "P13795",
     "urlpaterns": [
-      "https?:\\/\\/wikihow\\.com\\/([^\\s]{1,400})"
+      "https?:\\/\\/(?:www\\.)?wikihow\\.com\\/([^\\s]{1,400})"
     ],
     "propertyLabel": "wikiHow article ID",
     "propertyDescription": "identifier of an article on wikiHow",
@@ -57619,6 +57685,14 @@
     ],
     "propertyLabel": "MultimediaWiki page ID",
     "propertyDescription": "page in the Multimedia Wiki"
+  },
+  {
+    "property": "P13863",
+    "urlpaterns": [
+      "https?:\\/\\/(?:www)\\.kick\\.com\\/(\\w{1,25})"
+    ],
+    "propertyLabel": "Kick username",
+    "propertyDescription": "username of a Kick channel"
   },
   {
     "property": "P13880",
@@ -58158,5 +58232,14 @@
     ],
     "propertyLabel": "Hentaigana for Academic Information Exchange ID",
     "propertyDescription": "Chinese character glyph identifier issued by Moji Joho Kiban Project"
+  },
+  {
+    "property": "P14183",
+    "urlpaterns": [
+      "https?:\\/\\/generation-nintendo\\.com\\/jeux\\/\\?edi=([A-Za-z\\d]+(?:\\+[A-Za-z\\d]+)*)(?:&q=.*)?"
+    ],
+    "propertyLabel": "Génération Nintendo publisher ID",
+    "propertyDescription": "identifier of a video game publisher in the Génération Nintendo database",
+    "propertyAltLabel": "GN publisher ID"
   }
 ]

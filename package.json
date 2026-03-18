@@ -1,6 +1,6 @@
 {
   "name": "social-profile-url-parser",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "A Node.js library for extracting social media profile URLs from a block of text",
   "keywords": [
     "node",
@@ -23,15 +23,30 @@
     "url": "https://github.com/wvanderp/social-profile-url-parser/issues"
   },
   "main": "./lib/index.js",
-  "types": "./lib",
+  "module": "./lib/index.mjs",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.mjs",
+      "require": "./lib/index.js",
+      "default": "./lib/index.mjs"
+    },
+    "./removeEmpty": {
+      "types": "./lib/removeEmpty.d.ts",
+      "import": "./lib/removeEmpty.mjs",
+      "require": "./lib/removeEmpty.js",
+      "default": "./lib/removeEmpty.mjs"
+    }
+  },
   "files": [
     "lib/**/*",
     "data/properties.json"
   ],
   "scripts": {
-    "build": "rimraf lib && tsc -p tsconfig.build.json",
+    "build": "tsdown",
     "coverage": "npm run build && vitest run --coverage",
-    "lint": "tsc -p tsconfig.build.json --noEmit && eslint --ext ts,tsx,js src/",
+    "lint": "tsc -p tsconfig.lint.json && eslint --ext ts,tsx,js src/",
     "test": "npm run build && vitest run",
     "collect": "ts-node ./scripts/collect.ts"
   },
@@ -52,8 +67,8 @@
     "eslint-plugin-sonarjs": "^2.0.4",
     "eslint-plugin-unicorn": "^56.0.1",
     "html-escaper": "^3.0.3",
-    "rimraf": "^6.1.2",
     "ts-node": "^10.9.2",
+    "tsdown": "^0.21.4",
     "typescript": "^5.9.3",
     "vitest": "^3.2.4"
   }

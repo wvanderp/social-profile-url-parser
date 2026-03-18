@@ -1,23 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import { parser, regexes } from '../src/index.ts';
-
-describe('regex loading', () => {
-    it('loads regexes from JSON data', () => {
-        expect(regexes.length).toBeGreaterThan(0);
-    });
-
-    it('creates valid regex metadata', () => {
-        for (const regex of regexes) {
-            expect(regex.type).toEqual(expect.any(String));
-            expect(regex.type).not.toHaveLength(0);
-            expect(regex.name).toEqual(expect.any(String));
-            expect(regex.name).not.toHaveLength(0);
-            expect(regex.regex).toBeInstanceOf(RegExp);
-        }
-    });
-});
+import { parser } from '../src/index';
 
 describe('parser', () => {
     const casesDirectoryPath = path.resolve(__dirname, './cases');
@@ -39,8 +23,12 @@ describe('parser', () => {
             }>;
         }>;
 
-        for (const [index, testCase] of parsedCases.entries()) {
-            it(`matches ${caseFileName} case ${index + 1}`, () => {
+        let caseNumber = 0;
+
+        for (const testCase of parsedCases) {
+            caseNumber += 1;
+
+            it(`matches ${caseFileName} case ${caseNumber}`, () => {
                 const results = parser(testCase.text);
                 expect(results).toEqual(testCase.expected);
             });

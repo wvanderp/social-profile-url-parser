@@ -1,0 +1,19 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "target": "ES2019",
+        "noEmit": true,
+        "allowImportingTsExtensions": true
+    },
+    "include": [
+        "src/**/*.ts",
+        "test/**/*.ts",
+        "scripts/**/*.ts",
+        "createTest.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "coverage",
+        "lib"
+    ]
+}
