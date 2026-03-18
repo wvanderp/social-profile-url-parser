@@ -5,12 +5,12 @@ import { regexes } from '../src/index';
 type RawProperty = {
     property: string;
     propertyLabel?: string;
-    urlpaterns?: string[];
+    urlPatterns?: string[];
 };
 
 const rawProperties = properties as RawProperty[];
 const rawPatterns = rawProperties.flatMap(
-    ({ property, propertyLabel, urlpaterns = [] }) => urlpaterns.map((pattern, patternIndex) => ({
+    ({ property, propertyLabel, urlPatterns = [] }) => urlPatterns.map((pattern, patternIndex) => ({
         property,
         propertyLabel: propertyLabel ?? property,
         pattern,

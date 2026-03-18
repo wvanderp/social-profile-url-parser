@@ -2,7 +2,7 @@ import properties from '../data/properties.json';
 
 type RawProperty = {
     property: string;
-    urlpaterns?: string[];
+    urlPatterns?: string[];
     propertyLabel?: string;
 };
 
@@ -32,7 +32,7 @@ function compileRegexes(): RegexDefinition[] {
     const rawProperties = properties as RawProperty[];
 
     return rawProperties.flatMap((property) => {
-        const patterns = property.urlpaterns ?? [];
+        const patterns = property.urlPatterns ?? [];
 
         return patterns.reduce((compiledPatterns, pattern) => {
             try {

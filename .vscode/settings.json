@@ -3,9 +3,9 @@
         "nocheck",
         "regexes",
         "weibo",
-        "wvdp"
-        "urlpatern",
-        "urlpaterns",
+        "wvdp",
+        "urlPattern",
+        "urlPatterns",
         "wikibase"
     ],
     "editor.formatOnSave": true

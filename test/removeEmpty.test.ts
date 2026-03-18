@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import removeEmpty from '../src/removeEmpty.ts';
+import removeEmpty from '../src/removeEmpty';
 
 describe('removeEmpty', () => {
     it('removes undefined keys recursively and preserves non-undefined values', () => {
@@ -8,6 +8,7 @@ describe('removeEmpty', () => {
             keepZero: 0,
             keepFalse: false,
             keepEmptyString: '',
+            // eslint-disable-next-line unicorn/no-null
             keepNull: null,
             removeTopLevel: undefined,
             nested: {
@@ -27,6 +28,8 @@ describe('removeEmpty', () => {
             keepZero: 0,
             keepFalse: false,
             keepEmptyString: '',
+
+            // eslint-disable-next-line unicorn/no-null
             keepNull: null,
             nested: {
                 keepNested: 'nested',

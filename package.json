@@ -45,9 +45,8 @@
   ],
   "scripts": {
     "build": "tsdown",
-    "coverage": "npm run build && vitest run --coverage",
-    "lint": "tsc -p tsconfig.lint.json && eslint --ext ts,tsx,js src/",
-    "test": "npm run build && vitest run",
+    "lint": "tsc -p tsconfig.lint.json && eslint . --ext .ts",
+    "test": "vitest run --coverage",
     "collect": "ts-node ./scripts/collect.ts"
   },
   "devDependencies": {
