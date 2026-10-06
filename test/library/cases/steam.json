@@ -3,10 +3,10 @@
         "text": "https://steamcommunity.com/profiles/76561198014898339",
         "expected": [
             {
-                "type": "P6945",
+                "propertyId": "P6945",
                 "name": "Steam profile ID",
                 "url": "https://steamcommunity.com/profiles/76561198014898339",
-                "username": "76561198014898339"
+                "identifier": "76561198014898339"
             }
         ]
     }

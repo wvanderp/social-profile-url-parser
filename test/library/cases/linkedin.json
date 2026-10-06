@@ -3,10 +3,10 @@
         "text": "https://www.linkedin.com/in/defaultlinkedin",
         "expected": [
             {
-                "type": "P6634",
+                "propertyId": "P6634",
                 "name": "LinkedIn personal profile ID",
                 "url": "https://www.linkedin.com/in/defaultlinkedin",
-                "username": "defaultlinkedin"
+                "identifier": "defaultlinkedin"
             }
         ]
     },
@@ -14,10 +14,10 @@
         "text": "https://www.linkedin.com/company/tiny-speck-inc",
         "expected": [
             {
-                "type": "P4264",
+                "propertyId": "P4264",
                 "name": "LinkedIn company or organization ID",
                 "url": "https://www.linkedin.com/company/tiny-speck-inc",
-                "username": "tiny-speck-inc"
+                "identifier": "tiny-speck-inc"
             }
         ]
     },
@@ -25,10 +25,10 @@
         "text": "https://www.linkedin.com/school/linkedinschool",
         "expected": [
             {
-                "type": "P4264",
+                "propertyId": "P4264",
                 "name": "LinkedIn company or organization ID",
                 "url": "https://www.linkedin.com/school/linkedinschool",
-                "username": "linkedinschool"
+                "identifier": "linkedinschool"
             }
         ]
     },

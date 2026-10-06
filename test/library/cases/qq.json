@@ -3,10 +3,10 @@
         "text": "https://user.qzone.qq.com/706290229",
         "expected": [
             {
-                "type": "P6459",
+                "propertyId": "P6459",
                 "name": "QQ user ID",
                 "url": "https://user.qzone.qq.com/706290229",
-                "username": "706290229"
+                "identifier": "706290229"
             }
         ]
     }

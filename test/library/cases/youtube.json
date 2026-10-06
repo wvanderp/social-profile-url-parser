@@ -4,9 +4,9 @@
         "expected": [
             {
                 "name": "YouTube channel ID",
-                "type": "P2397",
+                "propertyId": "P2397",
                 "url": "https://youtube.com/channel/UCY3YECgeBcLCzIrFLP4gblw",
-                "username": "UCY3YECgeBcLCzIrFLP4gblw"
+                "identifier": "UCY3YECgeBcLCzIrFLP4gblw"
             }
         ]
     },
@@ -15,9 +15,9 @@
         "expected": [
             {
                 "name": "YouTube channel ID",
-                "type": "P2397",
+                "propertyId": "P2397",
                 "url": "https://www.youtube.com/channel/UCXUCegBr2GL7mo6O1l-xvVw",
-                "username": "UCXUCegBr2GL7mo6O1l-xvVw"
+                "identifier": "UCXUCegBr2GL7mo6O1l-xvVw"
             }
         ]
     },
@@ -26,9 +26,9 @@
         "expected": [
             {
                 "name": "YouTube handle",
-                "type": "P11245",
+                "propertyId": "P11245",
                 "url": "https://youtube.com/c/UCY3YECgeBcLCzIrFLP4gblc",
-                "username": "UCY3YECgeBcLCzIrFLP4gblc"
+                "identifier": "UCY3YECgeBcLCzIrFLP4gblc"
             }
         ]
     },
@@ -42,9 +42,9 @@
         "expected": [
             {
                 "name": "YouTube handle",
-                "type": "P11245",
+                "propertyId": "P11245",
                 "url": "https://youtube.com/@qdance",
-                "username": "qdance"
+                "identifier": "qdance"
             }
         ]
     }

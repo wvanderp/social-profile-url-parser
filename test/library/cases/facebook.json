@@ -3,10 +3,10 @@
         "text": "https://www.facebook.com/slackhq",
         "expected": [
             {
-                "type": "P2013",
+                "propertyId": "P2013",
                 "name": "Facebook username",
                 "url": "https://www.facebook.com/slackhq",
-                "username": "slackhq"
+                "identifier": "slackhq"
             }
         ]
     },
@@ -14,10 +14,10 @@
         "text": "https://nl-nl.facebook.com/slacklocalized",
         "expected": [
             {
-                "type": "P2013",
+                "propertyId": "P2013",
                 "name": "Facebook username",
                 "url": "https://nl-nl.facebook.com/slacklocalized",
-                "username": "slacklocalized"
+                "identifier": "slacklocalized"
             }
         ]
     }

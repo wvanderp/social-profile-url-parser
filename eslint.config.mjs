@@ -90,7 +90,7 @@ export default [
         },
     },
     {
-        files: ['scripts/**/*.ts', 'createTest.ts', '*.config.ts'],
+        files: ['scripts/**/*.ts', '*.config.ts'],
         languageOptions: { globals: globals.node },
     },
     {

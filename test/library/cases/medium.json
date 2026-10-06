@@ -3,10 +3,10 @@
         "text": "https://medium.com/@salesflare-at",
         "expected": [
             {
-                "type": "P3899",
+                "propertyId": "P3899",
                 "name": "Medium username",
                 "url": "https://medium.com/@salesflare-at",
-                "username": "salesflare-at"
+                "identifier": "salesflare-at"
             }
         ]
     },
@@ -14,10 +14,10 @@
         "text": "https://medium.com/salesflare",
         "expected": [
             {
-                "type": "P3899",
+                "propertyId": "P3899",
                 "name": "Medium username",
                 "url": "https://medium.com/salesflare",
-                "username": "salesflare"
+                "identifier": "salesflare"
             }
         ]
     }

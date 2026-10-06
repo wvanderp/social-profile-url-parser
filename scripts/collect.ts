@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 // this file queries Wikidata query service and updates the json files
 
-// eslint-disable-next-line import/no-extraneous-dependencies
-import axios from 'axios';
-import fs from 'fs';
-import path from 'path';
+import { version } from '../package.json';
+import type { RawProperty } from '../src/types';
+import { writeCompiledProperties, writeRawProperties } from './dataFiles';
+import stripAnchors from './stripAnchors';
 
 interface WikidataResponse {
     head: {
@@ -54,8 +54,8 @@ interface WikidataResponse {
 }
 
 const query = `
-#All properties with descriptions and aliases and types
-SELECT ?property ?urlPattern ?urlPatternReplacement ?urlFormatter ?propertyType ?propertyLabel ?propertyDescription ?propertyAltLabel WHERE {
+#External ID properties with URL match patterns, replacements, formatters, labels, descriptions and aliases
+SELECT ?property ?urlPattern ?urlPatternReplacement ?urlFormatter ?propertyLabel ?propertyDescription ?propertyAltLabel WHERE {
   ?property wikibase:propertyType wikibase:ExternalId.
   OPTIONAL {
     ?property p:P8966 ?urlPatternStatement.
@@ -77,29 +77,33 @@ ORDER BY (xsd:integer(STRAFTER(STR(?property), "P")))
 `;
 
 const url = `https://query.wikidata.org/sparql?format=json&query=${encodeURIComponent(query)}`;
-const DEFAULT_USER_AGENT = 'social-profile-url-parser/2.0.0 (https://github.com/wvanderp/social-profile-url-parser)';
+const DEFAULT_USER_AGENT = `social-profile-url-parser/${version} (https://github.com/wvanderp/social-profile-url-parser)`;
 const userAgent = process.env.WIKIMEDIA_USER_AGENT ?? DEFAULT_USER_AGENT;
 const requestTimeoutMs = 60_000;
 
-console.log('Updating properties.json...');
-console.log(`url: ${url}`);
-console.log(`Using User-Agent: ${userAgent}`);
-
-const propertiesPath = path.join(__dirname, '../data/properties.json');
-
-const fetchWikidata = async () => {
-    const response = await axios.get<WikidataResponse>(url, {
-        timeout: requestTimeoutMs,
+const fetchWikidata = async (): Promise<WikidataResponse> => {
+    // this script only runs in Node, which has fetch built in
+    // eslint-disable-next-line compat/compat
+    const response = await fetch(url, {
+        signal: AbortSignal.timeout(requestTimeoutMs),
         headers: {
             'User-Agent': userAgent,
             Accept: 'application/sparql-results+json',
         },
     });
 
-    return response.data;
+    if (!response.ok) {
+        throw new Error(`Wikidata request failed with status ${response.status} ${response.statusText}`);
+    }
+
+    return await response.json() as WikidataResponse;
 };
 
 const run = async () => {
+    console.log('Updating properties.raw.json and properties.compiled.json...');
+    console.log(`url: ${url}`);
+    console.log(`Using User-Agent: ${userAgent}`);
+
     const data = await fetchWikidata();
     console.log('Got results, writing to file...');
 
@@ -124,8 +128,7 @@ const run = async () => {
         const altLabel = binding.propertyAltLabel?.value;
 
         const urlPattern = {
-        // remove the ^ from the start of the urlPattern and remove the trailing $
-            pattern: binding.urlPattern.value.replace(/^\^/, '').replace(/\$$/, ''),
+            pattern: stripAnchors(binding.urlPattern.value),
             replacement: binding.urlPatternReplacement?.value,
         };
 
@@ -133,7 +136,7 @@ const run = async () => {
         return {
             property,
             urlFormatter: binding.urlFormatter?.value,
-            urlPatterns: urlPattern ? [urlPattern] : [],
+            urlPatterns: [urlPattern],
             propertyLabel: label,
             propertyDescription: description,
             propertyAltLabel: altLabel,
@@ -154,8 +157,7 @@ const run = async () => {
         return accumulator;
     }, {} as Record<string, typeof properties[0]>);
 
-    const sortedProperties = Object.values(groupedProperties)
-        .filter((property) => property.urlPatterns && property.urlPatterns.length > 0)
+    const sortedProperties: RawProperty[] = Object.values(groupedProperties)
         .map((property) => ({
             ...property,
             urlPatterns: property.urlPatterns.toSorted(
@@ -163,17 +165,14 @@ const run = async () => {
             ),
         }));
 
-    // create the folder if it doesn't exist
-    if (!fs.existsSync(path.dirname(propertiesPath))) {
-        fs.mkdirSync(path.dirname(propertiesPath));
-    }
-
-    // eslint-disable-next-line unicorn/no-null
-    fs.writeFileSync(propertiesPath, JSON.stringify(sortedProperties, null, 2));
+    // the raw file keeps everything Wikidata returned, including duplicates,
+    // so the data tests can report them
+    writeRawProperties(sortedProperties);
+    writeCompiledProperties(sortedProperties);
 };
 
 // eslint-disable-next-line unicorn/prefer-top-level-await
 run().catch((error) => {
-    console.error('Failed to update properties.json:', error);
+    console.error('Failed to update the property files:', error);
     process.exitCode = 1;
 });

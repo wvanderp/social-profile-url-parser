@@ -15,19 +15,19 @@ jobs:
     if: github.event_name != 'release' || github.event.release.target_commitish == 'main'
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
-          ref: ${{ github.event.release.target_commitish || github.ref_name }}
+          ref: ${{ github.event.release.tag_name || github.ref_name }}
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v6
         with:
           standalone: true
 
       # install Node.js
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version: 26
           cache: "pnpm"
           registry-url: "https://registry.npmjs.org"
 
@@ -38,6 +38,13 @@ jobs:
 
       # run tests just in case
       - run: pnpm test
+
+      - name: Verify package version matches release tag
+        if: github.event_name == 'release'
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          node -e 'const version = require("./package.json").version; const tag = process.env.RELEASE_TAG; if (tag !== `v${version}`) throw new Error(`Release tag ${tag} does not match package version ${version}`);'
 
       # publish to NPM with OIDC authentication
       - run: npm publish

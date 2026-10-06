@@ -9,8 +9,7 @@
         "*.ts",
         "src/**/*.ts",
         "test/**/*.ts",
-        "scripts/**/*.ts",
-        "createTest.ts"
+        "scripts/**/*.ts"
     ],
     "exclude": [
         "node_modules",

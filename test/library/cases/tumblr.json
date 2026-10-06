@@ -3,10 +3,10 @@
         "text": "https://justblu333.tumblr.com/",
         "expected": [
             {
-                "type": "P3943",
+                "propertyId": "P3943",
                 "name": "Tumblr username",
                 "url": "https://justblu333.tumblr.com",
-                "username": "justblu333"
+                "identifier": "justblu333"
             }
         ]
     }

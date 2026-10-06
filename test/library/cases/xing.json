@@ -3,10 +3,10 @@
         "text": "https://www.xing.com/profile/Frank_Hoefer4",
         "expected": [
             {
-                "type": "P7176",
+                "propertyId": "P7176",
                 "name": "XING profile ID",
                 "url": "https://www.xing.com/profile/Frank_Hoefer4",
-                "username": "Frank_Hoefer4"
+                "identifier": "Frank_Hoefer4"
             }
         ]
     },

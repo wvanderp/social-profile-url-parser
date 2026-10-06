@@ -3,10 +3,10 @@
         "text": "http://www.crunchbase.com/organization/slack",
         "expected": [
             {
-                "type": "P2088",
+                "propertyId": "P2088",
                 "name": "Crunchbase organization ID",
                 "url": "http://www.crunchbase.com/organization/slack",
-                "username": "slack"
+                "identifier": "slack"
             }
         ]
     },
@@ -14,10 +14,10 @@
         "text": "http://www.crunchbase.com/company/tiny-speck",
         "expected": [
             {
-                "type": "P2088",
+                "propertyId": "P2088",
                 "name": "Crunchbase organization ID",
                 "url": "http://www.crunchbase.com/company/tiny-speck",
-                "username": "tiny-speck"
+                "identifier": "tiny-speck"
             }
         ]
     },
@@ -26,9 +26,9 @@
         "expected": [
             {
                 "name": "Crunchbase person ID",
-                "type": "P2087",
+                "propertyId": "P2087",
                 "url": "http://www.crunchbase.com/person/slackcrunchperson",
-                "username": "slackcrunchperson"
+                "identifier": "slackcrunchperson"
             }
         ]
     }

@@ -3,10 +3,10 @@
         "text": "https://nl.pinterest.com/natascha_kopp/_saved/",
         "expected": [
             {
-                "type": "P3836",
+                "propertyId": "P3836",
                 "name": "Pinterest username",
                 "url": "https://nl.pinterest.com/natascha_kopp/",
-                "username": "natascha_kopp"
+                "identifier": "natascha_kopp"
             }
         ]
     },

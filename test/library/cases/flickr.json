@@ -3,10 +3,10 @@
         "text": "https://www.flickr.com/photos/33438735@N08/",
         "expected": [
             {
-                "type": "P3267",
+                "propertyId": "P3267",
                 "name": "Flickr user ID",
                 "url": "https://www.flickr.com/photos/33438735@N08/",
-                "username": "33438735@N08"
+                "identifier": "33438735@N08"
             }
         ]
     },
@@ -14,10 +14,10 @@
         "text": "https://www.flickr.com/people/dv-hans/",
         "expected": [
             {
-                "type": "P3267",
+                "propertyId": "P3267",
                 "name": "Flickr user ID",
                 "url": "https://www.flickr.com/people/dv-hans/",
-                "username": "dv-hans"
+                "identifier": "dv-hans"
             }
         ]
     },

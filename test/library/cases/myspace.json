@@ -3,10 +3,10 @@
         "text": "https://myspace.com/coreyb0425",
         "expected": [
             {
-                "type": "P3265",
+                "propertyId": "P3265",
                 "name": "Myspace ID",
                 "url": "https://myspace.com/coreyb0425",
-                "username": "coreyb0425"
+                "identifier": "coreyb0425"
             }
         ]
     }

@@ -3,10 +3,10 @@
         "text": "https://www.quora.com/profile/Jay-Hoque",
         "expected": [
             {
-                "type": "P4411",
+                "propertyId": "P4411",
                 "name": "Quora username",
                 "url": "https://www.quora.com/profile/Jay-Hoque",
-                "username": "Jay-Hoque"
+                "identifier": "Jay-Hoque"
             }
         ]
     },

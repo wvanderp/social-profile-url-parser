@@ -3,10 +3,10 @@
         "text": "https://www.tiktok.com/@arianagrande",
         "expected": [
             {
-                "type": "P7085",
+                "propertyId": "P7085",
                 "name": "TikTok username",
                 "url": "https://www.tiktok.com/@arianagrande",
-                "username": "arianagrande"
+                "identifier": "arianagrande"
             }
         ]
     }

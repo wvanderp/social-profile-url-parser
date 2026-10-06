@@ -1,9 +1,9 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import { parser } from '../../src/index';
+import { parse } from '../../src/index';
 
-describe('parser', () => {
+describe('parse fixtures', () => {
     const casesDirectoryPath = path.resolve(__dirname, './cases');
     const caseFiles = fs
         .readdirSync(casesDirectoryPath)
@@ -16,10 +16,10 @@ describe('parser', () => {
         const parsedCases = JSON.parse(rawCaseData) as Array<{
             text: string;
             expected: Array<{
-                type: string;
+                propertyId: string;
                 name: string;
                 url: string;
-                username: string;
+                identifier: string;
             }>;
         }>;
 
@@ -29,14 +29,14 @@ describe('parser', () => {
             caseNumber += 1;
 
             it(`matches ${caseFileName} case ${caseNumber}`, () => {
-                const results = parser(testCase.text);
+                const results = parse(testCase.text);
                 expect(results.map(({
-                    type, name, url, username, groups,
+                    propertyId, name, url, identifier, groups,
                 }) => ({
-                    type, name, url, username, groups,
+                    propertyId, name, url, identifier, groups,
                 }))).toEqual(testCase.expected.map((result) => ({
                     ...result,
-                    groups: [result.username],
+                    groups: [result.identifier],
                 })));
             });
         }

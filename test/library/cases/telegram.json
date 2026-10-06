@@ -3,10 +3,10 @@
         "text": "https://t.me/telegram",
         "expected": [
             {
-                "type": "P3789",
+                "propertyId": "P3789",
                 "name": "Telegram username",
                 "url": "https://t.me/telegram",
-                "username": "telegram"
+                "identifier": "telegram"
             }
         ]
     },
@@ -14,10 +14,10 @@
         "text": "https://t.me/list_telegram",
         "expected": [
             {
-                "type": "P3789",
+                "propertyId": "P3789",
                 "name": "Telegram username",
                 "url": "https://t.me/list_telegram",
-                "username": "list_telegram"
+                "identifier": "list_telegram"
             }
         ]
     },
@@ -25,10 +25,10 @@
         "text": "hhttps://telegram.dog/mrhallo",
         "expected": [
             {
-                "type": "P3789",
+                "propertyId": "P3789",
                 "name": "Telegram username",
                 "url": "https://telegram.dog/mrhallo",
-                "username": "mrhallo"
+                "identifier": "mrhallo"
             }
         ]
     },
@@ -36,10 +36,10 @@
         "text": "https://telegram.me/shajareyan",
         "expected": [
             {
-                "type": "P3789",
+                "propertyId": "P3789",
                 "name": "Telegram username",
                 "url": "https://telegram.me/shajareyan",
-                "username": "shajareyan"
+                "identifier": "shajareyan"
             }
         ]
     },
@@ -47,10 +47,10 @@
         "text": "https://www.telegram.me/cannews",
         "expected": [
             {
-                "type": "P3789",
+                "propertyId": "P3789",
                 "name": "Telegram username",
                 "url": "https://www.telegram.me/cannews",
-                "username": "cannews"
+                "identifier": "cannews"
             }
         ]
     },
@@ -58,10 +58,10 @@
         "text": "https://web.telegram.org/k/#-2128475717",
         "expected": [
             {
-                "type": "P3789",
+                "propertyId": "P3789",
                 "name": "Telegram username",
                 "url": "https://web.telegram.org/k/#-2128475717",
-                "username": "-2128475717"
+                "identifier": "-2128475717"
             }
         ]
     },
@@ -69,10 +69,10 @@
         "text": "https://web.telegram.org/k/#@Banana_traffbot",
         "expected": [
             {
-                "type": "P3789",
+                "propertyId": "P3789",
                 "name": "Telegram username",
                 "url": "https://web.telegram.org/k/#@Banana_traffbot",
-                "username": "Banana_traffbot"
+                "identifier": "Banana_traffbot"
             }
         ]
     },
@@ -80,10 +80,10 @@
         "text": "http://web.telegram.org/a/#6891155458",
         "expected": [
             {
-                "type": "P3789",
+                "propertyId": "P3789",
                 "name": "Telegram username",
                 "url": "http://web.telegram.org/a/#6891155458",
-                "username": "6891155458"
+                "identifier": "6891155458"
             }
         ]
     }

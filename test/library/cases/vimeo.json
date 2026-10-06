@@ -3,10 +3,10 @@
         "text": "https://vimeo.com/alexaimephotography",
         "expected": [
             {
-                "type": "P4015",
+                "propertyId": "P4015",
                 "name": "Vimeo ID",
                 "url": "https://vimeo.com/alexaimephotography",
-                "username": "alexaimephotography"
+                "identifier": "alexaimephotography"
             }
         ]
     }

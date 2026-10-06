@@ -3,10 +3,10 @@
         "text": "https://www.instagram.com/chrissysface/",
         "expected": [
             {
-                "type": "P2003",
+                "propertyId": "P2003",
                 "name": "Instagram username",
                 "url": "https://www.instagram.com/chrissysface",
-                "username": "chrissysface"
+                "identifier": "chrissysface"
             }
         ]
     }

@@ -3,10 +3,10 @@
         "text": "https://twitter.com/SlackHQ",
         "expected": [
             {
-                "type": "P2002",
+                "propertyId": "P2002",
                 "name": "X (Twitter) username",
                 "url": "https://twitter.com/SlackHQ",
-                "username": "SlackHQ"
+                "identifier": "SlackHQ"
             }
         ]
     },
@@ -14,10 +14,10 @@
         "text": "https://twitter.com/SlackLoveTweets",
         "expected": [
             {
-                "type": "P2002",
+                "propertyId": "P2002",
                 "name": "X (Twitter) username",
                 "url": "https://twitter.com/SlackLoveTweets",
-                "username": "SlackLoveTweets"
+                "identifier": "SlackLoveTweets"
             }
         ]
     },
@@ -25,10 +25,10 @@
         "text": "https://mobile.twitter.com/mobiletwitter",
         "expected": [
             {
-                "type": "P2002",
+                "propertyId": "P2002",
                 "name": "X (Twitter) username",
                 "url": "https://mobile.twitter.com/mobiletwitter",
-                "username": "mobiletwitter"
+                "identifier": "mobiletwitter"
             }
         ]
     },
@@ -36,10 +36,10 @@
         "text": "https://x.com/SlackLoveTweets",
         "expected": [
             {
-                "type": "P2002",
+                "propertyId": "P2002",
                 "name": "X (Twitter) username",
                 "url": "https://x.com/SlackLoveTweets",
-                "username": "SlackLoveTweets"
+                "identifier": "SlackLoveTweets"
             }
         ]
     },
@@ -47,10 +47,10 @@
         "text": "https://x.com/elonmusk",
         "expected": [
             {
-                "type": "P2002",
+                "propertyId": "P2002",
                 "name": "X (Twitter) username",
                 "url": "https://x.com/elonmusk",
-                "username": "elonmusk"
+                "identifier": "elonmusk"
             }
         ]
     }

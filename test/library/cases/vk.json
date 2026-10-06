@@ -3,10 +3,10 @@
         "text": "https://vk.com/csdwer96123",
         "expected": [
             {
-                "type": "P3185",
+                "propertyId": "P3185",
                 "name": "VK username",
                 "url": "https://vk.com/csdwer96123",
-                "username": "csdwer96123"
+                "identifier": "csdwer96123"
             }
         ]
     }

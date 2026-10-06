@@ -3,10 +3,10 @@
         "text": "https://www.yelp.nl/biz/umami-rotterdam",
         "expected": [
             {
-                "type": "P3108",
+                "propertyId": "P3108",
                 "name": "Yelp ID",
                 "url": "https://www.yelp.nl/biz/umami-rotterdam",
-                "username": "umami-rotterdam"
+                "identifier": "umami-rotterdam"
             }
         ]
     },
@@ -14,10 +14,10 @@
         "text": "https://www.yelp.com/biz/riccis-family-restaurant-rochester",
         "expected": [
             {
-                "type": "P3108",
+                "propertyId": "P3108",
                 "name": "Yelp ID",
                 "url": "https://www.yelp.com/biz/riccis-family-restaurant-rochester",
-                "username": "riccis-family-restaurant-rochester"
+                "identifier": "riccis-family-restaurant-rochester"
             }
         ]
     }

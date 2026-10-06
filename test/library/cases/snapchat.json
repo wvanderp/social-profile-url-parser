@@ -3,10 +3,10 @@
         "text": "https://www.snapchat.com/add/cbsnews",
         "expected": [
             {
-                "type": "P2984",
+                "propertyId": "P2984",
                 "name": "Snapchat username",
                 "url": "https://www.snapchat.com/add/cbsnews",
-                "username": "cbsnews"
+                "identifier": "cbsnews"
             }
         ]
     }

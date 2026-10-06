@@ -1,8 +1,8 @@
 {
   "name": "social-profile-url-parser",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "packageManager": "pnpm@11.7.0",
-  "description": "A Node.js library for extracting social media profile URLs from a block of text",
+  "description": "A Node.js and browser library for extracting social media profile URLs from a block of text",
   "keywords": [
     "node",
     "social",
@@ -32,23 +32,17 @@
       "import": "./lib/index.mjs",
       "require": "./lib/index.js",
       "default": "./lib/index.mjs"
-    },
-    "./removeEmpty": {
-      "types": "./lib/removeEmpty.d.ts",
-      "import": "./lib/removeEmpty.mjs",
-      "require": "./lib/removeEmpty.js",
-      "default": "./lib/removeEmpty.mjs"
     }
   },
   "files": [
-    "lib/**/*",
-    "data/properties.json"
+    "lib/**/*"
   ],
   "scripts": {
     "build": "tsdown",
     "lint": "tsc -p tsconfig.lint.json && eslint \"**/*.ts\"",
     "test": "vitest run --coverage",
-    "collect": "ts-node ./scripts/collect.ts"
+    "collect": "ts-node ./scripts/collect.ts",
+    "compile-data": "ts-node ./scripts/compileData.ts"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -57,7 +51,6 @@
     "@typescript-eslint/eslint-plugin": "^8.71.0",
     "@typescript-eslint/parser": "^8.71.0",
     "@vitest/coverage-v8": "^3.2.4",
-    "axios": "^1.13.5",
     "eslint": "^10.12.0",
     "eslint-import-resolver-typescript": "^4.4.5",
     "eslint-plugin-compat": "^7.0.2",

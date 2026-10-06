@@ -33,7 +33,7 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-                "type": {
+                "propertyId": {
                     "type": "string"
                 },
                 "name": {
@@ -46,7 +46,7 @@
                         "https"
                     ]
                 },
-                "username": {
+                "identifier": {
                     "type": "string"
                 },
                 "deprecated": {
@@ -55,9 +55,9 @@
             },
             "required": [
                 "name",
-                "type",
+                "propertyId",
                 "url",
-                "username"
+                "identifier"
             ],
             "title": "Expected"
         }
