@@ -63,7 +63,13 @@ export default function compileProperties(rawProperties: RawProperty[]): Compile
  * @returns One entry per repeated pattern, with the number of times it occurs.
  */
 export function findDuplicatePatterns(properties: CompiledProperty[]): DuplicatePattern[] {
+    const exceptions = new Set([
+        'P8424',
+        'P11994',
+    ]);
+
     return properties.flatMap(({ property, urlPatterns = [] }) => countPatterns(urlPatterns)
+        .filter(() => !exceptions.has(property))
         .filter(({ count }) => count > 1)
         .map(({ pattern, count }) => ({
             property,

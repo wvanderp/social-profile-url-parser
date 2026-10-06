@@ -107,7 +107,7 @@ describe('findDuplicatePatterns', () => {
     it('lists every repeated pattern with how often it occurs', () => {
         expect(findDuplicatePatterns([
             {
-                property: 'P8424',
+                property: 'P84244',
                 urlPatterns: [{ pattern: 'a(b)' }, { pattern: 'a(b)' }, { pattern: 'a(b)', replacement: String.raw`\1` }],
             },
             {
@@ -119,7 +119,7 @@ describe('findDuplicatePatterns', () => {
             },
         ])).toEqual([
             {
-                property: 'P8424', pattern: 'a(b)', replacement: String.raw`\1`, count: 3,
+                property: 'P84244', pattern: 'a(b)', replacement: String.raw`\1`, count: 3,
             },
             {
                 property: 'P4033', pattern: 'c(d)', replacement: String.raw`\1@fosstodon.org`, count: 2,
