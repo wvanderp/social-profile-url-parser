@@ -7,7 +7,7 @@ It works in both Node.js and browser environments, has no runtime dependencies, 
 ## Install
 
 ```bash
-npm install social-profile-url-parser
+pnpm add social-profile-url-parser
 ```
 
 ## Usage (Node.js)
@@ -25,7 +25,8 @@ console.log(results);
 //     type: 'P2002',
 //     name: 'X username',
 //     url: 'https://twitter.com/jack',
-//     username: 'jack'
+//     username: 'jack',
+//     groups: ['jack']
 //   },
 //   ...
 // ]
@@ -48,6 +49,8 @@ You can use an ESM CDN to run this package directly in the browser.
 
 The URL regex patterns are collected from Wikidata property `P8966` (URL match pattern) and stored in `data/properties.json`.
 
+Each pattern's `P8967` (URL match replacement value) qualifier controls how capture groups form the username. Non-default values are stored in `urlPatternReplacements`, keyed by the pattern; omitted values default to `\1`.
+
 This library intentionally does **not** maintain custom regex fixes in code. If a pattern is wrong, the long-term fix should happen on Wikidata.
 
 ## Missing URL or incorrect match
@@ -67,6 +70,17 @@ This keeps fixes upstream so everyone using Wikidata-backed tooling benefits.
 
 ## Support the project
 
+For development, use pnpm 11.7.0 (pinned in `package.json`) with Node.js 22.13 or newer. ESLint 10 uses `eslint.config.mjs`; the lint plugins require Node.js 22 or newer. CI uses standalone pnpm to test multiple Node.js versions and runs lint on Node.js 24.
+
+```bash
+pnpm install --frozen-lockfile
+pnpm build
+pnpm lint
+pnpm test
+```
+
+Use `pnpm collect` to refresh the Wikidata patterns. Commit `pnpm-lock.yaml` when changing dependencies; `pnpm-workspace.yaml` allows the required dependency build scripts.
+
 Issues and pull requests are welcome. For URL matching problems, please include concrete examples and preferably a Wikidata reference/update link.
 
 ## API
@@ -76,7 +90,8 @@ Issues and pull requests are welcome. For URL matching problems, please include 
 Parses a string and returns all recognized social profile matches.
 
 - Matches are deduplicated by `type + username`.
-- `username` is extracted from capture groups in the Wikidata regex pattern.
+- `username` is assembled using the pattern's P8967 replacement, defaulting to the first capture group (`\1`). For example, `\1:\3` joins groups 1 and 3 with a colon.
+- `groups` contains every capture group in order (group 1 at index 0), with `undefined` for unmatched optional groups. Unmatched groups contribute an empty string to the username.
 - If a pattern has no capture groups, the full matched URL is returned as `username`.
 
 ```ts
@@ -85,6 +100,7 @@ type ParseResult = {
   name: string;
   url: string;
   username: string;
+  groups: Array<string | undefined>;
 };
 ```
 
@@ -94,7 +110,7 @@ Example:
 import { parser } from "social-profile-url-parser";
 
 const result = parser("See https://twitter.com/jack for details");
-// [{ type: 'P2002', name: 'X username', url: 'https://twitter.com/jack', username: 'jack' }]
+// [{ type: 'P2002', name: 'X username', url: 'https://twitter.com/jack', username: 'jack', groups: ['jack'] }]
 ```
 
 ### `regexes: RegexDefinition[]`
@@ -106,5 +122,6 @@ type RegexDefinition = {
   type: string;
   name: string;
   regex: RegExp;
+  replacement?: string;
 };
 ```

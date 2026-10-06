@@ -2,7 +2,10 @@ import properties from '../data/properties.json';
 
 type RawProperty = {
     property: string;
-    urlPatterns?: string[];
+    urlPatterns?: {
+        pattern: string;
+        replacement?: string;
+    }[];
     propertyLabel?: string;
 };
 
@@ -11,21 +14,24 @@ export type ParseResult = {
     name: string;
     url: string;
     username: string;
+    groups: Array<string | undefined>;
 };
 
 export type RegexDefinition = {
     type: string;
     name: string;
     regex: RegExp;
+    replacement?: string;
 };
 
-function getMatchValue(match: RegExpExecArray): string {
-    const captures = match.slice(1).filter(Boolean);
-    if (captures.length === 0) {
+function getMatchValue(match: RegExpExecArray, replacement = String.raw`\1`): string {
+    if (match.length === 1 && replacement === String.raw`\1`) {
         return match[0];
     }
 
-    return captures.join('');
+    // Keep replacement compatible with the ES2019 browser target.
+    // eslint-disable-next-line unicorn/prefer-string-replace-all
+    return replacement.replace(/\\(\d+)/g, (_, group: string) => match[Number(group)] ?? '');
 }
 
 function compileRegexes(): RegexDefinition[] {
@@ -35,11 +41,16 @@ function compileRegexes(): RegexDefinition[] {
         const patterns = property.urlPatterns ?? [];
 
         return patterns.reduce((compiledPatterns, pattern) => {
+            if (typeof pattern.pattern !== 'string' || pattern.pattern.length === 0) {
+                return compiledPatterns;
+            }
+
             try {
                 compiledPatterns.push({
                     type: property.property,
                     name: property.propertyLabel ?? property.property,
-                    regex: new RegExp(pattern, 'gi'),
+                    regex: new RegExp(pattern.pattern, 'gi'),
+                    replacement: pattern.replacement ?? String.raw`\1`,
                 });
             } catch {
                 return compiledPatterns;
@@ -71,11 +82,21 @@ export function parser(inputText: string): ParseResult[] {
 
         let match: RegExpExecArray | null = regex.regex.exec(inputText);
         while (match !== null) {
+            // exec() does not advance after an empty match. Skip it and keep scanning.
+            if (match[0].length === 0) {
+                const codePoint = inputText.codePointAt(regex.regex.lastIndex);
+                const isSurrogatePair = codePoint !== undefined && codePoint > 65_535;
+                regex.regex.lastIndex += isSurrogatePair && regex.regex.unicode ? 2 : 1;
+                match = regex.regex.exec(inputText);
+                continue;
+            }
+
             const parsedResult: ParseResult = {
                 type: regex.type,
                 name: regex.name,
                 url: match[0],
-                username: getMatchValue(match),
+                username: getMatchValue(match, regex.replacement),
+                groups: match.slice(1),
             };
 
             const dedupeKey = `${parsedResult.type}\u0000${parsedResult.username.toLowerCase()}`;

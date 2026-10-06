@@ -22,15 +22,22 @@ jobs:
         with:
           fetch-depth: 1
 
+      - uses: pnpm/action-setup@v4
+        with:
+          standalone: true
+
       - name: use node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "npm"
+          cache: "pnpm"
 
-      - name: npm install, build, lint, and test
+      - name: pnpm install, build, and test
         run: |
-          npm ci
-          npm run build
-          npm run lint
-          npm run test
+          pnpm install --frozen-lockfile
+          pnpm build
+          pnpm test
+
+      - name: Lint on Node.js 24
+        if: matrix.node-version == 24
+        run: pnpm lint

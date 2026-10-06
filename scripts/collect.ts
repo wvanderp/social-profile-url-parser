@@ -1,5 +1,3 @@
-/* eslint-disable unicorn/no-array-reduce */
-/* eslint-disable unicorn/consistent-destructuring */
 /* eslint-disable no-console */
 // this file queries Wikidata query service and updates the json files
 
@@ -9,56 +7,66 @@ import fs from 'fs';
 import path from 'path';
 
 interface WikidataResponse {
-  head: {
-    vars: string[];
-  };
-  results: {
-    bindings: {
-      property: {
-        type: 'uri';
-        value: string;
-      };
+    head: {
+        vars: string[];
+    };
+    results: {
+        bindings: {
+            property: {
+                type: 'uri';
+                value: string;
+            };
 
-      urlPattern?: {
-        type: 'literal';
-        value: string;
-      };
+            urlPattern?: {
+                type: 'literal';
+                value: string;
+            };
 
-      propertyLabel: {
-        'xml:lang': string;
-        type: 'literal';
-        value: string;
-      };
+            urlPatternReplacement?: {
+                type: 'literal';
+                value: string;
+            };
 
-      propertyDescription?: {
-        'xml:lang': string;
-        type: 'literal';
-        value: string;
-      };
+            propertyLabel: {
+                'xml:lang': string;
+                type: 'literal';
+                value: string;
+            };
 
-      propertyAltLabel?: {
-        'xml:lang': string;
-        type: 'literal';
-        value: string;
-      };
-    }[]
-  };
+            propertyDescription?: {
+                'xml:lang': string;
+                type: 'literal';
+                value: string;
+            };
+
+            propertyAltLabel?: {
+                'xml:lang': string;
+                type: 'literal';
+                value: string;
+            };
+        }[]
+    };
 }
 
 const query = `
 #All properties with descriptions and aliases and types
-SELECT ?property ?urlPattern ?propertyType ?propertyLabel ?propertyDescription ?propertyAltLabel WHERE {
+SELECT ?property ?urlPattern ?urlPatternReplacement ?propertyType ?propertyLabel ?propertyDescription ?propertyAltLabel WHERE {
   ?property wikibase:propertyType wikibase:ExternalId.
-  OPTIONAL { ?property wdt:P8966 ?urlPattern. }
+  OPTIONAL {
+    ?property p:P8966 ?urlPatternStatement.
+    ?urlPatternStatement a wikibase:BestRank;
+                         ps:P8966 ?urlPattern.
+    OPTIONAL { ?urlPatternStatement pq:P8967 ?urlPatternReplacement. }
+  }
   SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
 }
 ORDER BY (xsd:integer(STRAFTER(STR(?property), "P")))
 `;
 
 const url = `https://query.wikidata.org/sparql?format=json&query=${encodeURIComponent(query)}`;
-const DEFAULT_USER_AGENT = 'social-profile-url-parser/2.0.0 (https://github.com/wvanderp/social-profile-url-parser; https://github.com/wvanderp/social-profile-url-parser/issues)';
+const DEFAULT_USER_AGENT = 'social-profile-url-parser/2.0.0 (https://github.com/wvanderp/social-profile-url-parser)';
 const userAgent = process.env.WIKIMEDIA_USER_AGENT ?? DEFAULT_USER_AGENT;
-const requestTimeoutMs = 30_000;
+const requestTimeoutMs = 60_000;
 
 console.log('Updating properties.json...');
 console.log(`url: ${url}`);
@@ -90,13 +98,25 @@ const run = async () => {
             throw new Error('property is undefined');
         }
 
-        // remove the ^ from the start of the urlPattern and remove the trailing $
+        if (!binding.propertyLabel || !binding.propertyLabel.value) {
+            throw new Error(`propertyLabel is undefined for property ${property}`);
+        }
 
-        const urlPattern = binding.urlPattern?.value.replace(/^\^/, '').replace(/\$$/, '');
+        if (!binding.urlPattern || !(binding.urlPattern.value)) {
+            return;
+        }
+
         const label = binding.propertyLabel.value;
         const description = binding.propertyDescription?.value;
         const altLabel = binding.propertyAltLabel?.value;
 
+        const urlPattern = {
+        // remove the ^ from the start of the urlPattern and remove the trailing $
+            pattern: binding.urlPattern.value.replace(/^\^/, '').replace(/\$$/, ''),
+            replacement: binding.urlPatternReplacement?.value,
+        };
+
+        // eslint-disable-next-line consistent-return
         return {
             property,
             urlPatterns: urlPattern ? [urlPattern] : [],
@@ -104,7 +124,8 @@ const run = async () => {
             propertyDescription: description,
             propertyAltLabel: altLabel,
         };
-    });
+    })
+        .filter((property): property is NonNullable<typeof property> => property !== undefined);
 
     // group the properties by the property
     const groupedProperties = properties.reduce((accumulator, property) => {
@@ -119,16 +140,22 @@ const run = async () => {
         return accumulator;
     }, {} as Record<string, typeof properties[0]>);
 
+    const sortedProperties = Object.values(groupedProperties)
+        .filter((property) => property.urlPatterns && property.urlPatterns.length > 0)
+        .map((property) => ({
+            ...property,
+            urlPatterns: property.urlPatterns.toSorted(
+                (a, b) => a.pattern.localeCompare(b.pattern),
+            ),
+        }));
+
     // create the folder if it doesn't exist
     if (!fs.existsSync(path.dirname(propertiesPath))) {
         fs.mkdirSync(path.dirname(propertiesPath));
     }
 
-    const filteredProperties = Object.values(groupedProperties)
-        .filter((property) => property.urlPatterns.length > 0);
-
     // eslint-disable-next-line unicorn/no-null
-    fs.writeFileSync(propertiesPath, JSON.stringify(filteredProperties, null, 2));
+    fs.writeFileSync(propertiesPath, JSON.stringify(sortedProperties, null, 2));
 };
 
 // eslint-disable-next-line unicorn/prefer-top-level-await

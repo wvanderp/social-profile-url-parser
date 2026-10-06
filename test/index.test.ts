@@ -30,7 +30,10 @@ describe('parser', () => {
 
             it(`matches ${caseFileName} case ${caseNumber}`, () => {
                 const results = parser(testCase.text);
-                expect(results).toEqual(testCase.expected);
+                expect(results).toEqual(testCase.expected.map((result) => ({
+                    ...result,
+                    groups: [result.username],
+                })));
             });
         }
     }
@@ -50,6 +53,7 @@ describe('parser', () => {
                 name: 'Custom',
                 url: 'https://example.com/full-match',
                 username: 'https://example.com/full-match',
+                groups: [],
             });
         } finally {
             regexes.pop();

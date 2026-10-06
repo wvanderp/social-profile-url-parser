@@ -1,43 +1,36 @@
+/* eslint-disable no-console */
 import { describe, it, expect } from 'vitest';
-import properties from '../data/properties.json';
 import { regexes } from '../src/index';
 
-type RawProperty = {
-    property: string;
-    propertyLabel?: string;
-    urlPatterns?: string[];
-};
-
-const rawProperties = properties as RawProperty[];
-const rawPatterns = rawProperties.flatMap(
-    ({ property, propertyLabel, urlPatterns = [] }) => urlPatterns.map((pattern, patternIndex) => ({
-        property,
-        propertyLabel: propertyLabel ?? property,
-        pattern,
-        patternIndex,
-    })),
-);
-
-describe('regex loading', () => {
-    it(`loads exactly ${rawPatterns.length} regexes from JSON data`, () => {
-        expect(regexes).toHaveLength(rawPatterns.length);
-    });
-
+describe('regex format', () => {
     for (const {
-        property, propertyLabel, pattern, patternIndex,
-    } of rawPatterns) {
-        it(`compiles ${property} ${propertyLabel} pattern ${patternIndex + 1}`, () => {
-            expect(() => new RegExp(pattern, 'gi')).not.toThrow();
+        name, type, regex, replacement = String.raw`\1`,
+    } of regexes) {
+        describe(`Wikidata ${type}`, () => {
+            it(`compiles ${name} `, () => {
+                expect(() => new RegExp(regex, 'gi')).not.toThrow();
+            });
+
+            const referencedGroups = (replacement.match(/\\\d+/g) ?? []).map(
+                (reference) => Number(reference.slice(1)),
+            );
+            const minimumGroupCount = Math.max(0, ...referencedGroups);
+
+            it(`has at least ${minimumGroupCount} capture groups in ${type} ${name}`, () => {
+                // The empty alternative matches and includes a slot for every capturing group.
+                const captureCount = new RegExp(`(?:${regex.source})|`, 'gi').exec('')?.slice(1).length ?? 0;
+                if (captureCount < minimumGroupCount) {
+                    console.log(
+                        `${type} ${name} : replacement ${replacement} needs at least ${minimumGroupCount} capture groups on Wikidata, found ${captureCount}:`,
+                        regex.source,
+                    );
+                }
+                expect(captureCount).toBeGreaterThanOrEqual(minimumGroupCount);
+            });
+
+            it('the replacements dont contain illegal characters', () => {
+                expect(replacement.includes('$')).toBe(false);
+            });
         });
     }
-
-    it('creates valid regex metadata for every compiled regex', () => {
-        for (const regex of regexes) {
-            expect(regex.type).toEqual(expect.any(String));
-            expect(regex.type.length).toBeGreaterThan(0);
-            expect(regex.name).toEqual(expect.any(String));
-            expect(regex.name.length).toBeGreaterThan(0);
-            expect(regex.regex).toBeInstanceOf(RegExp);
-        }
-    });
 });

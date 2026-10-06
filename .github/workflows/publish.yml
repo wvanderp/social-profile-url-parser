@@ -20,20 +20,24 @@ jobs:
           ref: ${{ github.event.release.target_commitish || github.ref_name }}
           fetch-depth: 0
 
+      - uses: pnpm/action-setup@v4
+        with:
+          standalone: true
+
       # install Node.js
       - uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: "npm"
+          cache: "pnpm"
           registry-url: "https://registry.npmjs.org"
 
-      - run: npm ci
+      - run: pnpm install --frozen-lockfile
 
       # build the project
-      - run: npm run build
+      - run: pnpm build
 
       # run tests just in case
-      - run: npm test
+      - run: pnpm test
 
       # publish to NPM with OIDC authentication
       - run: npm publish

@@ -3,23 +3,49 @@
         "text": "https://youtube.com/channel/UCY3YECgeBcLCzIrFLP4gblw",
         "expected": [
             {
-                "type": "P2397",
                 "name": "YouTube channel ID",
+                "type": "P2397",
                 "url": "https://youtube.com/channel/UCY3YECgeBcLCzIrFLP4gblw",
                 "username": "UCY3YECgeBcLCzIrFLP4gblw"
             }
         ]
     },
     {
+        "text": "https://www.youtube.com/channel/UCXUCegBr2GL7mo6O1l-xvVw",
+        "expected": [
+            {
+                "name": "YouTube channel ID",
+                "type": "P2397",
+                "url": "https://www.youtube.com/channel/UCXUCegBr2GL7mo6O1l-xvVw",
+                "username": "UCXUCegBr2GL7mo6O1l-xvVw"
+            }
+        ]
+    },
+    {
         "text": "https://youtube.com/c/UCY3YECgeBcLCzIrFLP4gblc",
+        "expected": [
+            {
+                "name": "YouTube handle",
+                "type": "P11245",
+                "url": "https://youtube.com/c/UCY3YECgeBcLCzIrFLP4gblc",
+                "username": "UCY3YECgeBcLCzIrFLP4gblc"
+            }
+        ]
+    },
+    {
+        "text": "https://youtube.com/qdance",
+        "explanation": "while this is a valid YouTube URL, it would match too many other URLs, so we don't want to match it",
         "expected": []
     },
     {
-        "text": "https://youtube.com/user/UCY3YECgeBcLCzIrFLP4user",
-        "expected": []
-    },
-    {
-        "text": "https://youtube.com/justchannelname",
-        "expected": []
+        "text": "https://youtube.com/@qdance",
+        "expected": [
+            {
+                "name": "YouTube handle",
+                "type": "P11245",
+                "url": "https://youtube.com/@qdance",
+                "username": "qdance"
+            }
+        ]
     }
 ]
