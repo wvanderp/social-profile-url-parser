@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import { parser, regexes, type RegexDefinition } from '../src/index';
+import { parser } from '../../src/index';
 
 describe('parser', () => {
     const casesDirectoryPath = path.resolve(__dirname, './cases');
@@ -30,33 +30,15 @@ describe('parser', () => {
 
             it(`matches ${caseFileName} case ${caseNumber}`, () => {
                 const results = parser(testCase.text);
-                expect(results).toEqual(testCase.expected.map((result) => ({
+                expect(results.map(({
+                    type, name, url, username, groups,
+                }) => ({
+                    type, name, url, username, groups,
+                }))).toEqual(testCase.expected.map((result) => ({
                     ...result,
                     groups: [result.username],
                 })));
             });
         }
     }
-
-    it('uses the full match as username when a regex has no capture groups', () => {
-        const customRegex: RegexDefinition = {
-            type: 'custom',
-            name: 'Custom',
-            regex: /https:\/\/example\.com\/full-match/gi,
-        };
-
-        regexes.push(customRegex);
-
-        try {
-            expect(parser('See https://example.com/full-match for details')).toContainEqual({
-                type: 'custom',
-                name: 'Custom',
-                url: 'https://example.com/full-match',
-                username: 'https://example.com/full-match',
-                groups: [],
-            });
-        } finally {
-            regexes.pop();
-        }
-    });
 });

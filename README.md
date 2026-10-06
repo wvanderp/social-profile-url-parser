@@ -26,7 +26,9 @@ console.log(results);
 //     name: 'X username',
 //     url: 'https://twitter.com/jack',
 //     username: 'jack',
-//     groups: ['jack']
+//     groups: ['jack'],
+//     urlFormatter: 'https://x.com/$1',
+//     formattedUrl: 'https://x.com/jack'
 //   },
 //   ...
 // ]
@@ -49,7 +51,9 @@ You can use an ESM CDN to run this package directly in the browser.
 
 The URL regex patterns are collected from Wikidata property `P8966` (URL match pattern) and stored in `data/properties.json`.
 
-Each pattern's `P8967` (URL match replacement value) qualifier controls how capture groups form the username. Non-default values are stored in `urlPatternReplacements`, keyed by the pattern; omitted values default to `\1`.
+Each pattern's `P8967` (URL match replacement value) qualifier controls how capture groups form the username. Values are stored alongside each pattern in `urlPatterns[].replacement`; omitted values default to `\1`.
+
+URL formatter templates come from [Wikidata P1630](https://www.wikidata.org/wiki/Property:P1630). Collection selects the preferred-rank formatter, or a normal-rank formatter if none is preferred, and excludes deprecated statements. If several share the best rank, the first in alphabetical URL order is used. The selected template is stored in `urlFormatter`.
 
 This library intentionally does **not** maintain custom regex fixes in code. If a pattern is wrong, the long-term fix should happen on Wikidata.
 
@@ -67,6 +71,7 @@ This keeps fixes upstream so everyone using Wikidata-backed tooling benefits.
 
 - `parser(inputText: string): ParseResult[]` — parse social profile URLs from text.
 - `regexes: RegexDefinition[]` — compiled regex definitions loaded from `data/properties.json`.
+- `formatUrl(type: string, username: string): string | undefined` — build a profile URL using the property's selected Wikidata formatter.
 
 ## Support the project
 
@@ -78,6 +83,10 @@ pnpm build
 pnpm lint
 pnpm test
 ```
+
+Tests in `test/library` check the functions in `src`, including the parser fixtures in `test/library/cases`. Tests in `test/data` validate the collected Wikidata patterns and formatters in `data/properties.json`.
+
+Run `pnpm test:library` or `pnpm test:data` to run either suite separately. `pnpm test` runs both suites with library coverage.
 
 Use `pnpm collect` to refresh the Wikidata patterns. Commit `pnpm-lock.yaml` when changing dependencies; `pnpm-workspace.yaml` allows the required dependency build scripts.
 
@@ -93,6 +102,7 @@ Parses a string and returns all recognized social profile matches.
 - `username` is assembled using the pattern's P8967 replacement, defaulting to the first capture group (`\1`). For example, `\1:\3` joins groups 1 and 3 with a colon.
 - `groups` contains every capture group in order (group 1 at index 0), with `undefined` for unmatched optional groups. Unmatched groups contribute an empty string to the username.
 - If a pattern has no capture groups, the full matched URL is returned as `username`.
+- When a formatter is available, `urlFormatter` contains its template and `formattedUrl` contains the template with every `$1` replaced by the assembled username. `url` still contains the original matched text. Both optional fields are omitted when there is no formatter.
 
 ```ts
 type ParseResult = {
@@ -101,6 +111,8 @@ type ParseResult = {
   url: string;
   username: string;
   groups: Array<string | undefined>;
+  urlFormatter?: string;
+  formattedUrl?: string;
 };
 ```
 
@@ -110,7 +122,18 @@ Example:
 import { parser } from "social-profile-url-parser";
 
 const result = parser("See https://twitter.com/jack for details");
-// [{ type: 'P2002', name: 'X username', url: 'https://twitter.com/jack', username: 'jack', groups: ['jack'] }]
+// [{ type: 'P2002', name: 'X username', url: 'https://twitter.com/jack', username: 'jack', groups: ['jack'], urlFormatter: 'https://x.com/$1', formattedUrl: 'https://x.com/jack' }]
+```
+
+### `formatUrl(type: string, username: string): string | undefined`
+
+Builds a URL from a Wikidata property ID and identifier, using the collected P1630 template. Returns `undefined` for an unknown property or one without a formatter. Identifiers are substituted literally without additional URL encoding, so existing encoded identifiers and identifiers containing path separators are preserved.
+
+```js
+import { formatUrl } from "social-profile-url-parser";
+
+formatUrl('P2002', 'jack'); // 'https://x.com/jack'
+formatUrl('P2037', 'octocat'); // 'https://github.com/octocat'
 ```
 
 ### `regexes: RegexDefinition[]`
@@ -123,5 +146,6 @@ type RegexDefinition = {
   name: string;
   regex: RegExp;
   replacement?: string;
+  urlFormatter?: string;
 };
 ```

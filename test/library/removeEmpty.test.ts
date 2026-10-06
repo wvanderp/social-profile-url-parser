@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import removeEmpty from '../src/removeEmpty';
+import removeEmpty from '../../src/removeEmpty';
 
 describe('removeEmpty', () => {
     it('removes undefined keys recursively and preserves non-undefined values', () => {

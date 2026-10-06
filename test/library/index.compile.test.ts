@@ -4,18 +4,18 @@ import {
 
 afterEach(() => {
     vi.resetModules();
-    vi.doUnmock('../data/properties.json');
+    vi.doUnmock('../../data/properties.json');
 });
 
 describe('regex compilation', () => {
     it('ignores missing and empty patterns instead of compiling empty regexes', async () => {
-        vi.doMock('../data/properties.json', () => ({
+        vi.doMock('../../data/properties.json', () => ({
             default: [{
                 property: 'custom',
                 urlPatterns: [{}, { pattern: '' }, { pattern: String.raw`https://example\.com/([a-z]+)` }],
             }],
         }));
-        const { parser: mockedParser, regexes: mockedRegexes } = await import('../src/index');
+        const { parser: mockedParser, regexes: mockedRegexes } = await import('../../src/index');
 
         expect(mockedRegexes.map(({ regex }) => regex.source)).toEqual([
             String.raw`https:\/\/example\.com\/([a-z]+)`,
@@ -30,8 +30,8 @@ describe('regex compilation', () => {
     });
 
     it.each(['gi', 'giu'])('advances past empty matches with %s flags', async (flags) => {
-        vi.doMock('../data/properties.json', () => ({ default: [] }));
-        const { parser: mockedParser, regexes: mockedRegexes } = await import('../src/index');
+        vi.doMock('../../data/properties.json', () => ({ default: [] }));
+        const { parser: mockedParser, regexes: mockedRegexes } = await import('../../src/index');
         mockedRegexes.push({
             type: 'custom',
             name: 'Custom',
@@ -54,7 +54,7 @@ describe('regex compilation', () => {
     it('supports literal replacements and multi-digit capture references', async () => {
         const literalPattern = String.raw`https://example\.com/literal`;
         const numberedPattern = String.raw`https://example\.com/(a)(b)(c)(d)(e)(f)(g)(h)(i)(j)`;
-        vi.doMock('../data/properties.json', () => ({
+        vi.doMock('../../data/properties.json', () => ({
             default: [{
                 property: 'custom',
                 urlPatterns: [
@@ -63,7 +63,7 @@ describe('regex compilation', () => {
                 ],
             }],
         }));
-        const { parser: mockedParser } = await import('../src/index');
+        const { parser: mockedParser } = await import('../../src/index');
         expect(mockedParser('https://example.com/literal https://example.com/abcdefghij'))
             .toEqual([
                 {
@@ -90,7 +90,7 @@ describe('regex compilation', () => {
             String.raw`https://example\.com/optional/([a-z]+)(?:/([a-z]+))?`,
             String.raw`https://example\.com/default/([a-z]+)/([a-z]+)`,
         ];
-        vi.doMock('../data/properties.json', () => ({
+        vi.doMock('../../data/properties.json', () => ({
             default: [{
                 property: 'custom',
                 propertyLabel: 'Custom',
@@ -102,7 +102,7 @@ describe('regex compilation', () => {
                 ],
             }],
         }));
-        const { parser: mockedParser, regexes: mockedRegexes } = await import('../src/index');
+        const { parser: mockedParser, regexes: mockedRegexes } = await import('../../src/index');
         expect(mockedRegexes.map(({ replacement }) => replacement)).toEqual([
             String.raw`\1:\3`, String.raw`prefix:\1:\1`, String.raw`\2:\1`, String.raw`\1`,
         ]);
@@ -128,7 +128,7 @@ describe('regex compilation', () => {
     });
 
     it('skips invalid regex patterns and uses Wikidata fallbacks correctly', async () => {
-        vi.doMock('../data/properties.json', () => ({
+        vi.doMock('../../data/properties.json', () => ({
             default: [
                 {
                     property: 'valid',
@@ -145,7 +145,7 @@ describe('regex compilation', () => {
             ],
         }));
 
-        const { parser: mockedParser, regexes: mockedRegexes } = await import('../src/index');
+        const { parser: mockedParser, regexes: mockedRegexes } = await import('../../src/index');
 
         expect(mockedRegexes).toHaveLength(1);
         expect(mockedRegexes[0].type).toBe('valid');

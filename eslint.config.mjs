@@ -4,6 +4,7 @@ import tsPlugin from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import compat from 'eslint-plugin-compat';
 import { importX } from 'eslint-plugin-import-x';
+import jsdoc from 'eslint-plugin-jsdoc';
 import sonarjs from 'eslint-plugin-sonarjs';
 import unicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
@@ -11,7 +12,7 @@ import airbnbRules from './eslint.airbnb-rules.mjs';
 
 export default [
     {
-        ignores: ['node_modules/**', 'lib/**', 'coverage/**', 'test/cases/**/*.json'],
+        ignores: ['node_modules/**', 'lib/**', 'coverage/**', 'test/library/cases/**/*.json'],
     },
     {
         files: ['**/*.ts'],
@@ -28,10 +29,12 @@ export default [
             '@stylistic': stylistic,
             compat,
             import: importX,
+            jsdoc,
             sonarjs,
             unicorn,
         },
         settings: {
+            jsdoc: { mode: 'typescript' },
             'import-x/parsers': { '@typescript-eslint/parser': ['.ts', '.tsx'] },
             'import-x/resolver': {
                 typescript: { alwaysTryTypes: true },
@@ -50,6 +53,13 @@ export default [
             ...compat.configs.recommended.rules,
             ...sonarjs.configs.recommended.rules,
             ...unicorn.configs.recommended.rules,
+            ...jsdoc.configs['flat/recommended-typescript-error'].rules,
+            'jsdoc/check-line-alignment': ['error', 'never'],
+            'jsdoc/require-description': 'error',
+            'jsdoc/require-description-complete-sentence': 'error',
+            'jsdoc/require-hyphen-before-param-description': ['error', 'always'],
+            // Require documentation for the library API rather than every callback.
+            'jsdoc/require-jsdoc': 'off',
             '@stylistic/function-call-spacing': ['error', 'never'],
             '@typescript-eslint/only-throw-error': 'error',
             '@stylistic/indent': ['error', 4, { SwitchCase: 1 }],
@@ -71,6 +81,12 @@ export default [
             'unicorn/filename-case': ['error', {
                 cases: { pascalCase: true, camelCase: true },
             }],
+        },
+    },
+    {
+        files: ['src/**/*.ts'],
+        rules: {
+            'jsdoc/require-jsdoc': ['error', { publicOnly: true }],
         },
     },
     {

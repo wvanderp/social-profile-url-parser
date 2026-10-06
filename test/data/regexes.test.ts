@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { describe, it, expect } from 'vitest';
-import { regexes } from '../src/index';
+import { regexes } from '../../src/index';
 
 describe('regex format', () => {
     for (const {

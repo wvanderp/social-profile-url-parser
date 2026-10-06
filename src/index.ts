@@ -7,6 +7,7 @@ type RawProperty = {
         replacement?: string;
     }[];
     propertyLabel?: string;
+    urlFormatter?: string;
 };
 
 export type ParseResult = {
@@ -15,6 +16,8 @@ export type ParseResult = {
     url: string;
     username: string;
     groups: Array<string | undefined>;
+    urlFormatter?: string;
+    formattedUrl?: string;
 };
 
 export type RegexDefinition = {
@@ -22,7 +25,34 @@ export type RegexDefinition = {
     name: string;
     regex: RegExp;
     replacement?: string;
+    urlFormatter?: string;
 };
+
+function applyUrlFormatter(urlFormatter: string, username: string): string {
+    // A callback preserves literal dollar signs in identifiers.
+    // eslint-disable-next-line unicorn/prefer-string-replace-all
+    return urlFormatter.replace(/\$1/g, () => username);
+}
+
+function getFormattedUrlFields(urlFormatter: string | undefined, username: string) {
+    return urlFormatter ? {
+        urlFormatter,
+        formattedUrl: applyUrlFormatter(urlFormatter, username),
+    } : {};
+}
+
+/**
+ * Build a URL using the property's Wikidata P1630 template, if available.
+ * @param type - The Wikidata property ID, such as P2002 for Twitter.
+ * @param username - The identifier to insert into the URL template.
+ * @returns The formatted URL, or undefined if the property has no template.
+ */
+export function formatUrl(type: string, username: string): string | undefined {
+    const property = (properties as RawProperty[]).find((entry) => entry.property === type);
+    return property?.urlFormatter
+        ? applyUrlFormatter(property.urlFormatter, username)
+        : undefined;
+}
 
 function getMatchValue(match: RegExpExecArray, replacement = String.raw`\1`): string {
     if (match.length === 1 && replacement === String.raw`\1`) {
@@ -51,6 +81,7 @@ function compileRegexes(): RegexDefinition[] {
                     name: property.propertyLabel ?? property.property,
                     regex: new RegExp(pattern.pattern, 'gi'),
                     replacement: pattern.replacement ?? String.raw`\1`,
+                    ...(property.urlFormatter && { urlFormatter: property.urlFormatter }),
                 });
             } catch {
                 return compiledPatterns;
@@ -64,8 +95,9 @@ function compileRegexes(): RegexDefinition[] {
 export const regexes = compileRegexes();
 
 /**
- * @param {string} inputText the input text that will be parsed.
- * @returns {Array<ParseResult>} an array with all the found matches
+ * Extract social profile URLs and identifiers using Wikidata URL patterns.
+ * @param inputText - The input text to parse.
+ * @returns The matches, deduplicated by property and identifier.
  * @example
  * ```js
  * import { parser } from 'social-profile-url-parser';
@@ -91,12 +123,14 @@ export function parser(inputText: string): ParseResult[] {
                 continue;
             }
 
+            const username = getMatchValue(match, regex.replacement);
             const parsedResult: ParseResult = {
                 type: regex.type,
                 name: regex.name,
                 url: match[0],
-                username: getMatchValue(match, regex.replacement),
+                username,
                 groups: match.slice(1),
+                ...getFormattedUrlFields(regex.urlFormatter, username),
             };
 
             const dedupeKey = `${parsedResult.type}\u0000${parsedResult.username.toLowerCase()}`;

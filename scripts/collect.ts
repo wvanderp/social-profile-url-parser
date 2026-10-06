@@ -27,6 +27,11 @@ interface WikidataResponse {
                 value: string;
             };
 
+            urlFormatter?: {
+                type: 'literal';
+                value: string;
+            };
+
             propertyLabel: {
                 'xml:lang': string;
                 type: 'literal';
@@ -50,13 +55,21 @@ interface WikidataResponse {
 
 const query = `
 #All properties with descriptions and aliases and types
-SELECT ?property ?urlPattern ?urlPatternReplacement ?propertyType ?propertyLabel ?propertyDescription ?propertyAltLabel WHERE {
+SELECT ?property ?urlPattern ?urlPatternReplacement ?urlFormatter ?propertyType ?propertyLabel ?propertyDescription ?propertyAltLabel WHERE {
   ?property wikibase:propertyType wikibase:ExternalId.
   OPTIONAL {
     ?property p:P8966 ?urlPatternStatement.
     ?urlPatternStatement a wikibase:BestRank;
                          ps:P8966 ?urlPattern.
     OPTIONAL { ?urlPatternStatement pq:P8967 ?urlPatternReplacement. }
+  }
+  OPTIONAL {
+    SELECT ?property (MIN(?formatter) AS ?urlFormatter) WHERE {
+      ?property p:P1630 ?formatterStatement.
+      ?formatterStatement a wikibase:BestRank;
+                          ps:P1630 ?formatter.
+    }
+    GROUP BY ?property
   }
   SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
 }
@@ -119,6 +132,7 @@ const run = async () => {
         // eslint-disable-next-line consistent-return
         return {
             property,
+            urlFormatter: binding.urlFormatter?.value,
             urlPatterns: urlPattern ? [urlPattern] : [],
             propertyLabel: label,
             propertyDescription: description,
