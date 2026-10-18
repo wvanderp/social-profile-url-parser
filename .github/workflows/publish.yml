@@ -4,20 +4,28 @@ on:
   release:
     types: [published]
   workflow_dispatch:
+  schedule:
+    - cron: "43 2 * * 0"
+      timezone: Europe/Amsterdam
+
+concurrency:
+  group: npm-publish
+  cancel-in-progress: false
 
 permissions:
   id-token: write # Required for OIDC
-  contents: read
+  contents: write # Commit weekly data and version updates
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.event_name != 'release' || github.event.release.target_commitish == 'main'
+    if: (github.event_name == 'release' && github.event.release.target_commitish == 'main') || (github.event_name != 'release' && github.ref == 'refs/heads/main')
+    timeout-minutes: 20
 
     steps:
       - uses: actions/checkout@v7
         with:
-          ref: ${{ github.event.release.tag_name || github.ref_name }}
+          ref: ${{ github.event.release.tag_name || 'main' }}
           fetch-depth: 0
 
       - uses: pnpm/action-setup@v6
@@ -33,11 +41,18 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      # build the project
-      - run: pnpm build
+      - name: Collect current Wikidata data
+        if: github.event_name != 'release'
+        run: pnpm collect
 
-      # run tests just in case
       - run: pnpm test
+      - run: pnpm lint
+
+      - name: Bump the weekly patch version
+        if: github.event_name != 'release'
+        run: npm version patch --no-git-tag-version --ignore-scripts
+
+      - run: pnpm build
 
       - name: Verify package version matches release tag
         if: github.event_name == 'release'
@@ -46,5 +61,15 @@ jobs:
         run: |
           node -e 'const version = require("./package.json").version; const tag = process.env.RELEASE_TAG; if (tag !== `v${version}`) throw new Error(`Release tag ${tag} does not match package version ${version}`);'
 
-      # publish to NPM with OIDC authentication
+      - name: Commit and push the weekly release
+        if: github.event_name != 'release'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          version=$(node -p 'require("./package.json").version')
+          git add data/properties.raw.json data/properties.compiled.json package.json
+          git commit -m "chore: weekly Wikidata refresh v${version}"
+          git push origin HEAD:main
+
+      # Keep this workflow filename for the existing npm trusted publisher.
       - run: npm publish

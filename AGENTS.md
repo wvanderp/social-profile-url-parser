@@ -1,6 +1,6 @@
 In this project we value tests and each problem should be solved by first adding a test that reproduces the problem and then fixing the problem so that the test passes. This way we can be sure that the problem is fixed and that it will not reappear in the future.
 
-we work with a lot of data that should also be tested, so make shure that you understand the rules of the data and that rules find instances that do not follow the rules, so that we can fix the data and make sure that it is correct.
+we work with a lot of data that should also be tested, so make sure that you understand the rules of the data and that rules find instances that do not follow the rules, so that we can fix the data and make sure that it is correct.
 
 Tests should have absolute comparison so compare against a actual value instead of seeing if its not empty. This makes it easier to understand what the expected value is and also makes it easier to debug if the test fails.
 
