@@ -1,6 +1,6 @@
 {
   "name": "social-profile-url-parser",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "packageManager": "pnpm@11.7.0",
   "description": "A Node.js and browser library for extracting social media profile URLs from a block of text",
   "keywords": [

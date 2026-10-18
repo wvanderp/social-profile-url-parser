@@ -4507,6 +4507,17 @@
     "propertyAltLabel": "Azores encyclopedia, EA ID, Encyclopedia of the Azores"
   },
   {
+    "property": "P1388",
+    "urlFormatter": "http://dcat-ap.de/def/politicalGeocoding/regionalKey/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https:\\/\\/www\\.dcat-ap\\.de\\/def\\/politicalGeocoding\\/regionalKey\\/\\d+\\.html#(\\d+)"
+      }
+    ],
+    "propertyLabel": "German regional key",
+    "propertyDescription": "numerical code for municipalities and other areas in Germany"
+  },
+  {
     "property": "P1391",
     "urlFormatter": "https://www.indexfungorum.org/names/NamesRecord.asp?RecordID=$1",
     "urlPatterns": [
@@ -7426,7 +7437,7 @@
   },
   {
     "property": "P2036",
-    "urlFormatter": "https://africanplantdatabase.ch/en/nomen/$1",
+    "urlFormatter": "https://africanplantdatabase.ch/en/nomen/_/$1/_",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/(?:www\\.)?ville-ge\\.ch\\/musinfo\\/bd\\/cjb\\/africa\\/details\\.php\\?langue=an&id=(\\d{1,6})"
@@ -8213,7 +8224,7 @@
     "urlFormatter": "https://www.ncbi.nlm.nih.gov/nuccore/$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/(?:www\\.)?ncbi\\.nlm\\.nih\\.gov\\/nuccore\\/([A-Z]{2}_\\d+(\\.\\d{1,2})?)"
+        "pattern": "https?:\\/\\/(?:www\\.)?ncbi\\.nlm\\.nih\\.gov\\/nuccore\\/([AN][TW]_\\d+(\\.\\d{1,2})?)"
       }
     ],
     "propertyLabel": "RefSeq genome ID",
@@ -10145,7 +10156,7 @@
   },
   {
     "property": "P2618",
-    "urlFormatter": "http://inherit.stateheritage.wa.gov.au/public/p/$1",
+    "urlFormatter": "https://inherit.dplh.wa.gov.au/Public/p/$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/inherit\\.stateheritage\\.wa\\.gov\\.au\\/public\\/p\\/([1-9]\\d*)"
@@ -12840,7 +12851,7 @@
     "urlFormatter": "https://clinicaltrials.gov/show/$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/clinicaltrials\\.gov(?:\\/ct2)?\\/show\\/(NCT(\\d{8}))"
+        "pattern": "https?:\\/\\/clinicaltrials\\.gov(?:\\/ct2)?\\/.+\\/(NCT(\\d{8}))"
       }
     ],
     "propertyLabel": "ClinicalTrials.gov ID",
@@ -14455,10 +14466,10 @@
   },
   {
     "property": "P3327",
-    "urlFormatter": "https://reserves-naturelles.org/reserve/$1",
+    "urlFormatter": "https://reserves-naturelles.org/reserves/$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/(?:www\\.)?reserves-naturelles\\.org\\/reserve\\/([a-z]+(-[a-z]+){0,20})"
+        "pattern": "https?:\\/\\/(?:www\\.)?reserves-naturelles\\.org\\/reserves\\/([a-z]+(-[a-z]+){0,20})"
       }
     ],
     "propertyLabel": "Réserves naturelles de France ID",
@@ -15717,7 +15728,7 @@
   },
   {
     "property": "P3519",
-    "urlFormatter": "https://pfam.xfam.org/family?acc=$1",
+    "urlFormatter": "https://www.ebi.ac.uk/interpro/entry/pfam/?search=$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/pfam\\.xfam\\.org\\/family\\?acc=((PF\\d{5}|CL\\d{4}))"
@@ -16331,10 +16342,10 @@
   },
   {
     "property": "P3590",
-    "urlFormatter": "http://purl.obolibrary.org/obo/$1",
+    "urlFormatter": "http://purl.obolibrary.org/obo/RO_$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/purl\\.obolibrary\\.org\\/obo\\/((RO)_[0-9]{7})"
+        "pattern": "https?:\\/\\/purl\\.obolibrary\\.org\\/obo\\/RO_([0-9]{7})"
       }
     ],
     "propertyLabel": "Relations Ontology ID",
@@ -17554,9 +17565,9 @@
         "pattern": "https?:\\/\\/(?:www\\.)?eu-football\\.info\\/_player\\.php\\?id=(\\d+)"
       }
     ],
-    "propertyLabel": "EU-Football.info player ID (archived)",
+    "propertyLabel": "EU-Football.info player ID",
     "propertyDescription": "identifier for an association football player on the EU-Football.info website",
-    "propertyAltLabel": "Eufootball.info player ID (archived)"
+    "propertyAltLabel": "Eufootball.info player ID"
   },
   {
     "property": "P3728",
@@ -17739,10 +17750,10 @@
   },
   {
     "property": "P3762",
-    "urlFormatter": "https://www.medialibrary.it/media/ricercaopen.aspx?selcrea=$1",
+    "urlFormatter": "https://biblioteche.medialibrary.it/Search?idcrea=$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/(?:www\\.)?medialibrary\\.it\\/media\\/ricercaopen\\.aspx\\?selcrea=(\\d{1,6})"
+        "pattern": "https?:\\/\\/biblioteche\\.medialibrary\\.it\\/Search?idcrea=(\\d{1,6})"
       }
     ],
     "propertyLabel": "openMLOL author ID",
@@ -17913,10 +17924,7 @@
         "pattern": "https?:\\/\\/(?:www\\.)?(?:(?:t|telegram)\\.me|telegram\\.dog)(?:\\/s)?\\/([A-Za-z0-9_]{5,})"
       },
       {
-        "pattern": "https?:\\/\\/t\\.me\\/([\\p{L}\\d_]{5,})"
-      },
-      {
-        "pattern": "https?:\\/\\/t\\.me\\/(\\w+)"
+        "pattern": "https?:\\/\\/t\\.me\\/s\\/([0-9A-Za-z_]+)"
       },
       {
         "pattern": "https?:\\/\\/web\\.telegram\\.org\\/(?:k|a)\\/#@?(-?[A-Za-z0-9_]+)"
@@ -18110,7 +18118,7 @@
     ],
     "propertyLabel": "The Numbers movie ID",
     "propertyDescription": "ID of a film at The Numbers",
-    "propertyAltLabel": "The Numbers film ID"
+    "propertyAltLabel": "The Numbers film ID, Numbers film ID, Numbers movie ID"
   },
   {
     "property": "P3810",
@@ -18137,7 +18145,7 @@
     ],
     "propertyLabel": "Evidence & Conclusion Ontology ID",
     "propertyDescription": "identifier in the Evidence & Conclusion Ontology for capturing evidence in biological research",
-    "propertyAltLabel": "E&CO ID"
+    "propertyAltLabel": "E&CO ID, ECO ID, Evidence and Conclusion Ontology ID"
   },
   {
     "property": "P3812",
@@ -20571,7 +20579,7 @@
         "pattern": "https?:\\/\\/data\\.carnegiehall\\.org\\/names\\/([1-9]\\d*)\\/about"
       }
     ],
-    "propertyLabel": "Carnegie Hall Agent ID",
+    "propertyLabel": "Carnegie Hall agent ID",
     "propertyDescription": "identifier for a person or ensemble in the Carnegie Hall Linked Open Data (LOD)",
     "propertyAltLabel": "Carnegie Hall Data Lab names ID"
   },
@@ -22092,15 +22100,18 @@
   },
   {
     "property": "P4333",
-    "urlFormatter": "https://www.ebi.ac.uk/ena/browser/view/$1",
+    "urlFormatter": "https://www.ncbi.nlm.nih.gov/datasets/genome/$1",
     "urlPatterns": [
+      {
+        "pattern": "https?://(?:www\\.)ncbi.nlm.nih.gov/data(?:sets|-hub)/genome/(GC[AF]_[0-9]{9}\\.[0-9])"
+      },
       {
         "pattern": "https?:\\/\\/(?:www\\.)?ebi\\.ac\\.uk\\/ena\\/browser\\/view\\/(GCA_[0-9]{9}\\.[0-9])"
       }
     ],
-    "propertyLabel": "GenBank assembly accession number",
+    "propertyLabel": "INSDC/RefSeq assembly accession number",
     "propertyDescription": "unique identifier of a genome assembly",
-    "propertyAltLabel": "assembly accession, GenBank accession, GenBank assembly accession, genome assembly, genome assembly accession"
+    "propertyAltLabel": "assembly accession, GenBank assembly accession, genome assembly, genome assembly accession"
   },
   {
     "property": "P4334",
@@ -24398,7 +24409,7 @@
   },
   {
     "property": "P4650",
-    "urlFormatter": "http://www.bsd-portal.de/sport/$1",
+    "urlFormatter": "https://bsd-portal.de/#/$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/(?:www\\.)?bsd-portal\\.de\\/sport\\/((skeleton|bob|rennrodeln|naturbahn)\\/athleten\\/.+)"
@@ -24571,7 +24582,7 @@
     ],
     "propertyLabel": "Museum of Fine Arts, Houston object ID",
     "propertyDescription": "identifier for an artwork or other object on the Museum of Fine Arts, Houston website",
-    "propertyAltLabel": "Houston Museum of Fine Arts artwork ID, Houston Museum of Fine Arts ID, Houston Museum of Fine Arts object ID, Houston Museum of Fine Arts work ID, Museum of Fine Arts, Houston artwork ID, Museum of Fine Arts, Houston ID, Museum of Fine Arts, Houston work ID"
+    "propertyAltLabel": "Houston Museum of Fine Arts artwork ID, Houston Museum of Fine Arts ID, Houston Museum of Fine Arts object ID, Houston Museum of Fine Arts work ID, Museum of Fine Arts, Houston artwork ID, Museum of Fine Arts, Houston ID, Museum of Fine Arts, Houston work ID, MFAH object ID"
   },
   {
     "property": "P4674",
@@ -38008,10 +38019,10 @@
   },
   {
     "property": "P6715",
-    "urlFormatter": "https://siusa.archivi.beniculturali.it/cgi-bin/pagina.pl?TipoPag=prodpersona&Chiave=$1",
+    "urlFormatter": "https://siusa-archivi.cultura.gov.it/cgi-bin/siusa/pagina.pl?TipoPag=prodpersona&Chiave=$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/siusa\\.archivi\\.beniculturali\\.it\\/cgi-bin\\/pagina\\.pl\\?TipoPag=prodpersona&Chiave=([1-9]\\d{0,5})"
+        "pattern": "https?:\\/\\/siusa-archivi\\.cultura\\.gov\\.it\\/cgi-bin\\/siusa\\/pagina\\.pl\\?TipoPag=prodpersona&Chiave=([1-9]\\d{0,5})"
       }
     ],
     "propertyLabel": "SIUSA archive producer person ID",
@@ -38263,7 +38274,8 @@
       }
     ],
     "propertyLabel": "Paměť národa ID",
-    "propertyDescription": "identifier in the database of historical witnesses of 20th-century events in the region of today's Czech Republic"
+    "propertyDescription": "identifier in the database of historical witnesses of 20th-century events in the region of today's Czech Republic",
+    "propertyAltLabel": "Memory of Nations ID"
   },
   {
     "property": "P6747",
@@ -38402,6 +38414,7 @@
   },
   {
     "property": "P6766",
+    "urlFormatter": "https://spelunker.whosonfirst.org/id/$1/",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/spelunker\\.whosonfirst\\.org\\/id\\/([1-9]\\d*)"
@@ -40671,6 +40684,17 @@
     "propertyAltLabel": "Vidwan identifier"
   },
   {
+    "property": "P7131",
+    "urlFormatter": "http://bdl.ahp-numerique.fr/items/show/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https:\\/\\/bdl\\.ahp-numerique\\.fr\\/items\\/show\\/(\\d+)"
+      }
+    ],
+    "propertyLabel": "Bureau des longitudes ID",
+    "propertyDescription": "identifier for a member of the 'Bureau des longitudes' between 1795 and 1932"
+  },
+  {
     "property": "P7132",
     "urlFormatter": "https://www.comingsoon.it/Film/Scheda/Trama/?key=$1",
     "urlPatterns": [
@@ -41782,10 +41806,10 @@
   },
   {
     "property": "P7333",
-    "urlFormatter": "https://purl.bioontology.org/ontology/PW/$1",
+    "urlFormatter": "https://purl.bioontology.org/ontology/PW/PW:$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/purl\\.bioontology\\.org\\/ontology\\/PW\\/(PW:([0-9]{7}))"
+        "pattern": "https?:\\/\\/purl\\.bioontology\\.org\\/ontology\\/PW\\/PW:([0-9]{7})"
       }
     ],
     "propertyLabel": "Pathway Ontology ID",
@@ -42776,6 +42800,18 @@
     "propertyDescription": "ID of a plant taxon held by the New Zealand Plant Conservation Network"
   },
   {
+    "property": "P7497",
+    "urlFormatter": "https://reference.wolfram.com/language/ref/entity/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https:\\/\\/reference\\.wolfram\\.com\\/language\\/ref\\/entity\\/([^\\/?#]+)"
+      }
+    ],
+    "propertyLabel": "Wolfram Language entity type",
+    "propertyDescription": "first part of the Wolfram Language entity code",
+    "propertyAltLabel": "WL entity type"
+  },
+  {
     "property": "P7498",
     "urlFormatter": "https://wfpp.columbia.edu/pioneer/$1",
     "urlPatterns": [
@@ -42981,6 +43017,17 @@
     "propertyLabel": "SK cinema film ID",
     "propertyDescription": "identifier for a Slovak film in the SK cinema database (Slovenská filmová databaza)",
     "propertyAltLabel": "skcinema film ID"
+  },
+  {
+    "property": "P7524",
+    "urlFormatter": "https://oehha.ca.gov/proposition-65/chemicals/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https:\\/\\/oehha\\.ca\\.gov\\/proposition-65\\/chemicals\\/([^\\/?#]+)"
+      }
+    ],
+    "propertyLabel": "CA PROP 65 ID",
+    "propertyDescription": "ID for substance in California Proposition 65 list of chemicals known to cause cancer or reproductive harm"
   },
   {
     "property": "P7525",
@@ -45858,6 +45905,18 @@
     "propertyAltLabel": "bunka.go.jp mediaarts-db id, mediaarts-db.bunka.go.jp ID"
   },
   {
+    "property": "P7889",
+    "urlFormatter": "https://www.anthroencyclopedia.com/entry/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https:\\/\\/www\\.anthroencyclopedia\\.com\\/entry\\/([^?#\\/]+)"
+      }
+    ],
+    "propertyLabel": "Cambridge Encyclopedia of Anthropology ID",
+    "propertyDescription": "identifier for an article in the Cambridge Encyclopedia of Anthropology",
+    "propertyAltLabel": "CEA ID"
+  },
+  {
     "property": "P7891",
     "urlFormatter": "https://www.efis.ee/company/$1",
     "urlPatterns": [
@@ -46836,6 +46895,17 @@
     "propertyAltLabel": "VideoGamer ID, VideoGamer.com game identifier, VideoGamer.com identifier"
   },
   {
+    "property": "P8024",
+    "urlFormatter": "https://www.nobelprize.org/laureate/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https:\\/\\/www\\.nobelprize\\.org\\/laureate\\/(\\d+)"
+      }
+    ],
+    "propertyLabel": "Nobel Laureate API ID",
+    "propertyDescription": "REST API service with info about Nobel laureates"
+  },
+  {
     "property": "P8028",
     "urlFormatter": "https://www.gamerevolution.com/game/$1",
     "urlPatterns": [
@@ -46919,13 +46989,10 @@
   },
   {
     "property": "P8038",
-    "urlFormatter": "http://siusa.archivi.beniculturali.it/cgi-bin/pagina.pl?TipoPag=cons&Chiave=$1",
+    "urlFormatter": "http://siusa-archivi.cultura.gov.it/cgi-bin/siusa/pagina.pl?TipoPag=cons&Chiave=$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/siusa\\.archivi\\.beniculturali\\.it\\/cgi\\-bin\\/pagina\\.pl\\?TipoPag=cons&Chiave=([1-9]\\d{0,5})"
-      },
-      {
-        "pattern": "https?:\\/\\/siusa\\.archivi\\.beniculturali\\.it\\/cgi\\-bin\\/siusa\\/pagina\\.pl\\?RicTipoScheda=sc&RicSez=indcons&TipoPag=cons&Chiave=([1-9]\\d{0,5})&RicVM=indice&RicLin=en"
+        "pattern": "https?:\\/\\/siusa-archivi\\.cultura\\.gov\\.it\\/cgi-bin\\/siusa\\/pagina\\.pl\\?TipoPag=cons&Chiave=([1-9]\\d{0,5})"
       }
     ],
     "propertyLabel": "SIUSA archive conservator ID",
@@ -48806,10 +48873,10 @@
   },
   {
     "property": "P8342",
-    "urlFormatter": "https://siusa.archivi.beniculturali.it/cgi-bin/siusa/pagina.pl?TipoPag=comparc&Chiave=$1",
+    "urlFormatter": "https://siusa-archivi.cultura.gov.it/cgi-bin/siusa/pagina.pl?TipoPag=comparc&Chiave=$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/siusa\\.archivi\\.beniculturali\\.it\\/cgi-bin\\/siusa\\/pagina\\.pl\\?TipoPag=comparc&Chiave=(\\d+)"
+        "pattern": "https?:\\/\\/siusa-archivi\\.cultura\\.gov\\.it\\/cgi-bin\\/siusa\\/pagina\\.pl\\?TipoPag=comparc&Chiave=(\\d+)"
       }
     ],
     "propertyLabel": "SIUSA archival fonds ID",
@@ -48873,10 +48940,10 @@
   },
   {
     "property": "P8356",
-    "urlFormatter": "http://siusa.archivi.beniculturali.it/cgi-bin/pagina.pl?TipoPag=prodfamiglia&Chiave=$1",
+    "urlFormatter": "http://siusa-archivi.cultura.gov.it/cgi-bin/siusa/pagina.pl?TipoPag=prodfamiglia&Chiave=$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/siusa\\.archivi\\.beniculturali\\.it\\/cgi\\-bin\\/pagina\\.pl\\?TipoPag=prodfamiglia&Chiave=([1-9][0-9]{0,5})"
+        "pattern": "https?:\\/\\/siusa-archivi\\.cultura\\.gov\\.it\\/cgi-bin\\/siusa\\/pagina\\.pl\\?TipoPag=prodfamiglia&Chiave=([1-9][0-9]{0,5})"
       }
     ],
     "propertyLabel": "SIUSA archive producer family ID",
@@ -48884,10 +48951,10 @@
   },
   {
     "property": "P8357",
-    "urlFormatter": "http://siusa.archivi.beniculturali.it/cgi-bin/pagina.pl?TipoPag=prodente&Chiave=$1",
+    "urlFormatter": "http://siusa-archivi.cultura.gov.it/cgi-bin/siusa/pagina.pl?TipoPag=prodente&Chiave=$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/siusa\\.archivi\\.beniculturali\\.it\\/cgi-bin\\/pagina\\.pl\\?TipoPag=prodente&Chiave=([1-9][0-9]{0,5})"
+        "pattern": "https?:\\/\\/siusa-archivi\\.cultura\\.gov\\.it\\/cgi-bin\\/siusa\\/pagina\\.pl\\?TipoPag=prodente&Chiave=([1-9][0-9]{0,5})"
       }
     ],
     "propertyLabel": "SIUSA archive producer organization ID",
@@ -50506,7 +50573,7 @@
   },
   {
     "property": "P8718",
-    "urlFormatter": "https://avn.com/profiles/$1",
+    "urlFormatter": "https://avn.com/porn-stars/wd-$1.html",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/(?:www\\.)?avn\\.com\\/profiles\\/([a-z\\d-]+\\-\\d+)"
@@ -50968,7 +51035,7 @@
   },
   {
     "property": "P8806",
-    "urlFormatter": "https://museenkoeln.de/ns-dokumentationszentrum/?s=2523&stid=$1",
+    "urlFormatter": "https://nsdok.de/Details-Stolpersteine?sfrom=1056&suche=&stid=$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/(?:www\\.)?museenkoeln\\.de\\/ns-dokumentationszentrum(?:\\/(?:default\\.aspx)?)?\\?(?:.*&)?s=2523&(?:.*&)?stid=([1-9]\\d{0,3})($|&)"
@@ -52204,7 +52271,7 @@
       }
     ],
     "propertyLabel": "Literary Encyclopedia ID",
-    "propertyDescription": "identifier in Soviet Literary Encyclopedia (1929-1939)"
+    "propertyDescription": "identifier in Soviet Literary Encyclopedia (1929–1939)"
   },
   {
     "property": "P9003",
@@ -59705,6 +59772,18 @@
     "propertyAltLabel": "AP&P print ID, AP&P work ID, APP print ID, APP work ID, Australian Prints + Printmaking work identifier, Australian Prints and Printmaking work identifier, Australian Prints andPrintmaking work ID"
   },
   {
+    "property": "P10090",
+    "urlFormatter": "https://dhacvb.iec.cat/fitxa/?wdt_var1=$1",
+    "urlPatterns": [
+      {
+        "pattern": "https:\\/\\/dhacvb\\.iec\\.cat\\/fitxa\\/\\?wdt_var1=(\\d+)"
+      }
+    ],
+    "propertyLabel": "DHAC ID",
+    "propertyDescription": "identifier for an art historian in the Diccionari d'historiadors de l'art català, valencià i balear",
+    "propertyAltLabel": "DHAC identifier, Diccionari d'historiadors de l'art català, valencià i balear ID, Diccionari d'historiadors de l'art català, valencià i balear identifier"
+  },
+  {
     "property": "P10094",
     "urlFormatter": "https://www.ahpra.gov.au/api/Search/GetPredictions?term=$1",
     "urlPatterns": [
@@ -59940,6 +60019,17 @@
     "propertyAltLabel": "Harvard Art Museums ID, Harvard Art Museums identifier, Harvard Art Museums work ID"
   },
   {
+    "property": "P10123",
+    "urlFormatter": "https://katalog.arthistoricum.net/id/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https:\\/\\/katalog\\.arthistoricum\\.net\\/id\\/([0-9A-Za-z\\-]+)"
+      }
+    ],
+    "propertyLabel": "Catalog of arthistoricum.net ID",
+    "propertyDescription": "identifier for an entity in the Catalog of arthistoricum.net"
+  },
+  {
     "property": "P10125",
     "urlFormatter": "https://www.deutsche-digitale-bibliothek.de/newspaper/$1",
     "urlPatterns": [
@@ -60069,6 +60159,18 @@
     "propertyAltLabel": "CAMPUS author identifier, IRIS UNICAM author ID, IRIS UNICAM author identifier"
   },
   {
+    "property": "P10149",
+    "urlFormatter": "http://literaturo.esperanto.net/autor/$1.html",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/literaturo\\.esperanto\\.net\\/autor\\/(.+)\\.html"
+      }
+    ],
+    "propertyLabel": "Original Esperanto Literature author ID",
+    "propertyDescription": "unique ID for an author on the website Original Esperanto Literature (OLE)",
+    "propertyAltLabel": "Esperanto Literature author ID, OLE, OLE ID"
+  },
+  {
     "property": "P10151",
     "urlFormatter": "https://web.archive.org/web/*/https://itunes.apple.com/us/genre/id$1",
     "urlPatterns": [
@@ -60194,6 +60296,17 @@
     "propertyDescription": "identifier for the artist on the South Korean music streaming site Genie"
   },
   {
+    "property": "P10182",
+    "urlFormatter": "https://dfih.fr/issuers/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/dfih\\.fr\\/issuers\\/(\\d+)"
+      }
+    ],
+    "propertyLabel": "DFIH business ID",
+    "propertyDescription": "identifier for a business on the DFIH website"
+  },
+  {
     "property": "P10183",
     "urlPatterns": [
       {
@@ -60221,6 +60334,18 @@
     "propertyLabel": "Artstor artwork ID",
     "propertyDescription": "identifier for an artwork on the JSTOR website",
     "propertyAltLabel": "JSTOR artwork ID"
+  },
+  {
+    "property": "P10188",
+    "urlFormatter": "https://academia.gal/dicionario/-/termo/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/academia.gal\\/dicionario\\/-\\/termo\\/([^#\\/?]+)"
+      }
+    ],
+    "propertyLabel": "Dicionario da Real Academia Galega ID",
+    "propertyDescription": "entry for a word in the official dictionary of the Royal Galician Academy",
+    "propertyAltLabel": "Dicionario da Real Academia Galega ID"
   },
   {
     "property": "P10191",
@@ -60258,6 +60383,18 @@
     "propertyDescription": "identifier for a person at the site oKino.ua"
   },
   {
+    "property": "P10195",
+    "urlFormatter": "https://id.loc.gov/entities/providers/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/id\\.loc\\.gov\\/entities\\/providers\\/([^#\\/?\\.]+)"
+      }
+    ],
+    "propertyLabel": "Library of Congress providers ID",
+    "propertyDescription": "identifier for a provider (publisher, distributor, manufacturer, etc.) from the Library of Congress Linked Data Service",
+    "propertyAltLabel": "LC provider ID, LC provider identifier, LC providers ID, LC providers identifier, Library of Congress provider ID, Library of Congress provider identifier, Library of Congress providers identifier, LoC provider ID, LoC providers ID"
+  },
+  {
     "property": "P10196",
     "urlFormatter": "https://www.norgeshistorie.no/$1.html",
     "urlPatterns": [
@@ -60288,8 +60425,7 @@
       }
     ],
     "propertyLabel": "F6S ID",
-    "propertyDescription": "identifier at F65",
-    "propertyAltLabel": "F65.com ID"
+    "propertyDescription": "identifier at f6s Network: person, company, startup, venture fund, competition, startup program, event, etc"
   },
   {
     "property": "P10200",
@@ -60409,6 +60545,17 @@
     "propertyAltLabel": "International League of Antiquarian Booksellers ID"
   },
   {
+    "property": "P10218",
+    "urlFormatter": "https://etheatre.sk/du_vademecum/permalink?xid=$1",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/etheatre\\.sk\\/du_vademecum\\/permalink\\?xid=([^#\\/?\\.]+)"
+      }
+    ],
+    "propertyLabel": "Slovak Theatre Virtual Database ID",
+    "propertyDescription": "identifier for entries in the Slovak Theatre Virtual Database"
+  },
+  {
     "property": "P10220",
     "urlFormatter": "https://www.baseballprospectus.com/player/$1/",
     "urlPatterns": [
@@ -60418,6 +60565,19 @@
     ],
     "propertyLabel": "Baseball Prospectus ID",
     "propertyDescription": "identifier for a baseball player on the Baseball Prospectus website"
+  },
+  {
+    "property": "P10221",
+    "urlFormatter": "https://ich.unesco.org/en/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/ich\\.unesco\\.org\\/..\\/(.+)\\/.+-([^#\\/?\\.]+)",
+        "replacement": "\\1/\\2"
+      }
+    ],
+    "propertyLabel": "UNESCO ICH ID",
+    "propertyDescription": "identifier of an item on the UNESCO Intangible Cultural Heritage Lists",
+    "propertyAltLabel": "List of Intangible Cultural Heritage in Need of Urgent Safeguarding ID, List of Intangible Cultural Heritage in Need of Urgent Safeguarding identifier, Register of Good Safeguarding Practices ID, Register of Good Safeguarding Practices identifier, Representative List of the Intangible Cultural Heritage of Humanity ID, Representative List of the Intangible Cultural Heritage of Humanity identifier, UNESCO ICH identifier, UNESCO ICH Lists ID, UNESCO ICH Lists identifier, UNESCO Intangible Cultural Heritage ID, UNESCO Intangible Cultural Heritage identifier, UNESCO Intangible Cultural Heritage Lists ID, UNESCO Intangible Cultural Heritage Lists identifier"
   },
   {
     "property": "P10223",
@@ -60452,6 +60612,18 @@
     "propertyLabel": "National Library of Ireland ID",
     "propertyDescription": "identifier of a National Library of Ireland authority record",
     "propertyAltLabel": "N6I ID, N6I identifier, National Library of Ireland authority record ID, National Library of Ireland authority record identifier, National Library of Ireland identifier, NLI authority record ID, NLI authority record identifier, NLI ID, NLI identifier"
+  },
+  {
+    "property": "P10230",
+    "urlFormatter": "https://invite.viber.com/?g2=$1",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/invite\\.viber\\.com\\/\\?g2=([^&#\\/?\\.]+)"
+      }
+    ],
+    "propertyLabel": "Viber group ID",
+    "propertyDescription": "identifier of a community within the Viber instant messaging service",
+    "propertyAltLabel": "Viber ID"
   },
   {
     "property": "P10235",
@@ -61840,7 +62012,7 @@
     ],
     "propertyLabel": "LDT@Library Authority ID",
     "propertyDescription": "identifier for personal name authorities in LDT @ Library",
-    "propertyAltLabel": "ld.ncl.edu.tw Authority ID, LDT@Library Authority ID, Linked Open Data Taiwan@Library Authority ID"
+    "propertyAltLabel": "LDT@Library Authority ID, ld.ncl.edu.tw Authority ID, Linked Open Data Taiwan@Library Authority ID"
   },
   {
     "property": "P10490",
@@ -62095,6 +62267,17 @@
     ],
     "propertyLabel": "ICCROM authority ID",
     "propertyDescription": "identifier for an authority in the catalogue of the ICCROM library"
+  },
+  {
+    "property": "P10521",
+    "urlFormatter": "https://www.ilo.org/dyn/normlex/en/f?p=NORMLEXPUB:12100:::NO:12100:P12100_ILO_CODE:$1:NO",
+    "urlPatterns": [
+      {
+        "pattern": "https:\\/\\/normlex\\.ilo\\.org\\/dyn\\/nrmlx_..\\/f\\?p=NORMLEXPUB:12100:0::NO::P12100_ILO_CODE:([0-9A-Z]+)"
+      }
+    ],
+    "propertyLabel": "ILO code",
+    "propertyDescription": "identifier of an international labour standard adopted by the International Labour Conference"
   },
   {
     "property": "P10523",
@@ -64249,6 +64432,17 @@
     "propertyAltLabel": "BioNames author identifier"
   },
   {
+    "property": "P11030",
+    "urlFormatter": "https://www.devilsporridge.org.uk/hm-factory-gretna-workers-database/name/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https:\\/\\/www\\.devilsporridge\\.org\\.uk\\/hm-factory-gretna-workers-database\\/name\\/([^\\/?#]+)"
+      }
+    ],
+    "propertyLabel": "Devil's Porridge Worker ID",
+    "propertyDescription": "identifier for people who worked at HM Factory Gretna during World War I"
+  },
+  {
     "property": "P11032",
     "urlFormatter": "https://paralympic.org.pl/sportowcy/$1/",
     "urlPatterns": [
@@ -65893,6 +66087,18 @@
     "propertyLabel": "Play:Right company ID",
     "propertyDescription": "identifier of a company in the Play:Right database",
     "propertyAltLabel": "playright.dk company ID"
+  },
+  {
+    "property": "P11329",
+    "urlFormatter": "https://game-rave.com/?p=$1",
+    "urlPatterns": [
+      {
+        "pattern": "https:\\/\\/www\\.game-rave\\.com\\/\\?p=(\\d+)"
+      }
+    ],
+    "propertyLabel": "Game-Rave ID",
+    "propertyDescription": "identifier of a video game in the Game-Rave database of PlayStation video games",
+    "propertyAltLabel": "Game-Rave identifier"
   },
   {
     "property": "P11330",
@@ -68812,7 +69018,7 @@
     "urlFormatter": "https://www.threads.com/@$1",
     "urlPatterns": [
       {
-        "pattern": "https:\\/\\/www\\.threads\\.(?:com|net)\\/@([^\\?#]+)"
+        "pattern": "https:\\/\\/www\\.threads\\.(?:com|net)\\/@([^\\?#\\/]+)"
       }
     ],
     "propertyLabel": "Threads username",
@@ -73190,6 +73396,10 @@
         "replacement": "frmcw:\\1"
       },
       {
+        "pattern": "https?:\\/\\/hytalewiki\\.org\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
+        "replacement": "enhytalew:\\1"
+      },
+      {
         "pattern": "https?:\\/\\/it\\.minecraft\\.wiki\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
         "replacement": "itmcw:\\1"
       },
@@ -76879,10 +77089,10 @@
   },
   {
     "property": "P13063",
-    "urlFormatter": "http://stats.ipttc.org/en/profiles/$1",
+    "urlFormatter": "https://para-stats.ittf.com/en/profiles/$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/stats\\.ipttc\\.org\\/(?:en|es|fr|pt|ru)\\/profiles\\/([1-9]\\d*)"
+        "pattern": "https?:\\/\\/para-stats\\.ittf\\.com\\/(?:en|es|fr|pt|ru)\\/profiles\\/([1-9]\\d*)"
       }
     ],
     "propertyLabel": "ITTF PTT ID",
@@ -77229,7 +77439,7 @@
   },
   {
     "property": "P13102",
-    "urlFormatter": "http://dhdb.hyldgaard-jensen.dk/spiller.php?id=$1",
+    "urlFormatter": "https://dhdb.hyldgaard-jensen.dk/spiller.php?id=$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/dhdb\\.hyldgaard-jensen\\.dk\\/spiller\\.php\\?id=([1-9]\\d*)"
@@ -80788,6 +80998,17 @@
     "propertyDescription": "identifier for an authority record in the catalogue of the Francisco Xavier Clavigero Library (Mexico City)"
   },
   {
+    "property": "P13968",
+    "urlFormatter": "https://$1.gaycities.com/",
+    "urlPatterns": [
+      {
+        "pattern": "https:\\/\\/(.+)\\.gaycities.com"
+      }
+    ],
+    "propertyLabel": "GayCities ID",
+    "propertyDescription": "identifier of a city on GayCities.com"
+  },
+  {
     "property": "P13974",
     "urlFormatter": "https://www.teenvogue.com/tag/$1",
     "urlPatterns": [
@@ -82012,6 +82233,18 @@
     "propertyLabel": "EU sanctions tracker subject ID",
     "propertyDescription": "identifier for an individual or entity on the EU sanctions tracker",
     "propertyAltLabel": "EU sanctions tracker entity ID, EU sanctions tracker individual ID, EU sanctions tracker individual/entity ID"
+  },
+  {
+    "property": "P14528",
+    "urlFormatter": "https://www.iau.org/Profile?ID=$1",
+    "urlPatterns": [
+      {
+        "pattern": "https:\\/\\/www\\.iau\\.org\\/Profile\\?ID=(\\d+)"
+      }
+    ],
+    "propertyLabel": "IAU member ID",
+    "propertyDescription": "identifier for a member of the International Astronomical Union (IAU)",
+    "propertyAltLabel": "IAU ID"
   },
   {
     "property": "P14537",
