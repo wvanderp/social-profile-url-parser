@@ -604,7 +604,7 @@
     "urlFormatter": "https://www.pop.culture.gouv.fr/notice/merimee/$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/(?:www\\.)?pop\\.culture\\.gouv\\.fr\\/notice\\/merimee\\/(([PEI][A]\\d[0-9AB]\\d{6}|ACR\\d{7}|MI\\d{3}|JAR\\d{7}|SPR\\d{7}))"
+        "pattern": "https?:\\/\\/(?:www\\.)?pop\\.culture\\.gouv\\.fr\\/notice\\/merimee\\/(([PEI][A]\\d[0-9AB]\\d{6}|ACR\\d{7}|MDI\\d{3}|JAR\\d{7}|SPR\\d{7}))"
       }
     ]
   },
@@ -1988,10 +1988,10 @@
   {
     "property": "P819",
     "propertyLabel": "ADS bibcode",
-    "urlFormatter": "https://ui.adsabs.harvard.edu/abs/$1",
+    "urlFormatter": "https://scixplorer.org/abs/$1/abstract",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/ui\\.adsabs\\.harvard\\.edu\\/abs\\/(\\d{4}[A-Za-z\\.\\&]{5}[\\w\\.]{4}[ELPQ-Z\\.][\\d\\.]{4}[A-Z])"
+        "pattern": "https?:\\/\\/scixplorer\\.org\\/abs\\/(\\d{4}[A-Za-z\\.\\&]{5}[\\w\\.]{4}[ELPQ-Z\\.][\\d\\.]{4}[A-Z])\\/abstract"
       }
     ]
   },
@@ -2524,6 +2524,9 @@
     "propertyLabel": "MycoBank taxon name ID",
     "urlFormatter": "https://www.mycobank.org/MB/$1",
     "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/(?:www\\.)?mycobank\\.org/page/Name(?: |%20)details(?: |%20)page/field/Mycobank(?: |%20)%23/([1-9][0-9]{0,5})"
+      },
       {
         "pattern": "https?:\\/\\/(?:www\\.)?mycobank\\.org\\/MB\\/([1-9][0-9]{0,5})"
       }
@@ -3382,6 +3385,9 @@
     "urlFormatter": "https://patents.google.com/patent/$1",
     "urlPatterns": [
       {
+        "pattern": "https:\\/\\/pubchem\\.ncbi\\.nlm\\.nih\\.gov\\/patent\\/([^\\/?#]+)"
+      },
+      {
         "pattern": "https?:\\/\\/patents\\.google\\.com\\/patent\\/([A-Z]{2}\\d{1,12})"
       },
       {
@@ -3532,7 +3538,7 @@
   {
     "property": "P1270",
     "propertyLabel": "Norwegian Register journal ID",
-    "urlFormatter": "https://kanalregister.hkdir.no/publiseringskanaler/KanalTidsskriftInfo.action?id=$1",
+    "urlFormatter": "https://kanalregister.hkdir.no/tidsskrift?id=$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/dbh\\.nsd\\.uib\\.no\\/publiseringskanaler\\/KanalTidsskriftInfo\\?id=([1-9][0-9]{5})"
@@ -5396,7 +5402,6 @@
   {
     "property": "P1827",
     "propertyLabel": "ISWC",
-    "urlFormatter": "https://musicbrainz.org/iswc/$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/globalmusicrights\\.com\\/Search\\?q=(\\d+)&filter=4"
@@ -9847,7 +9852,7 @@
   },
   {
     "property": "P2814",
-    "propertyLabel": "P-number",
+    "propertyLabel": "p-number",
     "urlFormatter": "https://datacvr.virk.dk/enhed/produktionsenhed/$1",
     "urlPatterns": [
       {
@@ -10204,7 +10209,7 @@
   },
   {
     "property": "P2904",
-    "propertyLabel": "Beer Advocate brewery ID",
+    "propertyLabel": "BeerAdvocate brewery ID",
     "urlFormatter": "https://www.beeradvocate.com/beer/profile/$1/",
     "urlPatterns": [
       {
@@ -11338,7 +11343,7 @@
   },
   {
     "property": "P3124",
-    "propertyLabel": "Polish scientist ID",
+    "propertyLabel": "Nauka Polska ID (archival)",
     "urlFormatter": "https://archiwum.nauka-polska.pl/#/profile/scientist?id=$1",
     "urlPatterns": [
       {
@@ -13200,7 +13205,7 @@
   {
     "property": "P3434",
     "propertyLabel": "ERIH PLUS journal ID",
-    "urlFormatter": "https://kanalregister.hkdir.no/publiseringskanaler/erihplus/periodical/info.action?id=$1",
+    "urlFormatter": "https://kanalregister.hkdir.no/tidsskrift?id=$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/kanalregister\\.hkdir\\.no\\/publiseringskanaler\\/erihplus\\/periodical\\/info\\.action\\?id=(\\d{6})"
@@ -15881,7 +15886,7 @@
   {
     "property": "P3846",
     "propertyLabel": "DBC author ID",
-    "urlFormatter": "https://viaf.org/processed/DBC$1",
+    "urlFormatter": "https://viaf.org/processed/DBC|$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/viaf\\.org\\/processed\\/DBC\\|(87\\d{12})"
@@ -15931,7 +15936,7 @@
   {
     "property": "P3851",
     "propertyLabel": "Cinenacional.com movie ID",
-    "urlFormatter": "http://www.cinenacional.com/pelicula/$1",
+    "urlFormatter": "https://cinenacional.com/pelicula/$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/(?:www\\.)?cinenacional\\.com\\/pelicula\\/([a-zí0-9\\-]+)"
@@ -15994,7 +15999,7 @@
   {
     "property": "P3857",
     "propertyLabel": "Cinenacional.com person ID",
-    "urlFormatter": "http://www.cinenacional.com/persona/$1",
+    "urlFormatter": "https://cinenacional.com/persona/$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/(?:www\\.)?cinenacional\\.com\\/persona\\/([a-z\\-]+)"
@@ -16127,10 +16132,10 @@
   {
     "property": "P3882",
     "propertyLabel": "Tilastopaja female athlete ID",
-    "urlFormatter": "https://www.tilastopaja.info/db/at.php?Sex=2&ID=$1",
+    "urlFormatter": "https://www.tilastopaja.info/beta/athletes/women/$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/(?:www\\.)?tilastopaja\\.info\\/db\\/at\\.php\\?Sex=2&ID=([1-9]\\d*)"
+        "pattern": "https?:\\/\\/(?:www\\.)?tilastopaja\\.info\\/beta\\/women\\/([1-9]\\d*)"
       }
     ]
   },
@@ -16147,10 +16152,10 @@
   {
     "property": "P3884",
     "propertyLabel": "Tilastopaja male athlete ID",
-    "urlFormatter": "https://www.tilastopaja.info/db/at.php?Sex=1&ID=$1",
+    "urlFormatter": "https://www.tilastopaja.info/beta/athletes/men/$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/(?:www\\.)?tilastopaja\\.info\\/db\\/at\\.php\\?Sex=1&ID=([1-9]\\d*)"
+        "pattern": "https?:\\/\\/(?:www\\.)?tilastopaja\\.info\\/beta\\/men\\/([1-9]\\d*)"
       }
     ]
   },
@@ -18674,7 +18679,7 @@
   {
     "property": "P4261",
     "propertyLabel": "FFVoile sailor ID",
-    "urlFormatter": "http://www.ffvoile.fr/ffv/sportif/cif/cif_detail.aspx?NoLicence=$1",
+    "urlFormatter": "https://regates.ffvoile.fr/profil/$1/",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/(?:www\\.)?ffvoile\\.fr\\/ffv\\/sportif\\/cif\\/cif_detail\\.aspx\\?NoLicence=(\\d{7}[A-Z])"
@@ -19790,7 +19795,7 @@
   },
   {
     "property": "P4438",
-    "propertyLabel": "BFI Films, TV and people ID",
+    "propertyLabel": "BFI Films, TV and people ID (archived)",
     "urlFormatter": "https://web.archive.org/web/0/https://www.bfi.org.uk/films-tv-people/$1",
     "urlPatterns": [
       {
@@ -20712,7 +20717,7 @@
   },
   {
     "property": "P4576",
-    "propertyLabel": "TIDAL artist ID",
+    "propertyLabel": "Tidal artist ID",
     "urlFormatter": "https://tidal.com/artist/$1",
     "urlPatterns": [
       {
@@ -21862,7 +21867,7 @@
   },
   {
     "property": "P4747",
-    "propertyLabel": "LINE MUSIC artist ID",
+    "propertyLabel": "Line Music artist ID",
     "urlFormatter": "https://music.line.me/artist/$1",
     "urlPatterns": [
       {
@@ -21916,7 +21921,7 @@
   {
     "property": "P4753",
     "propertyLabel": "Ecocrop ID",
-    "urlFormatter": "https://ecocrop.review.fao.org/ecocrop/srv/en/cropView?id=$1",
+    "urlFormatter": "https://ecocrop.apps.fao.org/ecocrop/srv/en/cropView?id=$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/ecocrop\\.fao\\.org\\/ecocrop\\/srv\\/en\\/cropView\\?id=(\\d+)"
@@ -29868,7 +29873,7 @@
   },
   {
     "property": "P6131",
-    "propertyLabel": "Scorebar / Soccerway team ID",
+    "propertyLabel": "Soccerway team ID (archived)",
     "urlFormatter": "https://web.archive.org/web/*/https://int.soccerway.com/teams/-/-/$1/",
     "urlPatterns": [
       {
@@ -31866,10 +31871,10 @@
   {
     "property": "P6482",
     "propertyLabel": "Image Archive, Herder Institute",
-    "urlFormatter": "https://www.herder-institut.de/bildkatalog/wikidata/$1",
+    "urlFormatter": "https://bildkatalog/herder-institut.de/bildkatalog/wikidata/$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/(?:www\\.)?herder-institut\\.de\\/bildkatalog\\/wikidata\\/(Q[1-9]\\d*)"
+        "pattern": "https?:\\/\\/(?:www\\.)?bildkatalog\\herder-institut\\.de\\/bildkatalog\\/wikidata\\/(Q[1-9]\\d*)"
       }
     ]
   },
@@ -35514,7 +35519,7 @@
   },
   {
     "property": "P7157",
-    "propertyLabel": "The Top Tens ID",
+    "propertyLabel": "The Top Tens ID (archived)",
     "urlFormatter": "https://web.archive.org/web/*/https://www.thetoptens.com/h/#i/$1",
     "urlPatterns": [
       {
@@ -36401,10 +36406,10 @@
   {
     "property": "P7337",
     "propertyLabel": "Wi-Fi Certification ID",
-    "urlFormatter": "https://certifications.prod.wi-fi.org/pdf/certificate/public/download?cid=$1",
+    "urlFormatter": "https://www.wi-fi.org/product-finder?keywords=$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/certifications\\.prod\\.wi-fi\\.org\\/pdf\\/certificate\\/public\\/download\\?cid=(WFA\\d+)"
+        "pattern": "https?:\\/\\/www\\.wi-fi\\.org\\/product-finder\\?keywords=(WFA\\d+)"
       }
     ]
   },
@@ -39550,7 +39555,7 @@
   },
   {
     "property": "P7837",
-    "propertyLabel": "Nederlands Fotomuseum photographer ID",
+    "propertyLabel": "Nederlands Fotomuseum photographer ID (OLD)",
     "urlFormatter": "https://collectie.nederlandsfotomuseum.nl/fotografen/detail/$1",
     "urlPatterns": [
       {
@@ -40084,7 +40089,7 @@
   {
     "property": "P7902",
     "propertyLabel": "Deutsche Biographie (GND) ID",
-    "urlFormatter": "https://www.deutsche-biographie.de/$1.html",
+    "urlFormatter": "https://www.deutsche-biographie.de/$1.html#indexcontent",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/(?:www\\.)?deutsche-biographie\\.de\\/pnd(1[0-9]{7,8}[0-9X])\\.html"
@@ -42723,9 +42728,6 @@
     "urlFormatter": "https://www.goodreads.com/work/editions/$1",
     "urlPatterns": [
       {
-        "pattern": "https://www\\.goodreads\\.com\\/work\\/quotes\\/(\\d+)-"
-      },
-      {
         "pattern": "https?:\\/\\/(?:www\\.)?goodreads\\.com\\/work\\/editions\\/(\\d+)"
       }
     ]
@@ -44025,11 +44027,14 @@
   },
   {
     "property": "P8718",
-    "propertyLabel": "AVN person ID",
+    "propertyLabel": "AVN person ID (OLD)",
     "urlFormatter": "https://avn.com/porn-stars/wd-$1.html",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/(?:www\\.)?avn\\.com\\/profiles\\/([a-z\\d-]+\\-\\d+)"
+        "pattern": "https?:\\/\\/(?:www\\.)?avn\\.com\\/porn-stars\\/[^\\/]+-(\\d+)\\.html"
+      },
+      {
+        "pattern": "https?:\\/\\/(?:www\\.)?avn\\.com\\/profiles\\/[^\\/]+-(\\d+)\\.html"
       }
     ]
   },
@@ -45698,7 +45703,7 @@
   },
   {
     "property": "P9022",
-    "propertyLabel": "Mediafilm ID",
+    "propertyLabel": "Mediafilm ID  (archived)",
     "urlFormatter": "https://web.archive.org/web/0/https://mediafilm.ca/film/$1/",
     "urlPatterns": [
       {
@@ -51179,7 +51184,11 @@
     "urlFormatter": "https://wikidata-externalid-url.toolforge.org/?p=9940&url_prefix=https://www.dwds.de/wb/&id=$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/(?:www\\.)?dwds\\.de\\/wb\\/([^\\/\\#\\?]+(?:#\\d+)?)"
+        "pattern": "https?:\\/\\/(?:www\\.)?dwds\\.de\\/wb\\/(?![^?#]*\\?[^#]*\\bh=)([^\\/\\#\\?]+(?:\\?[^#]*)?(?:#\\d+)?)"
+      },
+      {
+        "pattern": "https?:\\/\\/(?:www\\.)?dwds\\.de\\/wb\\/([^\\/\\#\\?]+(?:#\\d+)?)\\?h=(\\d+)",
+        "replacement": "\\1#\\2"
       }
     ]
   },
@@ -55598,7 +55607,7 @@
     "urlFormatter": "https://liquipedia.net/$1",
     "urlPatterns": [
       {
-        "pattern": "https?://liquipedia\\.net/((?:ageofempires|apexlegends|arenafps|arenaofvalor|artifact|autochess|battalion|battlerite|brawlhalla|brawlstars|callofduty|clashroyale|counterstrike|criticalops|crossfire|deadlock|dota2|esports|fifa|fighters|fortnite|freefire|halo|hearthstone|heroes|leagueoflegends|magic|mobilelegends|naraka|overwatch|paladins|pokemon|pubg|pubgmobile|rainbowsix|rocketleague|runeterra|sideswipe|simracing|smash|smite|splitgate|squadrons|starcraft|starcraft2|teamfortress|tft|trackmania|underlords|valorant|warcraft|wildrift|worldoftanks|chess|worldofwarcraft)/(?!/)(?:[^\\s]+))"
+        "pattern": "https?://liquipedia\\.net/((?:ageofempires|apexlegends|arenafps|arenaofvalor|artifact|autochess|battalion|battlerite|brawlhalla|brawlstars|callofduty|clashroyale|counterstrike|criticalops|crossfire|deadlock|dota2|esports|fifa|fighters|formula1|fortnite|freefire|halo|hearthstone|heroes|leagueoflegends|magic|mobilelegends|naraka|overwatch|paladins|pokemon|pubg|pubgmobile|rainbowsix|rocketleague|runeterra|sideswipe|simracing|smash|smite|splitgate|squadrons|starcraft|starcraft2|teamfortress|tft|trackmania|underlords|valorant|warcraft|wildrift|worldoftanks|chess|worldofwarcraft)/(?!/)(?:[^\\s]+))"
       }
     ]
   },
@@ -62994,7 +63003,7 @@
   {
     "property": "P12304",
     "propertyLabel": "Sina CBA player ID",
-    "urlFormatter": "http://cba.sports.sina.com.cn/cba/player/show/$1",
+    "urlFormatter": "https://cba.sports.sina.com.cn/cba/player/show/$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/cba\\.sports\\.sina\\.com\\.cn\\/cba\\/player\\/show\\/(\\d+)"
@@ -63742,6 +63751,10 @@
     "urlFormatter": "https://meta.weirdgloop.org/w/$1",
     "urlPatterns": [
       {
+        "pattern": "https?:\\/\\/balatrowiki\\.org\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
+        "replacement": "balatrow:\\1"
+      },
+      {
         "pattern": "https?:\\/\\/classic\\.runescape\\.wiki\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
         "replacement": "classicrsw:\\1"
       },
@@ -63758,8 +63771,16 @@
         "replacement": "esmcw:\\1"
       },
       {
+        "pattern": "https?:\\/\\/fortnite\\.weirdgloop\\.org\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
+        "replacement": "fortnitew:\\1"
+      },
+      {
         "pattern": "https?:\\/\\/fr\\.minecraft\\.wiki\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
         "replacement": "frmcw:\\1"
+      },
+      {
+        "pattern": "https?:\\/\\/gta\\.wiki\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
+        "replacement": "gtaw:\\1"
       },
       {
         "pattern": "https?:\\/\\/hytalewiki\\.org\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
@@ -63800,6 +63821,10 @@
         "replacement": "osw:\\1"
       },
       {
+        "pattern": "https?:\\/\\/overwatch\\.weirdgloop\\.org\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
+        "replacement": "overwatchw:\\1"
+      },
+      {
         "pattern": "https?:\\/\\/pt\\.minecraft\\.wiki\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
         "replacement": "ptmcw:\\1"
       },
@@ -63824,6 +63849,10 @@
         "replacement": "ukmcw:\\1"
       },
       {
+        "pattern": "https?:\\/\\/valheim\\.weirdgloop\\.org\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
+        "replacement": "valheimw:\\1"
+      },
+      {
         "pattern": "https?:\\/\\/vampire\\.survivors\\.wiki\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
         "replacement": "vsw:\\1"
       },
@@ -63833,6 +63862,18 @@
       {
         "pattern": "https?:\\/\\/wiki\\.leagueoflegends\\.com\\/en-us\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
         "replacement": "lolw:\\1"
+      },
+      {
+        "pattern": "https?:\\/\\/wiki\\.playvalorant\\.com\\/en-us\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
+        "replacement": "valorantw:\\1"
+      },
+      {
+        "pattern": "https?:\\/\\/wiki\\.smite2\\.com\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
+        "replacement": "smite2:\\1"
+      },
+      {
+        "pattern": "https?:\\/\\/wiki\\.subnautica\\.com\\/sn\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
+        "replacement": "snw:\\1"
       },
       {
         "pattern": "https?:\\/\\/wiki\\.warframe\\.com\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
@@ -64205,6 +64246,10 @@
     "propertyLabel": "DWDS sense ID",
     "urlFormatter": "https://wikidata-externalid-url.toolforge.org/?p=12550&url_prefix=https://www.dwds.de/wb/&id=$1",
     "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/(?:www\\.)?dwds\\.de\\/wb\\/([A-Za-z0-9ÄÖÜäöüß\\-\\s]+)\\?h=\\d#(d-\\d+-\\d+[-\\d]*)",
+        "replacement": "\\1#\\2"
+      },
       {
         "pattern": "https?:\\/\\/(?:www\\.)?dwds\\.de\\/wb\\/([A-Za-z0-9ÄÖÜäöüß\\-\\s]+#d-\\d+-\\d+[-\\d]*)"
       }
@@ -71394,6 +71439,16 @@
     ]
   },
   {
+    "property": "P14487",
+    "propertyLabel": "Natalie ID",
+    "urlFormatter": "https://natalie.mu/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/natalie\\.mu\\/((profile|eiga\\/film|eiga\\/drama|comic\\/anime|stage\\/play|owarai\\/office)\\/[0-9]+)"
+      }
+    ]
+  },
+  {
     "property": "P14492",
     "propertyLabel": "Adult Film Database film series ID",
     "urlFormatter": "https://www.adultfilmdatabase.com/series.cfm?seriesid=$1",
@@ -71460,6 +71515,16 @@
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/(?:www\\.)?data\\.europa\\.eu\\/apps\\/eusanctionstracker\\/subjects\\/([1-9]\\d*)\\/?"
+      }
+    ]
+  },
+  {
+    "property": "P14522",
+    "propertyLabel": "Maoyan celebrity ID",
+    "urlFormatter": "https://i.maoyan.com/asgard/celebrity/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/(?:i|www)\\.maoyan\\.com\\/(?:films|asgard)\\/celebrity\\/0*(\\d+)"
       }
     ]
   },
@@ -71887,6 +71952,82 @@
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/profile\\.google\\.com\\/@([^\\/?#]+)\\/?"
+      }
+    ]
+  },
+  {
+    "property": "P14980",
+    "propertyLabel": "Mappola ID",
+    "urlFormatter": "https://db.mappola.eu/r/Inscriptions/show/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/db.mappola.eu/r/Inscriptions/show/0*(\\d+)"
+      }
+    ]
+  },
+  {
+    "property": "P14983",
+    "propertyLabel": "NicoNicoPedia article ID",
+    "urlFormatter": "https://dic.nicovideo.jp/id/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/(?:dic\\.nicovideo\\.jp\\/id"
+      },
+      {
+        "pattern": "nico\\.ms\\/dic)\\/([1-9]\\d*)\\/?"
+      }
+    ]
+  },
+  {
+    "property": "P14994",
+    "propertyLabel": "AVN person ID",
+    "urlFormatter": "https://avn.com/profiles/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/(?:www\\.)?avn\\.com\\/profiles\\/([a-z\\d-]+\\-\\d+)"
+      }
+    ]
+  },
+  {
+    "property": "P14996",
+    "propertyLabel": "Victorian Heritage Overlay Number",
+    "urlFormatter": "https://vhd.heritagecouncil.vic.gov.au/search?aut%5B%5D=1086&kw=$1",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/vhd\\.heritagecouncil\\.vic\\.gov\\.au\\/search\\?aut%5B%5D=1086&kw=(HO\\d+)"
+      }
+    ]
+  },
+  {
+    "property": "P15003",
+    "propertyLabel": "IBA cocktail ID",
+    "urlFormatter": "https://iba-world.com/iba-cocktail/$1/",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/(?:www\\.)?iba-world\\.com\\/iba-cocktail\\/([^\\/?#]+)\\/?"
+      }
+    ]
+  },
+  {
+    "property": "P15004",
+    "propertyLabel": "IT History Forum Data Archive ID",
+    "urlFormatter": "https://itf.njszt.hu/id/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/itf\\.njszt\\.hu\\/id\\/([1-9][0-9]*)"
+      }
+    ]
+  },
+  {
+    "property": "P15013",
+    "propertyLabel": "MEMO ID",
+    "urlFormatter": "https://memo.anpi.it/monumenti/$1/",
+    "urlPatterns": [
+      {
+        "pattern": "$)"
+      },
+      {
+        "pattern": "https?:\\/\\/memo\\.anpi\\.it\\/monumenti\\/([1-9]\\d{0,5})(?:\\/"
       }
     ]
   }

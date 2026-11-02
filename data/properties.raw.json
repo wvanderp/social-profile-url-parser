@@ -667,7 +667,7 @@
     "urlFormatter": "https://www.pop.culture.gouv.fr/notice/merimee/$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/(?:www\\.)?pop\\.culture\\.gouv\\.fr\\/notice\\/merimee\\/(([PEI][A]\\d[0-9AB]\\d{6}|ACR\\d{7}|MI\\d{3}|JAR\\d{7}|SPR\\d{7}))"
+        "pattern": "https?:\\/\\/(?:www\\.)?pop\\.culture\\.gouv\\.fr\\/notice\\/merimee\\/(([PEI][A]\\d[0-9AB]\\d{6}|ACR\\d{7}|MDI\\d{3}|JAR\\d{7}|SPR\\d{7}))"
       }
     ],
     "propertyLabel": "Mérimée ID",
@@ -2241,10 +2241,10 @@
   },
   {
     "property": "P819",
-    "urlFormatter": "https://ui.adsabs.harvard.edu/abs/$1",
+    "urlFormatter": "https://scixplorer.org/abs/$1/abstract",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/ui\\.adsabs\\.harvard\\.edu\\/abs\\/(\\d{4}[A-Za-z\\.\\&]{5}[\\w\\.]{4}[ELPQ-Z\\.][\\d\\.]{4}[A-Z])"
+        "pattern": "https?:\\/\\/scixplorer\\.org\\/abs\\/(\\d{4}[A-Za-z\\.\\&]{5}[\\w\\.]{4}[ELPQ-Z\\.][\\d\\.]{4}[A-Z])\\/abstract"
       }
     ],
     "propertyLabel": "ADS bibcode",
@@ -2869,12 +2869,15 @@
     "urlFormatter": "https://www.mycobank.org/MB/$1",
     "urlPatterns": [
       {
+        "pattern": "https?:\\/\\/(?:www\\.)?mycobank\\.org/page/Name(?: |%20)details(?: |%20)page/field/Mycobank(?: |%20)%23/([1-9][0-9]{0,5})"
+      },
+      {
         "pattern": "https?:\\/\\/(?:www\\.)?mycobank\\.org\\/MB\\/([1-9][0-9]{0,5})"
       }
     ],
     "propertyLabel": "MycoBank taxon name ID",
     "propertyDescription": "identifier per MycoBank - a database that provides an authoritative and comprehensive list of names of fungi",
-    "propertyAltLabel": "MycoBank ID, MycoBank taxon name identifier"
+    "propertyAltLabel": "MycoBank ID, MycoBank taxon name identifier, MB#"
   },
   {
     "property": "P964",
@@ -3860,6 +3863,9 @@
     "urlFormatter": "https://patents.google.com/patent/$1",
     "urlPatterns": [
       {
+        "pattern": "https:\\/\\/pubchem\\.ncbi\\.nlm\\.nih\\.gov\\/patent\\/([^\\/?#]+)"
+      },
+      {
         "pattern": "https?:\\/\\/patents\\.google\\.com\\/patent\\/([A-Z]{2}\\d{1,12})"
       },
       {
@@ -4031,7 +4037,7 @@
   },
   {
     "property": "P1270",
-    "urlFormatter": "https://kanalregister.hkdir.no/publiseringskanaler/KanalTidsskriftInfo.action?id=$1",
+    "urlFormatter": "https://kanalregister.hkdir.no/tidsskrift?id=$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/dbh\\.nsd\\.uib\\.no\\/publiseringskanaler\\/KanalTidsskriftInfo\\?id=([1-9][0-9]{5})"
@@ -6205,7 +6211,6 @@
   },
   {
     "property": "P1827",
-    "urlFormatter": "https://musicbrainz.org/iswc/$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/globalmusicrights\\.com\\/Search\\?q=(\\d+)&filter=4"
@@ -8505,7 +8510,8 @@
       }
     ],
     "propertyLabel": "Dictionary of Art Historians ID",
-    "propertyDescription": "identifier for a person in the Dictionary of Art Historians"
+    "propertyDescription": "identifier for a person in the Dictionary of Art Historians",
+    "propertyAltLabel": "DOAH"
   },
   {
     "property": "P2333",
@@ -11372,8 +11378,8 @@
         "pattern": "https?:\\/\\/datacvr\\.virk\\.dk\\/data\\/visenhed\\?enhedstype=produktionsenhed&id=(\\d{10})"
       }
     ],
-    "propertyLabel": "P-number",
-    "propertyDescription": "Branch identifier from the Danish company register for linking physical sites to an organization"
+    "propertyLabel": "p-number",
+    "propertyDescription": "identifier for a production unit in the Danish company register (CVR) for linking physical sites to an organization"
   },
   {
     "property": "P2815",
@@ -11782,8 +11788,9 @@
         "pattern": "https?:\\/\\/(?:www\\.)?beeradvocate\\.com\\/beer\\/profile\\/([1-9]\\d+)\\/"
       }
     ],
-    "propertyLabel": "Beer Advocate brewery ID",
-    "propertyDescription": "identifier for a brewery, in the Beer Advocate database"
+    "propertyLabel": "BeerAdvocate brewery ID",
+    "propertyDescription": "identifier for a brewery, in the BeerAdvocate database",
+    "propertyAltLabel": "Beer Advocate brewery ID"
   },
   {
     "property": "P2905",
@@ -13095,8 +13102,8 @@
         "pattern": "https?:\\/\\/(?:archiwum\\.)?nauka-polska\\.pl\\/#\\/profile\\/scientist\\?id=(\\d+)"
       }
     ],
-    "propertyLabel": "Polish scientist ID",
-    "propertyDescription": "identifier for a scientist, in the archival Polish Government's Information Processing Centre database",
+    "propertyLabel": "Nauka Polska ID (archival)",
+    "propertyDescription": "identifier for a researcher in the unmaintained archiwum.nauka-polska.pl database",
     "propertyAltLabel": "Polish Science scientist ID"
   },
   {
@@ -15244,7 +15251,7 @@
   },
   {
     "property": "P3434",
-    "urlFormatter": "https://kanalregister.hkdir.no/publiseringskanaler/erihplus/periodical/info.action?id=$1",
+    "urlFormatter": "https://kanalregister.hkdir.no/tidsskrift?id=$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/kanalregister\\.hkdir\\.no\\/publiseringskanaler\\/erihplus\\/periodical\\/info\\.action\\?id=(\\d{6})"
@@ -18361,7 +18368,7 @@
   },
   {
     "property": "P3846",
-    "urlFormatter": "https://viaf.org/processed/DBC$1",
+    "urlFormatter": "https://viaf.org/processed/DBC|$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/viaf\\.org\\/processed\\/DBC\\|(87\\d{12})"
@@ -18419,7 +18426,7 @@
   },
   {
     "property": "P3851",
-    "urlFormatter": "http://www.cinenacional.com/pelicula/$1",
+    "urlFormatter": "https://cinenacional.com/pelicula/$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/(?:www\\.)?cinenacional\\.com\\/pelicula\\/([a-zí0-9\\-]+)"
@@ -18489,7 +18496,7 @@
   },
   {
     "property": "P3857",
-    "urlFormatter": "http://www.cinenacional.com/persona/$1",
+    "urlFormatter": "https://cinenacional.com/persona/$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/(?:www\\.)?cinenacional\\.com\\/persona\\/([a-z\\-]+)"
@@ -18644,10 +18651,10 @@
   },
   {
     "property": "P3882",
-    "urlFormatter": "https://www.tilastopaja.info/db/at.php?Sex=2&ID=$1",
+    "urlFormatter": "https://www.tilastopaja.info/beta/athletes/women/$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/(?:www\\.)?tilastopaja\\.info\\/db\\/at\\.php\\?Sex=2&ID=([1-9]\\d*)"
+        "pattern": "https?:\\/\\/(?:www\\.)?tilastopaja\\.info\\/beta\\/women\\/([1-9]\\d*)"
       }
     ],
     "propertyLabel": "Tilastopaja female athlete ID",
@@ -18666,10 +18673,10 @@
   },
   {
     "property": "P3884",
-    "urlFormatter": "https://www.tilastopaja.info/db/at.php?Sex=1&ID=$1",
+    "urlFormatter": "https://www.tilastopaja.info/beta/athletes/men/$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/(?:www\\.)?tilastopaja\\.info\\/db\\/at\\.php\\?Sex=1&ID=([1-9]\\d*)"
+        "pattern": "https?:\\/\\/(?:www\\.)?tilastopaja\\.info\\/beta\\/men\\/([1-9]\\d*)"
       }
     ],
     "propertyLabel": "Tilastopaja male athlete ID",
@@ -21059,7 +21066,7 @@
     ],
     "propertyLabel": "Wikimedia username",
     "propertyDescription": "user name of a person across all Wikimedia projects",
-    "propertyAltLabel": "Commons username, username on Wikipedia, wiki login, Wikibooks username, Wikidata user name, Wikifunctions username, Wikimedia Commons username, Wikimedia user name, Wikimedian handle, Wikinews username, Wikipedia user name, Wikipedia username, Wikiquote username, Wikisource username, Wikispecies username, Wikiversity username, Wikivoyage username, Wiktionary username, WMUN"
+    "propertyAltLabel": "Commons username, username on Wikipedia, wiki login, Wikibooks username, Wikidata user name, Wikifunctions username, Wikimedia Commons username, Wikimedia user name, Wikimedian handle, Wikinews username, Wikipedia user name, Wikipedia username, Wikiquote username, Wikisource username, Wikispecies username, Wikiversity username, Wikivoyage username, Wiktionary username, WMUN, Wikimedia user ID"
   },
   {
     "property": "P4175",
@@ -21541,7 +21548,7 @@
   },
   {
     "property": "P4261",
-    "urlFormatter": "http://www.ffvoile.fr/ffv/sportif/cif/cif_detail.aspx?NoLicence=$1",
+    "urlFormatter": "https://regates.ffvoile.fr/profil/$1/",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/(?:www\\.)?ffvoile\\.fr\\/ffv\\/sportif\\/cif\\/cif_detail\\.aspx\\?NoLicence=(\\d{7}[A-Z])"
@@ -22697,7 +22704,7 @@
     ],
     "propertyLabel": "Sport Australia Hall of Fame inductee ID",
     "propertyDescription": "identifier for an inductee on the Sport Australia Hall of Fame website",
-    "propertyAltLabel": "SAHOF inductee ID"
+    "propertyAltLabel": "SAHOF inductee ID, SAHOF ID"
   },
   {
     "property": "P4416",
@@ -22842,7 +22849,7 @@
         "pattern": "https?:\\/\\/explore\\.bfi\\.org\\.uk\\/([0-9a-f]{13})"
       }
     ],
-    "propertyLabel": "BFI Films, TV and people ID",
+    "propertyLabel": "BFI Films, TV and people ID (archived)",
     "propertyDescription": "identifier for a person or movie at BFI Film & TV Database. Format: 13 digits and lowercase letters",
     "propertyAltLabel": "BFI Film and TV ID, BFI Film and TV identifier, BFI Films, TV and people identifier"
   },
@@ -23883,7 +23890,7 @@
         "pattern": "https?:\\/\\/(?:listen\\.)?tidal\\.com\\/(?:browse\\/)?artist\\/([1-9]\\d+)(?:/u)?"
       }
     ],
-    "propertyLabel": "TIDAL artist ID",
+    "propertyLabel": "Tidal artist ID",
     "propertyDescription": "identifier of an artist on the Tidal website",
     "propertyAltLabel": "Tidal (artist), Tidal ID (artist)"
   },
@@ -25201,7 +25208,7 @@
         "pattern": "https?:\\/\\/music\\.line\\.me\\/(?:webapp\\/)?artist\\/(mi000000[\\da-f]{10})"
       }
     ],
-    "propertyLabel": "LINE MUSIC artist ID",
+    "propertyLabel": "Line Music artist ID",
     "propertyDescription": "identifier for an artist on Line Music",
     "propertyAltLabel": "music.line.me artist ID"
   },
@@ -25255,7 +25262,7 @@
   },
   {
     "property": "P4753",
-    "urlFormatter": "https://ecocrop.review.fao.org/ecocrop/srv/en/cropView?id=$1",
+    "urlFormatter": "https://ecocrop.apps.fao.org/ecocrop/srv/en/cropView?id=$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/ecocrop\\.fao\\.org\\/ecocrop\\/srv\\/en\\/cropView\\?id=(\\d+)"
@@ -26942,7 +26949,7 @@
     ],
     "propertyLabel": "TMDB person ID",
     "propertyDescription": "identifier for a person at The Movie Database",
-    "propertyAltLabel": "The Movie Database person ID, themoviedb.org person ID, Film Verilənlər Bazası şəxs identifikatoru, Film Verilənlər Bazası şəxsinin şəxsiyyət vəsiqəsi, filmin db şəxsi identifikatoru, themoviedb.org şəxs identifikatoru, themoviedb.org şəxsin şəxsiyyət vəsiqəsi, TMDb şəxs identifikatoru"
+    "propertyAltLabel": "The Movie Database person ID, themoviedb.org person ID"
   },
   {
     "property": "P4986",
@@ -27758,7 +27765,7 @@
     ],
     "propertyLabel": "KKBOX artist ID",
     "propertyDescription": "identifier for an artist on KKBox music site",
-    "propertyAltLabel": "KK Box artist ID"
+    "propertyAltLabel": "KK Box artist ID, kkbox.com artist ID, www.kkbox.com artist ID"
   },
   {
     "property": "P5156",
@@ -34360,8 +34367,8 @@
         "pattern": "https?:\\/\\/www\\.scorebar\\.com(?:\\/\\w+)?\\/teams\\/(?:[a-zA-Z\\-]+)\\/(?:[a-zA-Z\\-]+)\\/([1-9]\\d*)\\/"
       }
     ],
-    "propertyLabel": "Scorebar / Soccerway team ID",
-    "propertyDescription": "identifier for an association football (soccer) team at the Scorebar website (previously Soccerway)",
+    "propertyLabel": "Soccerway team ID (archived)",
+    "propertyDescription": "identifier for an association football (soccer) team at the former Soccerway website (archived link)",
     "propertyAltLabel": "Soccerway team ID, Scorebar team ID"
   },
   {
@@ -36627,10 +36634,10 @@
   },
   {
     "property": "P6482",
-    "urlFormatter": "https://www.herder-institut.de/bildkatalog/wikidata/$1",
+    "urlFormatter": "https://bildkatalog/herder-institut.de/bildkatalog/wikidata/$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/(?:www\\.)?herder-institut\\.de\\/bildkatalog\\/wikidata\\/(Q[1-9]\\d*)"
+        "pattern": "https?:\\/\\/(?:www\\.)?bildkatalog\\herder-institut\\.de\\/bildkatalog\\/wikidata\\/(Q[1-9]\\d*)"
       }
     ],
     "propertyLabel": "Image Archive, Herder Institute",
@@ -40828,7 +40835,7 @@
         "pattern": "https?:\\/\\/(?:www\\.)?thetoptens\\.com\\/h\\/#i\\/([1-9][0-9]*)"
       }
     ],
-    "propertyLabel": "The Top Tens ID",
+    "propertyLabel": "The Top Tens ID (archived)",
     "propertyDescription": "item's ID on The Top Tens website",
     "propertyAltLabel": "The Top Tens identifier, Top Ten Lists at TheTopTens ID, TTT ID"
   },
@@ -41840,10 +41847,10 @@
   },
   {
     "property": "P7337",
-    "urlFormatter": "https://certifications.prod.wi-fi.org/pdf/certificate/public/download?cid=$1",
+    "urlFormatter": "https://www.wi-fi.org/product-finder?keywords=$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/certifications\\.prod\\.wi-fi\\.org\\/pdf\\/certificate\\/public\\/download\\?cid=(WFA\\d+)"
+        "pattern": "https?:\\/\\/www\\.wi-fi\\.org\\/product-finder\\?keywords=(WFA\\d+)"
       }
     ],
     "propertyLabel": "Wi-Fi Certification ID",
@@ -45434,7 +45441,7 @@
         "pattern": "https?:\\/\\/collectie\\.nederlandsfotomuseum\\.nl\\/fotografen\\/detail\\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})"
       }
     ],
-    "propertyLabel": "Nederlands Fotomuseum photographer ID",
+    "propertyLabel": "Nederlands Fotomuseum photographer ID (OLD)",
     "propertyDescription": "authority control identifier for the Netherlands Fotomuseum"
   },
   {
@@ -46036,7 +46043,7 @@
   },
   {
     "property": "P7902",
-    "urlFormatter": "https://www.deutsche-biographie.de/$1.html",
+    "urlFormatter": "https://www.deutsche-biographie.de/$1.html#indexcontent",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/(?:www\\.)?deutsche-biographie\\.de\\/pnd(1[0-9]{7,8}[0-9X])\\.html"
@@ -49059,9 +49066,6 @@
     "urlFormatter": "https://www.goodreads.com/work/editions/$1",
     "urlPatterns": [
       {
-        "pattern": "https://www\\.goodreads\\.com\\/work\\/quotes\\/(\\d+)-"
-      },
-      {
         "pattern": "https?:\\/\\/(?:www\\.)?goodreads\\.com\\/work\\/editions\\/(\\d+)"
       }
     ],
@@ -50576,11 +50580,14 @@
     "urlFormatter": "https://avn.com/porn-stars/wd-$1.html",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/(?:www\\.)?avn\\.com\\/profiles\\/([a-z\\d-]+\\-\\d+)"
+        "pattern": "https?:\\/\\/(?:www\\.)?avn\\.com\\/porn-stars\\/[^\\/]+-(\\d+)\\.html"
+      },
+      {
+        "pattern": "https?:\\/\\/(?:www\\.)?avn\\.com\\/profiles\\/[^\\/]+-(\\d+)\\.html"
       }
     ],
-    "propertyLabel": "AVN person ID",
-    "propertyDescription": "identifier for a person on the AVN website",
+    "propertyLabel": "AVN person ID (OLD)",
+    "propertyDescription": "old numeric identifier for a person on the AVN website",
     "propertyAltLabel": "Adult Video News ID, AVN ID"
   },
   {
@@ -52508,7 +52515,7 @@
         "pattern": "https?:\\/\\/mediafilm\\.ca\\/film\\/(mf\\-tt\\-\\d{10})"
       }
     ],
-    "propertyLabel": "Mediafilm ID",
+    "propertyLabel": "Mediafilm ID  (archived)",
     "propertyDescription": "identifier for Mediafilm for movies",
     "propertyAltLabel": "Mediafilm identifier"
   },
@@ -58896,7 +58903,11 @@
     "urlFormatter": "https://wikidata-externalid-url.toolforge.org/?p=9940&url_prefix=https://www.dwds.de/wb/&id=$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/(?:www\\.)?dwds\\.de\\/wb\\/([^\\/\\#\\?]+(?:#\\d+)?)"
+        "pattern": "https?:\\/\\/(?:www\\.)?dwds\\.de\\/wb\\/(?![^?#]*\\?[^#]*\\bh=)([^\\/\\#\\?]+(?:\\?[^#]*)?(?:#\\d+)?)"
+      },
+      {
+        "pattern": "https?:\\/\\/(?:www\\.)?dwds\\.de\\/wb\\/([^\\/\\#\\?]+(?:#\\d+)?)\\?h=(\\d+)",
+        "replacement": "\\1#\\2"
       }
     ],
     "propertyLabel": "DWDS lemma ID",
@@ -59930,7 +59941,8 @@
       }
     ],
     "propertyLabel": "AbeBooks seller ID",
-    "propertyDescription": "numerical identifier of a seller on the AbeBooks websites"
+    "propertyDescription": "numerical identifier of a seller on the AbeBooks websites",
+    "propertyAltLabel": "Abe Books seller ID"
   },
   {
     "property": "P10112",
@@ -60425,7 +60437,8 @@
       }
     ],
     "propertyLabel": "F6S ID",
-    "propertyDescription": "identifier at f6s Network: person, company, startup, venture fund, competition, startup program, event, etc"
+    "propertyDescription": "identifier for an entity listed on the F65 website",
+    "propertyAltLabel": "F6S.com ID"
   },
   {
     "property": "P10200",
@@ -62012,7 +62025,7 @@
     ],
     "propertyLabel": "LDT@Library Authority ID",
     "propertyDescription": "identifier for personal name authorities in LDT @ Library",
-    "propertyAltLabel": "LDT@Library Authority ID, ld.ncl.edu.tw Authority ID, Linked Open Data Taiwan@Library Authority ID"
+    "propertyAltLabel": "ld.ncl.edu.tw Authority ID, LDT@Library Authority ID, Linked Open Data Taiwan@Library Authority ID"
   },
   {
     "property": "P10490",
@@ -63990,7 +64003,7 @@
     "urlFormatter": "https://liquipedia.net/$1",
     "urlPatterns": [
       {
-        "pattern": "https?://liquipedia\\.net/((?:ageofempires|apexlegends|arenafps|arenaofvalor|artifact|autochess|battalion|battlerite|brawlhalla|brawlstars|callofduty|clashroyale|counterstrike|criticalops|crossfire|deadlock|dota2|esports|fifa|fighters|fortnite|freefire|halo|hearthstone|heroes|leagueoflegends|magic|mobilelegends|naraka|overwatch|paladins|pokemon|pubg|pubgmobile|rainbowsix|rocketleague|runeterra|sideswipe|simracing|smash|smite|splitgate|squadrons|starcraft|starcraft2|teamfortress|tft|trackmania|underlords|valorant|warcraft|wildrift|worldoftanks|chess|worldofwarcraft)/(?!/)(?:[^\\s]+))"
+        "pattern": "https?://liquipedia\\.net/((?:ageofempires|apexlegends|arenafps|arenaofvalor|artifact|autochess|battalion|battlerite|brawlhalla|brawlstars|callofduty|clashroyale|counterstrike|criticalops|crossfire|deadlock|dota2|esports|fifa|fighters|formula1|fortnite|freefire|halo|hearthstone|heroes|leagueoflegends|magic|mobilelegends|naraka|overwatch|paladins|pokemon|pubg|pubgmobile|rainbowsix|rocketleague|runeterra|sideswipe|simracing|smash|smite|splitgate|squadrons|starcraft|starcraft2|teamfortress|tft|trackmania|underlords|valorant|warcraft|wildrift|worldoftanks|chess|worldofwarcraft)/(?!/)(?:[^\\s]+))"
       }
     ],
     "propertyLabel": "Liquipedia ID",
@@ -64499,7 +64512,8 @@
       }
     ],
     "propertyLabel": "kulturstiftung.org person ID",
-    "propertyDescription": "identifier for a person in the web site kulturstiftung.org"
+    "propertyDescription": "identifier for a person in the web site kulturstiftung.org",
+    "propertyAltLabel": "Historical East German Biographies ID"
   },
   {
     "property": "P11043",
@@ -68363,7 +68377,7 @@
     ],
     "propertyLabel": "Podcast Index ID",
     "propertyDescription": "ID for a podcast on Podcast Index, a podcast directory",
-    "propertyAltLabel": "podcastindex.org ID, Podcast Index identifier, podcastindex.org identifier"
+    "propertyAltLabel": "podcastindex.org ID, Podcast Index identifier, podcastindex.org identifier, Podcast Index podcast ID"
   },
   {
     "property": "P11741",
@@ -72512,7 +72526,7 @@
   },
   {
     "property": "P12304",
-    "urlFormatter": "http://cba.sports.sina.com.cn/cba/player/show/$1",
+    "urlFormatter": "https://cba.sports.sina.com.cn/cba/player/show/$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/cba\\.sports\\.sina\\.com\\.cn\\/cba\\/player\\/show\\/(\\d+)"
@@ -73376,6 +73390,10 @@
     "urlFormatter": "https://meta.weirdgloop.org/w/$1",
     "urlPatterns": [
       {
+        "pattern": "https?:\\/\\/balatrowiki\\.org\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
+        "replacement": "balatrow:\\1"
+      },
+      {
         "pattern": "https?:\\/\\/classic\\.runescape\\.wiki\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
         "replacement": "classicrsw:\\1"
       },
@@ -73392,8 +73410,16 @@
         "replacement": "esmcw:\\1"
       },
       {
+        "pattern": "https?:\\/\\/fortnite\\.weirdgloop\\.org\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
+        "replacement": "fortnitew:\\1"
+      },
+      {
         "pattern": "https?:\\/\\/fr\\.minecraft\\.wiki\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
         "replacement": "frmcw:\\1"
+      },
+      {
+        "pattern": "https?:\\/\\/gta\\.wiki\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
+        "replacement": "gtaw:\\1"
       },
       {
         "pattern": "https?:\\/\\/hytalewiki\\.org\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
@@ -73434,6 +73460,10 @@
         "replacement": "osw:\\1"
       },
       {
+        "pattern": "https?:\\/\\/overwatch\\.weirdgloop\\.org\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
+        "replacement": "overwatchw:\\1"
+      },
+      {
         "pattern": "https?:\\/\\/pt\\.minecraft\\.wiki\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
         "replacement": "ptmcw:\\1"
       },
@@ -73458,6 +73488,10 @@
         "replacement": "ukmcw:\\1"
       },
       {
+        "pattern": "https?:\\/\\/valheim\\.weirdgloop\\.org\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
+        "replacement": "valheimw:\\1"
+      },
+      {
         "pattern": "https?:\\/\\/vampire\\.survivors\\.wiki\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
         "replacement": "vsw:\\1"
       },
@@ -73467,6 +73501,18 @@
       {
         "pattern": "https?:\\/\\/wiki\\.leagueoflegends\\.com\\/en-us\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
         "replacement": "lolw:\\1"
+      },
+      {
+        "pattern": "https?:\\/\\/wiki\\.playvalorant\\.com\\/en-us\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
+        "replacement": "valorantw:\\1"
+      },
+      {
+        "pattern": "https?:\\/\\/wiki\\.smite2\\.com\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
+        "replacement": "smite2:\\1"
+      },
+      {
+        "pattern": "https?:\\/\\/wiki\\.subnautica\\.com\\/sn\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
+        "replacement": "snw:\\1"
       },
       {
         "pattern": "https?:\\/\\/wiki\\.warframe\\.com\\/w\\/((?!\\/|\\%[\\dA-F]{2})(?![^\\s]+\\%[\\dA-F]{2})[^\\s]+)",
@@ -73902,6 +73948,10 @@
     "property": "P12550",
     "urlFormatter": "https://wikidata-externalid-url.toolforge.org/?p=12550&url_prefix=https://www.dwds.de/wb/&id=$1",
     "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/(?:www\\.)?dwds\\.de\\/wb\\/([A-Za-z0-9ÄÖÜäöüß\\-\\s]+)\\?h=\\d#(d-\\d+-\\d+[-\\d]*)",
+        "replacement": "\\1#\\2"
+      },
       {
         "pattern": "https?:\\/\\/(?:www\\.)?dwds\\.de\\/wb\\/([A-Za-z0-9ÄÖÜäöüß\\-\\s]+#d-\\d+-\\d+[-\\d]*)"
       }
@@ -82153,6 +82203,17 @@
     "propertyAltLabel": "MRDS deposit ID"
   },
   {
+    "property": "P14487",
+    "urlFormatter": "https://natalie.mu/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/natalie\\.mu\\/((profile|eiga\\/film|eiga\\/drama|comic\\/anime|stage\\/play|owarai\\/office)\\/[0-9]+)"
+      }
+    ],
+    "propertyLabel": "Natalie ID",
+    "propertyDescription": "ID for Natalie database"
+  },
+  {
     "property": "P14492",
     "urlFormatter": "https://www.adultfilmdatabase.com/series.cfm?seriesid=$1",
     "urlPatterns": [
@@ -82233,6 +82294,18 @@
     "propertyLabel": "EU sanctions tracker subject ID",
     "propertyDescription": "identifier for an individual or entity on the EU sanctions tracker",
     "propertyAltLabel": "EU sanctions tracker entity ID, EU sanctions tracker individual ID, EU sanctions tracker individual/entity ID"
+  },
+  {
+    "property": "P14522",
+    "urlFormatter": "https://i.maoyan.com/asgard/celebrity/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/(?:i|www)\\.maoyan\\.com\\/(?:films|asgard)\\/celebrity\\/0*(\\d+)"
+      }
+    ],
+    "propertyLabel": "Maoyan celebrity ID",
+    "propertyDescription": "identifier of a person on the maoyan.com website",
+    "propertyAltLabel": "Maoyan personage ID"
   },
   {
     "property": "P14528",
@@ -82720,5 +82793,89 @@
     ],
     "propertyLabel": "Google Search profile handle",
     "propertyDescription": "handle identifying a public Search profile on Google Search"
+  },
+  {
+    "property": "P14980",
+    "urlFormatter": "https://db.mappola.eu/r/Inscriptions/show/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/db.mappola.eu/r/Inscriptions/show/0*(\\d+)"
+      }
+    ],
+    "propertyLabel": "Mappola ID",
+    "propertyDescription": "identifier for a Roman inscription on the Mappola online database",
+    "propertyAltLabel": "db.mappola.eu ID, Mappola inscription ID, Mappola.eu ID"
+  },
+  {
+    "property": "P14983",
+    "urlFormatter": "https://dic.nicovideo.jp/id/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/(?:dic\\.nicovideo\\.jp\\/id"
+      },
+      {
+        "pattern": "nico\\.ms\\/dic)\\/([1-9]\\d*)\\/?"
+      }
+    ],
+    "propertyLabel": "NicoNicoPedia article ID",
+    "propertyDescription": "numeric identifier for an article in NicoNicoPedia"
+  },
+  {
+    "property": "P14994",
+    "urlFormatter": "https://avn.com/profiles/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/(?:www\\.)?avn\\.com\\/profiles\\/([a-z\\d-]+\\-\\d+)"
+      }
+    ],
+    "propertyLabel": "AVN person ID",
+    "propertyDescription": "alphanumeric identifier for a person on the AVN website"
+  },
+  {
+    "property": "P14996",
+    "urlFormatter": "https://vhd.heritagecouncil.vic.gov.au/search?aut%5B%5D=1086&kw=$1",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/vhd\\.heritagecouncil\\.vic\\.gov\\.au\\/search\\?aut%5B%5D=1086&kw=(HO\\d+)"
+      }
+    ],
+    "propertyLabel": "Victorian Heritage Overlay Number",
+    "propertyDescription": "identifier in the Victorian Heritage Overlay registry of Australia, but unlike [[P:P5177]]"
+  },
+  {
+    "property": "P15003",
+    "urlFormatter": "https://iba-world.com/iba-cocktail/$1/",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/(?:www\\.)?iba-world\\.com\\/iba-cocktail\\/([^\\/?#]+)\\/?"
+      }
+    ],
+    "propertyLabel": "IBA cocktail ID",
+    "propertyDescription": "identifier used in the URL of a cocktail page on the International Bartenders Association website"
+  },
+  {
+    "property": "P15004",
+    "urlFormatter": "https://itf.njszt.hu/id/$1",
+    "urlPatterns": [
+      {
+        "pattern": "https?:\\/\\/itf\\.njszt\\.hu\\/id\\/([1-9][0-9]*)"
+      }
+    ],
+    "propertyLabel": "IT History Forum Data Archive ID",
+    "propertyAltLabel": "Data Archive ID, IT History Forum ID, iTA ID"
+  },
+  {
+    "property": "P15013",
+    "urlFormatter": "https://memo.anpi.it/monumenti/$1/",
+    "urlPatterns": [
+      {
+        "pattern": "$)"
+      },
+      {
+        "pattern": "https?:\\/\\/memo\\.anpi\\.it\\/monumenti\\/([1-9]\\d{0,5})(?:\\/"
+      }
+    ],
+    "propertyLabel": "MEMO ID",
+    "propertyDescription": "identifier for a memorial (plaque, cippus, monument, Stolperstein, grave) in MEMO, the database of the National Association of Italian Partisans (ANPI)"
   }
 ]

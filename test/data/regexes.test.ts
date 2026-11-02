@@ -6,6 +6,16 @@ import type { RawProperty } from '../../src/types';
 
 const regexes = compileDefinitions(rawProperties as RawProperty[]);
 
+function expectValidReplacement(replacement: string): void {
+    expect(replacement).not.toContain('$');
+}
+
+describe('replacement validation diagnostics', () => {
+    it('reports the illegal character and the replacement value', () => {
+        expect(() => expectValidReplacement('$1')).toThrowError("expected '$1' not to contain '$'");
+    });
+});
+
 describe('regex format', () => {
     for (const {
         name, propertyId, regex, replacement = String.raw`\1`,
@@ -33,7 +43,7 @@ describe('regex format', () => {
             });
 
             it('the replacements dont contain illegal characters', () => {
-                expect(replacement.includes('$')).toBe(false);
+                expectValidReplacement(replacement);
             });
         });
     }

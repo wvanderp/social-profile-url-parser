@@ -45,6 +45,17 @@ jobs:
         if: github.event_name != 'release'
         run: pnpm collect
 
+      - name: Commit and push collected Wikidata data
+        if: github.event_name != 'release'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/properties.raw.json data/properties.compiled.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: refresh Wikidata data"
+            git push origin HEAD:main
+          fi
+
       - run: pnpm test
       - run: pnpm lint
 
@@ -67,8 +78,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           version=$(node -p 'require("./package.json").version')
-          git add data/properties.raw.json data/properties.compiled.json package.json
-          git commit -m "chore: weekly Wikidata refresh v${version}"
+          git add package.json
+          git commit -m "chore: weekly release v${version}"
           git push origin HEAD:main
 
       # Keep this workflow filename for the existing npm trusted publisher.
