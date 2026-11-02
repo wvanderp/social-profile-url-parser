@@ -1,5 +1,11 @@
 # Changelog
 
+## V3.0.2
+
+- Refreshed Wikidata URL patterns, formatter templates, labels, and descriptions, including newly supported properties
+- Added data validation for unsupported dollar signs in regex replacement values
+- Updated the automated weekly data refresh and npm publishing workflow
+
 ## V3.0.0
 
 This is a big upgrade we now use wikidatas own formatting rules to format the urls, so now if a identifier is in two parts or you just need the url this liberary will now help you with that. This is a breaking change since some regexes have been updated to be more accurate, which may cause some previously supported URLs to no longer match.
