@@ -62026,7 +62026,7 @@
     ],
     "propertyLabel": "LDT@Library Authority ID",
     "propertyDescription": "identifier for personal name authorities in LDT @ Library",
-    "propertyAltLabel": "LDT@Library Authority ID, ld.ncl.edu.tw Authority ID, Linked Open Data Taiwan@Library Authority ID"
+    "propertyAltLabel": "ld.ncl.edu.tw Authority ID, LDT@Library Authority ID, Linked Open Data Taiwan@Library Authority ID"
   },
   {
     "property": "P10490",

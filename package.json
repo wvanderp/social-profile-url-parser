@@ -42,7 +42,8 @@
     "lint": "tsc -p tsconfig.lint.json && eslint \"**/*.ts\"",
     "test": "vitest run --coverage",
     "collect": "ts-node ./scripts/collect.ts",
-    "compile-data": "ts-node ./scripts/compileData.ts"
+    "compile-data": "ts-node ./scripts/compileData.ts",
+    "lint:data": "pnpm run test"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
