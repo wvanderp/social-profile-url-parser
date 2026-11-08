@@ -2227,7 +2227,7 @@
   {
     "property": "P884",
     "propertyLabel": "State Water Register Code (Russia)",
-    "urlFormatter": "https://verum.icu/index.php?claster=gvr&q=$1",
+    "urlFormatter": "https://voda.toolforge.org/gvr?id=$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/verum\\.icu\\/index\\.php\\?claster=gvr&q=(\\d{23})"
@@ -2804,7 +2804,7 @@
   {
     "property": "P1055",
     "propertyLabel": "NLM Unique ID",
-    "urlFormatter": "https://catalog.nlm.nih.gov/discovery/search?vid=01NLM_INST:01NLM_INST&query=lds04,exact,$1",
+    "urlFormatter": "https://catalog.nlm.nih.gov/discovery/search?vid=01NLM_INST:01NLM_INST&query=$1",
     "urlPatterns": [
       {
         "pattern": "https:\\/\\/www\\.ncbi\\.nlm\\.nih\\.gov\\/nlmcatalog/(\\d{6,19}(A|R|\\d))"
@@ -6872,7 +6872,7 @@
     "urlFormatter": "https://www.publicwhip.org.uk/mp.php?mpn=$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/(?:www\\.)?publicwhip\\.org\\.uk\\/mp\\.php\\?mpn=([A-Za-z_]+)"
+        "pattern": "https?:\\/\\/(?:www\\.)?publicwhip\\.org\\.uk\\/mp\\.php\\?mpn=([A-Za-z_-]+)"
       }
     ]
   },
@@ -14761,8 +14761,8 @@
   },
   {
     "property": "P3668",
-    "propertyLabel": "Sambafoot player ID",
-    "urlFormatter": "https://www.sambafoot.com/en/players/$1",
+    "propertyLabel": "Sambafoot player ID (archived)",
+    "urlFormatter": "https://web.archive.org/web/202301/https://www.sambafoot.com/en/players/$1",
     "urlPatterns": [
       {
         "pattern": "https?:\\/\\/(?:www\\.)?sambafoot\\.com\\/en\\/players\\/([1-9]\\d{0,7}(?:[-_]\\S+)?)"
@@ -20071,7 +20071,7 @@
     "urlFormatter": "https://inducks.org/character.php?c=$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/inducks\\.org\\/character\\.php\\?c=([\\p{L}0-9'. -]+)"
+        "pattern": "https?:\\/\\/inducks\\.org\\/character\\.php\\?c=( [\\p{L}0-9'.* -]+)"
       }
     ]
   },
@@ -43490,7 +43490,7 @@
     "urlFormatter": "https://www.jewishencyclopedia.com/articles/$1",
     "urlPatterns": [
       {
-        "pattern": "https?:\\/\\/(?:www\\.)?jewishencyclopedia\\.com\\/articles\\/([1-9]\\d*)"
+        "pattern": "https?:\\/\\/(?:www\\.)?jewishencyclopedia\\.com\\/articles\\/([1-9]\\d*(?:#anchor[1-9]\\d*)?)"
       }
     ]
   },
@@ -60272,6 +60272,9 @@
     "urlFormatter": "https://www.tving.com/contents/$1",
     "urlPatterns": [
       {
+        "pattern": "https?:\\/\\/(?:www\\.)?tving\\.com\\/contents\\/(M\\d+)"
+      },
+      {
         "pattern": "https?:\\/\\/(?:www\\.)?tving\\.com\\/contents\\/(P\\d+)"
       }
     ]
@@ -72024,10 +72027,7 @@
     "urlFormatter": "https://memo.anpi.it/monumenti/$1/",
     "urlPatterns": [
       {
-        "pattern": "$)"
-      },
-      {
-        "pattern": "https?:\\/\\/memo\\.anpi\\.it\\/monumenti\\/([1-9]\\d{0,5})(?:\\/"
+        "pattern": "https?:\\/\\/memo\\.anpi\\.it\\/monumenti\\/([1-9]\\d{0,5})(?:\\/|$)"
       }
     ]
   }
